@@ -1,15 +1,14 @@
-﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter
+﻿namespace STIL.Entities.Entities.VEU.HentTilmeldingerVeuInteressenter;
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+[System.Xml.Serialization.XmlType(AnonymousType = true, Namespace = "http://ipl.stil.dk/services/veu/henttilmeldingerveuinteressenter/v1.0")]
+public enum PingResponseStatus
 {
+
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Xml.Serialization.XmlType(AnonymousType = true, Namespace = "http://ipl.stil.dk/services/veu/henttilmeldingerveuinteressenter/v1.0")]
-    public enum PingResponseStatus
-    {
+    up,
 
-        /// <remarks/>
-        up,
-
-        /// <remarks/>
-        down,
-    }
+    /// <remarks/>
+    down,
 }

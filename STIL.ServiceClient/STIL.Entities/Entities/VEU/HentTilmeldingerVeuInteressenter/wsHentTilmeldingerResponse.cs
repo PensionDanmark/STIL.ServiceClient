@@ -1,26 +1,25 @@
-﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter
+﻿namespace STIL.Entities.Entities.VEU.HentTilmeldingerVeuInteressenter;
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+[System.Diagnostics.DebuggerStepThrough()]
+[System.Xml.Serialization.XmlType(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger")]
+public partial class wsHentTilmeldingerResponse
 {
+
+    private hentTilmeldingerResResultat resultatField;
+
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Diagnostics.DebuggerStepThrough()]
-    [System.Xml.Serialization.XmlType(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger")]
-    public partial class wsHentTilmeldingerResponse
+    [System.Xml.Serialization.XmlElement(Order = 0)]
+    public hentTilmeldingerResResultat Resultat
     {
-
-        private hentTilmeldingerResResultat resultatField;
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(Order = 0)]
-        public hentTilmeldingerResResultat Resultat
+        get
         {
-            get
-            {
-                return resultatField;
-            }
-            set
-            {
-                resultatField = value;
-            }
+            return resultatField;
+        }
+        set
+        {
+            resultatField = value;
         }
     }
 }

@@ -1,58 +1,59 @@
-﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter
+﻿namespace STIL.Entities.Entities.VEU.HentTilmeldingerVeuInteressenter;
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+[System.Diagnostics.DebuggerStepThrough()]
+[System.Xml.Serialization.XmlType(AnonymousType = true, Namespace = "http://ipl.stil.dk/services/veu/henttilmeldingerveuinteressenter/v1.0")]
+[System.Xml.Serialization.XmlRoot(Namespace = "http://ipl.stil.dk/services/veu/henttilmeldingerveuinteressenter/v1.0")]
+
+public partial class hentTilmeldingerResponse
 {
+
+    private Identifier identifierField;
+
+    private string correlationIDField;
+
+    private hentTilmeldingerResponseMessage messageField;
+
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Diagnostics.DebuggerStepThrough()]
-    [System.Xml.Serialization.XmlType(AnonymousType = true, Namespace = "http://ipl.stil.dk/services/veu/henttilmeldingerveuinteressenter/v1.0")]
-    public partial class hentTilmeldingerResponse
+    [System.Xml.Serialization.XmlElement(Order = 0)]
+    public Identifier Identifier
     {
-
-        private Identifier identifierField;
-
-        private string correlationIDField;
-
-        private hentTilmeldingerResponseMessage messageField;
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(Order = 0)]
-        public Identifier Identifier
+        get
         {
-            get
-            {
-                return identifierField;
-            }
-            set
-            {
-                identifierField = value;
-            }
+            return identifierField;
         }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(Order = 1)]
-        public string CorrelationID
+        set
         {
-            get
-            {
-                return correlationIDField;
-            }
-            set
-            {
-                correlationIDField = value;
-            }
+            identifierField = value;
         }
+    }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(Order = 2)]
-        public hentTilmeldingerResponseMessage Message
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElement(Order = 1)]
+    public string CorrelationID
+    {
+        get
         {
-            get
-            {
-                return messageField;
-            }
-            set
-            {
-                messageField = value;
-            }
+            return correlationIDField;
+        }
+        set
+        {
+            correlationIDField = value;
+        }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElement(Order = 2)]
+    public hentTilmeldingerResponseMessage Message
+    {
+        get
+        {
+            return messageField;
+        }
+        set
+        {
+            messageField = value;
         }
     }
 }

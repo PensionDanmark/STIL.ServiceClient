@@ -1,58 +1,57 @@
-﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter
+﻿namespace STIL.Entities.Entities.VEU.HentTilmeldingerVeuInteressenter;
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+[System.Diagnostics.DebuggerStepThrough()]
+[System.Xml.Serialization.XmlType(Namespace = "http://ipl.stil.dk/services/veu/henttilmeldingerveuinteressenter/v1.0")]
+public partial class SourceSystemErrorType
 {
+
+    private string sourceSystemNameField;
+
+    private string errorCodeField;
+
+    private string detailsField;
+
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Diagnostics.DebuggerStepThrough()]
-    [System.Xml.Serialization.XmlType(Namespace = "http://ipl.stil.dk/services/veu/henttilmeldingerveuinteressenter/v1.0")]
-    public partial class SourceSystemErrorType
+    [System.Xml.Serialization.XmlElement(Order = 0)]
+    public string SourceSystemName
     {
-
-        private string sourceSystemNameField;
-
-        private string errorCodeField;
-
-        private string detailsField;
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(Order = 0)]
-        public string SourceSystemName
+        get
         {
-            get
-            {
-                return sourceSystemNameField;
-            }
-            set
-            {
-                sourceSystemNameField = value;
-            }
+            return sourceSystemNameField;
         }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(Order = 1)]
-        public string ErrorCode
+        set
         {
-            get
-            {
-                return errorCodeField;
-            }
-            set
-            {
-                errorCodeField = value;
-            }
+            sourceSystemNameField = value;
         }
+    }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(Order = 2)]
-        public string Details
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElement(Order = 1)]
+    public string ErrorCode
+    {
+        get
         {
-            get
-            {
-                return detailsField;
-            }
-            set
-            {
-                detailsField = value;
-            }
+            return errorCodeField;
+        }
+        set
+        {
+            errorCodeField = value;
+        }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElement(Order = 2)]
+    public string Details
+    {
+        get
+        {
+            return detailsField;
+        }
+        set
+        {
+            detailsField = value;
         }
     }
 }

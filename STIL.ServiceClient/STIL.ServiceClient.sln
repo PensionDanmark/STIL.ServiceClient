@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STIL.ServiceClient", "STIL.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STIL.Entities", "STIL.Entities\STIL.Entities.csproj", "{4E43591B-6751-436A-9958-D63B1DE5187D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STIL.ServiceClient.Tests", "STIL.ServiceClient.Tests\STIL.ServiceClient.Tests.csproj", "{384A67FC-0299-4E05-9D00-CDCACE62F42B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{4E43591B-6751-436A-9958-D63B1DE5187D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E43591B-6751-436A-9958-D63B1DE5187D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E43591B-6751-436A-9958-D63B1DE5187D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{384A67FC-0299-4E05-9D00-CDCACE62F42B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{384A67FC-0299-4E05-9D00-CDCACE62F42B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{384A67FC-0299-4E05-9D00-CDCACE62F42B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{384A67FC-0299-4E05-9D00-CDCACE62F42B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

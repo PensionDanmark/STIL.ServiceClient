@@ -1,108 +1,107 @@
-﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter
+﻿namespace STIL.Entities.Entities.VEU.HentTilmeldingerVeuInteressenter;
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+[System.Diagnostics.DebuggerStepThrough()]
+[System.Xml.Serialization.XmlType(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/tilmelding")]
+public partial class holdplaceringType
 {
+
+    private System.DateTime startdatoField;
+
+    private System.DateTime slutdatoField;
+
+    private string tilmeldingstypeField;
+
+    private decimal deltagerprisField;
+
+    private bool deltagerprisFieldSpecified;
+
+    private skolefagHoldplaceringType[] skolefagHoldplaceringListeField;
+
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Diagnostics.DebuggerStepThrough()]
-    [System.Xml.Serialization.XmlType(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/tilmelding")]
-    public partial class holdplaceringType
+    [System.Xml.Serialization.XmlElement(DataType = "date", Order = 0)]
+    public System.DateTime Startdato
     {
-
-        private System.DateTime startdatoField;
-
-        private System.DateTime slutdatoField;
-
-        private string tilmeldingstypeField;
-
-        private decimal deltagerprisField;
-
-        private bool deltagerprisFieldSpecified;
-
-        private skolefagHoldplaceringType[] skolefagHoldplaceringListeField;
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(DataType = "date", Order = 0)]
-        public System.DateTime Startdato
+        get
         {
-            get
-            {
-                return startdatoField;
-            }
-            set
-            {
-                startdatoField = value;
-            }
+            return startdatoField;
         }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(DataType = "date", Order = 1)]
-        public System.DateTime Slutdato
+        set
         {
-            get
-            {
-                return slutdatoField;
-            }
-            set
-            {
-                slutdatoField = value;
-            }
+            startdatoField = value;
         }
+    }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(Order = 2)]
-        public string Tilmeldingstype
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElement(DataType = "date", Order = 1)]
+    public System.DateTime Slutdato
+    {
+        get
         {
-            get
-            {
-                return tilmeldingstypeField;
-            }
-            set
-            {
-                tilmeldingstypeField = value;
-            }
+            return slutdatoField;
         }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(Order = 3)]
-        public decimal Deltagerpris
+        set
         {
-            get
-            {
-                return deltagerprisField;
-            }
-            set
-            {
-                deltagerprisField = value;
-            }
+            slutdatoField = value;
         }
+    }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnore()]
-        public bool DeltagerprisSpecified
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElement(Order = 2)]
+    public string Tilmeldingstype
+    {
+        get
         {
-            get
-            {
-                return deltagerprisFieldSpecified;
-            }
-            set
-            {
-                deltagerprisFieldSpecified = value;
-            }
+            return tilmeldingstypeField;
         }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArray(Order = 4)]
-        [System.Xml.Serialization.XmlArrayItem("SkolefagHoldplacering", Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/skolefagHoldplace" +
-            "ring", IsNullable = false)]
-        public skolefagHoldplaceringType[] SkolefagHoldplaceringListe
+        set
         {
-            get
-            {
-                return skolefagHoldplaceringListeField;
-            }
-            set
-            {
-                skolefagHoldplaceringListeField = value;
-            }
+            tilmeldingstypeField = value;
+        }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElement(Order = 3)]
+    public decimal Deltagerpris
+    {
+        get
+        {
+            return deltagerprisField;
+        }
+        set
+        {
+            deltagerprisField = value;
+        }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnore()]
+    public bool DeltagerprisSpecified
+    {
+        get
+        {
+            return deltagerprisFieldSpecified;
+        }
+        set
+        {
+            deltagerprisFieldSpecified = value;
+        }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlArray(Order = 4)]
+    [System.Xml.Serialization.XmlArrayItem("SkolefagHoldplacering", Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/skolefagHoldplace" +
+        "ring", IsNullable = false)]
+    public skolefagHoldplaceringType[] SkolefagHoldplaceringListe
+    {
+        get
+        {
+            return skolefagHoldplaceringListeField;
+        }
+        set
+        {
+            skolefagHoldplaceringListeField = value;
         }
     }
 }

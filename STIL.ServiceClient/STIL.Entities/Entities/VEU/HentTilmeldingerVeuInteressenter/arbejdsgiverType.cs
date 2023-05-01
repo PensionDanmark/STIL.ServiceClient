@@ -1,74 +1,73 @@
-﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter
+﻿namespace STIL.Entities.Entities.VEU.HentTilmeldingerVeuInteressenter;
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+[System.Diagnostics.DebuggerStepThrough()]
+[System.Xml.Serialization.XmlType(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/tilmelding")]
+public partial class arbejdsgiverType
 {
+
+    private string cVRnrField;
+
+    private string pnummerField;
+
+    private string navnField;
+
+    private string emailField;
+
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Diagnostics.DebuggerStepThrough()]
-    [System.Xml.Serialization.XmlType(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/tilmelding")]
-    public partial class arbejdsgiverType
+    [System.Xml.Serialization.XmlElement(Order = 0)]
+    public string CVRnr
     {
-
-        private string cVRnrField;
-
-        private string pnummerField;
-
-        private string navnField;
-
-        private string emailField;
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(Order = 0)]
-        public string CVRnr
+        get
         {
-            get
-            {
-                return cVRnrField;
-            }
-            set
-            {
-                cVRnrField = value;
-            }
+            return cVRnrField;
         }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(Order = 1)]
-        public string Pnummer
+        set
         {
-            get
-            {
-                return pnummerField;
-            }
-            set
-            {
-                pnummerField = value;
-            }
+            cVRnrField = value;
         }
+    }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(Order = 2)]
-        public string Navn
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElement(Order = 1)]
+    public string Pnummer
+    {
+        get
         {
-            get
-            {
-                return navnField;
-            }
-            set
-            {
-                navnField = value;
-            }
+            return pnummerField;
         }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(Order = 3)]
-        public string Email
+        set
         {
-            get
-            {
-                return emailField;
-            }
-            set
-            {
-                emailField = value;
-            }
+            pnummerField = value;
+        }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElement(Order = 2)]
+    public string Navn
+    {
+        get
+        {
+            return navnField;
+        }
+        set
+        {
+            navnField = value;
+        }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElement(Order = 3)]
+    public string Email
+    {
+        get
+        {
+            return emailField;
+        }
+        set
+        {
+            emailField = value;
         }
     }
 }
