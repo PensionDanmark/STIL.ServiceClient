@@ -1,26 +1,20 @@
-﻿namespace STIL.Entities.VEU.HentUdbud
+﻿namespace STIL.Entities.VEU.HentUdbud;
+
+[Serializable]
+[System.Diagnostics.DebuggerStepThroughAttribute]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/hentudbud/webservice/commontypes")]
+public abstract class ResponseType
 {
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.veu.stil.dk/hentudbud/webservice/commontypes")]
-    public abstract partial class ResponseType
+    private ModtagerType modtagerField;
+
+    /// <summary>
+    /// Gets or sets the <see cref="Modtager"/> value
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public ModtagerType Modtager
     {
-        
-        private ModtagerType modtagerField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public ModtagerType Modtager
-        {
-            get
-            {
-                return this.modtagerField;
-            }
-            set
-            {
-                this.modtagerField = value;
-            }
-        }
+        get => modtagerField;
+        set => modtagerField = value;
     }
 }

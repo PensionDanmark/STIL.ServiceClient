@@ -1,90 +1,68 @@
-﻿namespace STIL.Entities.VEU.HentUdbud
+﻿namespace STIL.Entities.VEU.HentUdbud;
+
+[Serializable]
+[System.Diagnostics.DebuggerStepThroughAttribute]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/hentudbud/webservice/hentudbud")]
+public class skolefagUddannelseType
 {
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.veu.stil.dk/hentudbud/webservice/hentudbud")]
-    public partial class skolefagUddannelseType
+    private string cOSAformalField;
+
+    private string versionField;
+
+    private string betegnelseField;
+
+    private UddannelsestypeType uddannelsestypeField;
+
+    private bool uddannelsestypeFieldSpecified;
+
+    /// <summary>
+    /// Gets or sets the <see cref="COSAformal"/> value
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public string COSAformal
     {
-        
-        private string cOSAformalField;
-        
-        private string versionField;
-        
-        private string betegnelseField;
-        
-        private UddannelsestypeType uddannelsestypeField;
-        
-        private bool uddannelsestypeFieldSpecified;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string COSAformal
-        {
-            get
-            {
-                return this.cOSAformalField;
-            }
-            set
-            {
-                this.cOSAformalField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string Version
-        {
-            get
-            {
-                return this.versionField;
-            }
-            set
-            {
-                this.versionField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string Betegnelse
-        {
-            get
-            {
-                return this.betegnelseField;
-            }
-            set
-            {
-                this.betegnelseField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public UddannelsestypeType Uddannelsestype
-        {
-            get
-            {
-                return this.uddannelsestypeField;
-            }
-            set
-            {
-                this.uddannelsestypeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool UddannelsestypeSpecified
-        {
-            get
-            {
-                return this.uddannelsestypeFieldSpecified;
-            }
-            set
-            {
-                this.uddannelsestypeFieldSpecified = value;
-            }
-        }
+        get => cOSAformalField;
+        set => cOSAformalField = value;
+    }
+
+    /// <summary>
+    /// Gets or sets the <see cref="Version"/> value
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public string Version
+    {
+        get => versionField;
+        set => versionField = value;
+    }
+
+    /// <summary>
+    /// Gets or sets the <see cref="Betegnelse"/> value
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+    public string Betegnelse
+    {
+        get => betegnelseField;
+        set => betegnelseField = value;
+    }
+
+    /// <summary>
+    /// Gets or sets the <see cref="Uddannelsestype"/> value
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+    public UddannelsestypeType Uddannelsestype
+    {
+        get => uddannelsestypeField;
+        set => uddannelsestypeField = value;
+    }
+
+    /// <summary>
+    /// Gets or sets the <see cref="UddannelsestypeSpecified"/> value
+    /// </summary>
+    [System.Xml.Serialization.XmlIgnoreAttribute]
+    public bool UddannelsestypeSpecified
+    {
+        get => uddannelsestypeFieldSpecified;
+        set => uddannelsestypeFieldSpecified = value;
     }
 }

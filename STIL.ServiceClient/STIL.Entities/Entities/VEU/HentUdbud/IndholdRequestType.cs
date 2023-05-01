@@ -1,58 +1,44 @@
-﻿namespace STIL.Entities.VEU.HentUdbud
+﻿namespace STIL.Entities.VEU.HentUdbud;
+
+[Serializable]
+[System.Diagnostics.DebuggerStepThroughAttribute]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/hentudbud/webservice/hentudbud")]
+public class IndholdRequestType
 {
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.veu.stil.dk/hentudbud/webservice/hentudbud")]
-    public partial class IndholdRequestType
+    private string[] dsNummerListeField;
+
+    private long nyereEndLoebenummerField;
+
+    private bool nyereEndLoebenummerFieldSpecified;
+
+    /// <summary>
+    /// Gets or sets the <see cref="DsNummerListe"/> value
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute("DsNummerListe", Order = 0)]
+    public string[] DsNummerListe
     {
-        
-        private string[] dsNummerListeField;
-        
-        private long nyereEndLoebenummerField;
-        
-        private bool nyereEndLoebenummerFieldSpecified;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("DsNummerListe", Order=0)]
-        public string[] DsNummerListe
-        {
-            get
-            {
-                return this.dsNummerListeField;
-            }
-            set
-            {
-                this.dsNummerListeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public long NyereEndLoebenummer
-        {
-            get
-            {
-                return this.nyereEndLoebenummerField;
-            }
-            set
-            {
-                this.nyereEndLoebenummerField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool NyereEndLoebenummerSpecified
-        {
-            get
-            {
-                return this.nyereEndLoebenummerFieldSpecified;
-            }
-            set
-            {
-                this.nyereEndLoebenummerFieldSpecified = value;
-            }
-        }
+        get => dsNummerListeField;
+        set => dsNummerListeField = value;
+    }
+
+    /// <summary>
+    /// Gets or sets the <see cref="NyereEndLoebenummer"/> value
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public long NyereEndLoebenummer
+    {
+        get => nyereEndLoebenummerField;
+        set => nyereEndLoebenummerField = value;
+    }
+
+    /// <summary>
+    /// Gets or sets the <see cref="NyereEndLoebenummerSpecified"/> value
+    /// </summary>
+    [System.Xml.Serialization.XmlIgnoreAttribute]
+    public bool NyereEndLoebenummerSpecified
+    {
+        get => nyereEndLoebenummerFieldSpecified;
+        set => nyereEndLoebenummerFieldSpecified = value;
     }
 }
