@@ -1,58 +1,44 @@
-﻿namespace STIL.Entities.VEU.HentUdbud
+﻿namespace STIL.Entities.VEU.HentUdbud;
+
+[Serializable]
+[System.Diagnostics.DebuggerStepThroughAttribute]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://ipl.stil.dk/services/veu/hentudbud/v1.0")]
+public class SourceSystemErrorType
 {
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ipl.stil.dk/services/veu/hentudbud/v1.0")]
-    public partial class SourceSystemErrorType
+    private string sourceSystemNameField;
+
+    private string errorCodeField;
+
+    private string detailsField;
+
+    /// <summary>
+    /// Gets or sets the <see cref="SourceSystemName"/> value
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public string SourceSystemName
     {
-        
-        private string sourceSystemNameField;
-        
-        private string errorCodeField;
-        
-        private string detailsField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string SourceSystemName
-        {
-            get
-            {
-                return this.sourceSystemNameField;
-            }
-            set
-            {
-                this.sourceSystemNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string ErrorCode
-        {
-            get
-            {
-                return this.errorCodeField;
-            }
-            set
-            {
-                this.errorCodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string Details
-        {
-            get
-            {
-                return this.detailsField;
-            }
-            set
-            {
-                this.detailsField = value;
-            }
-        }
+        get => sourceSystemNameField;
+        set => sourceSystemNameField = value;
+    }
+
+    /// <summary>
+    /// Gets or sets the <see cref="ErrorCode"/> value
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public string ErrorCode
+    {
+        get => errorCodeField;
+        set => errorCodeField = value;
+    }
+
+    /// <summary>
+    /// Gets or sets the <see cref="Details"/> value
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+    public string Details
+    {
+        get => detailsField;
+        set => detailsField = value;
     }
 }
