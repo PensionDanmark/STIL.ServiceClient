@@ -1,0 +1,42 @@
+﻿namespace STIL.Entities.VEU.HentUdbud
+{
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://ipl.stil.dk/services/veu/hentudbud/v1.0")]
+    public partial class Identifier
+    {
+        
+        private string systemNameField;
+        
+        private string systemTransactionIDField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string SystemName
+        {
+            get
+            {
+                return this.systemNameField;
+            }
+            set
+            {
+                this.systemNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string SystemTransactionID
+        {
+            get
+            {
+                return this.systemTransactionIDField;
+            }
+            set
+            {
+                this.systemTransactionIDField = value;
+            }
+        }
+    }
+}

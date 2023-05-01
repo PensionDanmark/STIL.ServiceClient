@@ -1,0 +1,25 @@
+{
+  "ExtendedData": {
+    "inputs": [
+      "https://et.integrationsplatformen.dk/services/VEU/HentTilmeldingerVeuInteressenter/v1?wsdl"
+    ],
+    "collectionTypes": [
+      "System.Collections.Generic.Dictionary`2",
+      "System.Collections.ObjectModel.Collection`1"
+    ],
+    "messageContract": true,
+    "namespaceMappings": [
+      "*, STIL.Entities.VEU.HentTilmeldingerVeuInteressenter"
+    ],
+    "references": [
+      "System.ServiceModel, {System.ServiceModel.Primitives, 4.4.4}",
+      "System.ServiceModel.Duplex, {System.ServiceModel.Duplex, 4.4.4}",
+      "System.ServiceModel.Http, {System.ServiceModel.Http, 4.4.4}",
+      "System.ServiceModel.NetTcp, {System.ServiceModel.NetTcp, 4.4.4}",
+      "System.ServiceModel.Primitives, {System.ServiceModel.Primitives, 4.4.4}",
+      "System.ServiceModel.Security, {System.ServiceModel.Security, 4.4.4}"
+    ],
+    "targetFramework": "netstandard2.0",
+    "typeReuseMode": "All"
+  }
+}
