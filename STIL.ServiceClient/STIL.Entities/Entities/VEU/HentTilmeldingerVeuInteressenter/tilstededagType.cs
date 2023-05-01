@@ -1,106 +1,80 @@
-﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter
+﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
+
+[System.SerializableAttribute]
+[System.Diagnostics.DebuggerStepThroughAttribute]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/tilstededag")]
+public class tilstededagType
 {
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Diagnostics.DebuggerStepThrough()]
-    [System.Xml.Serialization.XmlType(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/tilstededag")]
-    public partial class tilstededagType
+    private System.DateTime datoField;
+
+    private decimal normTimerField;
+
+    private bool normTimerFieldSpecified;
+
+    private decimal timerTilstedeField;
+
+    private bool timerTilstedeFieldSpecified;
+
+    private undervisningsstedType undervisningsstedField;
+
+    /// <summary>
+    /// Gets or sets the <see cref="Dato"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 0)]
+    public System.DateTime Dato
     {
+        get => datoField;
+        set => datoField = value;
+    }
 
-        private System.DateTime datoField;
+    /// <summary>
+    /// Gets or sets the <see cref="NormTimer"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public decimal NormTimer
+    {
+        get => normTimerField;
+        set => normTimerField = value;
+    }
 
-        private decimal normTimerField;
+    /// <summary>
+    /// Gets or sets the <see cref="NormTimerSpecified"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlIgnoreAttribute]
+    public bool NormTimerSpecified
+    {
+        get => normTimerFieldSpecified;
+        set => normTimerFieldSpecified = value;
+    }
 
-        private bool normTimerFieldSpecified;
+    /// <summary>
+    /// Gets or sets the <see cref="TimerTilstede"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+    public decimal TimerTilstede
+    {
+        get => timerTilstedeField;
+        set => timerTilstedeField = value;
+    }
 
-        private decimal timerTilstedeField;
+    /// <summary>
+    /// Gets or sets the <see cref="TimerTilstedeSpecified"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlIgnoreAttribute]
+    public bool TimerTilstedeSpecified
+    {
+        get => timerTilstedeFieldSpecified;
+        set => timerTilstedeFieldSpecified = value;
+    }
 
-        private bool timerTilstedeFieldSpecified;
-
-        private undervisningsstedType undervisningsstedField;
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(DataType = "date", Order = 0)]
-        public System.DateTime Dato
-        {
-            get
-            {
-                return datoField;
-            }
-            set
-            {
-                datoField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(Order = 1)]
-        public decimal NormTimer
-        {
-            get
-            {
-                return normTimerField;
-            }
-            set
-            {
-                normTimerField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnore()]
-        public bool NormTimerSpecified
-        {
-            get
-            {
-                return normTimerFieldSpecified;
-            }
-            set
-            {
-                normTimerFieldSpecified = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(Order = 2)]
-        public decimal TimerTilstede
-        {
-            get
-            {
-                return timerTilstedeField;
-            }
-            set
-            {
-                timerTilstedeField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnore()]
-        public bool TimerTilstedeSpecified
-        {
-            get
-            {
-                return timerTilstedeFieldSpecified;
-            }
-            set
-            {
-                timerTilstedeFieldSpecified = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(Order = 3)]
-        public undervisningsstedType Undervisningssted
-        {
-            get
-            {
-                return undervisningsstedField;
-            }
-            set
-            {
-                undervisningsstedField = value;
-            }
-        }
+    /// <summary>
+    /// Gets or sets the <see cref="Undervisningssted"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+    public undervisningsstedType Undervisningssted
+    {
+        get => undervisningsstedField;
+        set => undervisningsstedField = value;
     }
 }

@@ -1,106 +1,80 @@
-﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter
+﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
+
+[System.SerializableAttribute]
+[System.Diagnostics.DebuggerStepThroughAttribute]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://ipl.stil.dk/services/veu/henttilmeldingerveuinteressenter/v1.0")]
+public class ServiceFaultDetailer
 {
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Diagnostics.DebuggerStepThrough()]
-    [System.Xml.Serialization.XmlType(AnonymousType = true, Namespace = "http://ipl.stil.dk/services/veu/henttilmeldingerveuinteressenter/v1.0")]
-    public partial class ServiceFaultDetailer
+    private string correlationIDField;
+
+    private System.DateTime timestampField;
+
+    private string errorCodeField;
+
+    private string errorMessageField;
+
+    private string detailsField;
+
+    private SourceSystemErrorType sourceSystemErrorField;
+
+    /// <summary>
+    /// Gets or sets the <see cref="CorrelationID"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public string CorrelationID
     {
+        get => correlationIDField;
+        set => correlationIDField = value;
+    }
 
-        private string correlationIDField;
+    /// <summary>
+    /// Gets or sets the <see cref="Timestamp"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public System.DateTime Timestamp
+    {
+        get => timestampField;
+        set => timestampField = value;
+    }
 
-        private System.DateTime timestampField;
+    /// <summary>
+    /// Gets or sets the <see cref="ErrorCode"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+    public string ErrorCode
+    {
+        get => errorCodeField;
+        set => errorCodeField = value;
+    }
 
-        private string errorCodeField;
+    /// <summary>
+    /// Gets or sets the <see cref="ErrorMessage"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+    public string ErrorMessage
+    {
+        get => errorMessageField;
+        set => errorMessageField = value;
+    }
 
-        private string errorMessageField;
+    /// <summary>
+    /// Gets or sets the <see cref="Details"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
+    public string Details
+    {
+        get => detailsField;
+        set => detailsField = value;
+    }
 
-        private string detailsField;
-
-        private SourceSystemErrorType sourceSystemErrorField;
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(Order = 0)]
-        public string CorrelationID
-        {
-            get
-            {
-                return correlationIDField;
-            }
-            set
-            {
-                correlationIDField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(Order = 1)]
-        public System.DateTime Timestamp
-        {
-            get
-            {
-                return timestampField;
-            }
-            set
-            {
-                timestampField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(Order = 2)]
-        public string ErrorCode
-        {
-            get
-            {
-                return errorCodeField;
-            }
-            set
-            {
-                errorCodeField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(Order = 3)]
-        public string ErrorMessage
-        {
-            get
-            {
-                return errorMessageField;
-            }
-            set
-            {
-                errorMessageField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(Order = 4)]
-        public string Details
-        {
-            get
-            {
-                return detailsField;
-            }
-            set
-            {
-                detailsField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(Order = 5)]
-        public SourceSystemErrorType SourceSystemError
-        {
-            get
-            {
-                return sourceSystemErrorField;
-            }
-            set
-            {
-                sourceSystemErrorField = value;
-            }
-        }
+    /// <summary>
+    /// Gets or sets the <see cref="SourceSystemError"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
+    public SourceSystemErrorType SourceSystemError
+    {
+        get => sourceSystemErrorField;
+        set => sourceSystemErrorField = value;
     }
 }

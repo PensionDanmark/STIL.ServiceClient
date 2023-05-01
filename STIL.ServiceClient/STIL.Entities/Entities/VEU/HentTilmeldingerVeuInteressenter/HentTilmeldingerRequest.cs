@@ -1,42 +1,32 @@
-﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter
+﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
+
+[System.SerializableAttribute]
+[System.Diagnostics.DebuggerStepThroughAttribute]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://ipl.stil.dk/services/veu/henttilmeldingerveuinteressenter/v1.0")]
+public class HentTilmeldingerRequest
 {
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Diagnostics.DebuggerStepThrough()]
-    [System.Xml.Serialization.XmlType(AnonymousType = true, Namespace = "http://ipl.stil.dk/services/veu/henttilmeldingerveuinteressenter/v1.0")]
-    public partial class HentTilmeldingerRequest
+    private Identifier identifierField;
+
+    private HentTilmeldingerRequestMessage messageField;
+
+    /// <summary>
+    /// Gets or sets the <see cref="Identifier"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public Identifier Identifier
     {
+        get => identifierField;
+        set => identifierField = value;
+    }
 
-        private Identifier identifierField;
-
-        private HentTilmeldingerRequestMessage messageField;
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(Order = 0)]
-        public Identifier Identifier
-        {
-            get
-            {
-                return identifierField;
-            }
-            set
-            {
-                identifierField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(Order = 1)]
-        public HentTilmeldingerRequestMessage Message
-        {
-            get
-            {
-                return messageField;
-            }
-            set
-            {
-                messageField = value;
-            }
-        }
+    /// <summary>
+    /// Gets or sets the <see cref="Message"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public HentTilmeldingerRequestMessage Message
+    {
+        get => messageField;
+        set => messageField = value;
     }
 }
