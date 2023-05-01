@@ -1,4 +1,6 @@
-﻿namespace STIL.Entities.VEU.HentUdbud;
+﻿using System;
+
+namespace STIL.Entities.VEU.HentUdbud;
 
 [Serializable]
 [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/hentudbud/webservice/commontypes")]

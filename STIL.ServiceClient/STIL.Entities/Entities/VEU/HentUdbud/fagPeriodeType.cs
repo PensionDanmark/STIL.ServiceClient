@@ -1,4 +1,6 @@
-﻿namespace STIL.Entities.VEU.HentUdbud;
+﻿using System;
+
+namespace STIL.Entities.VEU.HentUdbud;
 
 [Serializable]
 [System.Diagnostics.DebuggerStepThroughAttribute]

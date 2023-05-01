@@ -1,4 +1,6 @@
-﻿namespace STIL.Entities.VEU.HentUdbud;
+﻿using System;
+
+namespace STIL.Entities.VEU.HentUdbud;
 
 [Serializable]
 [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://ipl.stil.dk/services/veu/hentudbud/v1.0")]
