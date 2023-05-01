@@ -1,58 +1,44 @@
-﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter
+﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
+
+[System.SerializableAttribute]
+[System.Diagnostics.DebuggerStepThroughAttribute]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/tilmelding")]
+public class holdType
 {
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Diagnostics.DebuggerStepThrough()]
-    [System.Xml.Serialization.XmlType(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/tilmelding")]
-    public partial class holdType
+    private string betegnelseField;
+
+    private string kviknummerField;
+
+    private string uddannelsestypeField;
+
+    /// <summary>
+    /// Gets or sets the <see cref="Betegnelse"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public string Betegnelse
     {
+        get => betegnelseField;
+        set => betegnelseField = value;
+    }
 
-        private string betegnelseField;
+    /// <summary>
+    /// Gets or sets the <see cref="Kviknummer"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public string Kviknummer
+    {
+        get => kviknummerField;
+        set => kviknummerField = value;
+    }
 
-        private string kviknummerField;
-
-        private string uddannelsestypeField;
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(Order = 0)]
-        public string Betegnelse
-        {
-            get
-            {
-                return betegnelseField;
-            }
-            set
-            {
-                betegnelseField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(Order = 1)]
-        public string Kviknummer
-        {
-            get
-            {
-                return kviknummerField;
-            }
-            set
-            {
-                kviknummerField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(Order = 2)]
-        public string Uddannelsestype
-        {
-            get
-            {
-                return uddannelsestypeField;
-            }
-            set
-            {
-                uddannelsestypeField = value;
-            }
-        }
+    /// <summary>
+    /// Gets or sets the <see cref="Uddannelsestype"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+    public string Uddannelsestype
+    {
+        get => uddannelsestypeField;
+        set => uddannelsestypeField = value;
     }
 }

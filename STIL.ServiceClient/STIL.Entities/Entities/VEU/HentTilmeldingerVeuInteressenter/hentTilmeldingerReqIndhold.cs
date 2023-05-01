@@ -1,123 +1,93 @@
-﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter
+﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
+
+[System.SerializableAttribute]
+[System.Diagnostics.DebuggerStepThroughAttribute]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger")]
+public class hentTilmeldingerReqIndhold
 {
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Diagnostics.DebuggerStepThrough()]
-    [System.Xml.Serialization.XmlType(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger")]
-    public partial class hentTilmeldingerReqIndhold
+    private string cVRnrField;
+
+    private string[] cPRnummerListeField;
+
+    private System.DateTime fraDatoField;
+
+    private bool fraDatoFieldSpecified;
+
+    private System.DateTime tilDatoField;
+
+    private bool tilDatoFieldSpecified;
+
+    private string instNrField;
+
+    /// <summary>
+    /// Gets or sets the <see cref="CVRnr"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public string CVRnr
     {
+        get => cVRnrField;
+        set => cVRnrField = value;
+    }
 
-        private string cVRnrField;
+    /// <summary>
+    /// Gets or sets the <see cref="CPRnummerListe"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlArrayAttribute(Order = 1)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("CPRnummer", IsNullable = false)]
+    public string[] CPRnummerListe
+    {
+        get => cPRnummerListeField;
+        set => cPRnummerListeField = value;
+    }
 
-        private string[] cPRnummerListeField;
+    /// <summary>
+    /// Gets or sets the <see cref="FraDato"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 2)]
+    public System.DateTime FraDato
+    {
+        get => fraDatoField;
+        set => fraDatoField = value;
+    }
 
-        private System.DateTime fraDatoField;
+    /// <summary>
+    /// Gets or sets the <see cref="FraDatoSpecified"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlIgnoreAttribute]
+    public bool FraDatoSpecified
+    {
+        get => fraDatoFieldSpecified;
+        set => fraDatoFieldSpecified = value;
+    }
 
-        private bool fraDatoFieldSpecified;
+    /// <summary>
+    /// Gets or sets the <see cref="TilDato"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 3)]
+    public System.DateTime TilDato
+    {
+        get => tilDatoField;
+        set => tilDatoField = value;
+    }
 
-        private System.DateTime tilDatoField;
+    /// <summary>
+    /// Gets or sets the <see cref="TilDatoSpecified"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlIgnoreAttribute]
+    public bool TilDatoSpecified
+    {
+        get => tilDatoFieldSpecified;
+        set => tilDatoFieldSpecified = value;
+    }
 
-        private bool tilDatoFieldSpecified;
-
-        private string instNrField;
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(Order = 0)]
-        public string CVRnr
-        {
-            get
-            {
-                return cVRnrField;
-            }
-            set
-            {
-                cVRnrField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArray(Order = 1)]
-        [System.Xml.Serialization.XmlArrayItem("CPRnummer", IsNullable = false)]
-        public string[] CPRnummerListe
-        {
-            get
-            {
-                return cPRnummerListeField;
-            }
-            set
-            {
-                cPRnummerListeField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(DataType = "date", Order = 2)]
-        public System.DateTime FraDato
-        {
-            get
-            {
-                return fraDatoField;
-            }
-            set
-            {
-                fraDatoField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnore()]
-        public bool FraDatoSpecified
-        {
-            get
-            {
-                return fraDatoFieldSpecified;
-            }
-            set
-            {
-                fraDatoFieldSpecified = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(DataType = "date", Order = 3)]
-        public System.DateTime TilDato
-        {
-            get
-            {
-                return tilDatoField;
-            }
-            set
-            {
-                tilDatoField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnore()]
-        public bool TilDatoSpecified
-        {
-            get
-            {
-                return tilDatoFieldSpecified;
-            }
-            set
-            {
-                tilDatoFieldSpecified = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(Order = 4)]
-        public string InstNr
-        {
-            get
-            {
-                return instNrField;
-            }
-            set
-            {
-                instNrField = value;
-            }
-        }
+    /// <summary>
+    /// Gets or sets the <see cref="InstNr"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
+    public string InstNr
+    {
+        get => instNrField;
+        set => instNrField = value;
     }
 }

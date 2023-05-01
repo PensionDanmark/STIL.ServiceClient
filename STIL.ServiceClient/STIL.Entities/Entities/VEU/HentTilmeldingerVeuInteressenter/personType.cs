@@ -1,59 +1,46 @@
-﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter
+﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
+
+[System.SerializableAttribute]
+[System.Diagnostics.DebuggerStepThroughAttribute]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger")]
+public class personType
 {
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Diagnostics.DebuggerStepThrough()]
-    [System.Xml.Serialization.XmlType(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger")]
-    public partial class personType
+    private string cPRnummerField;
+
+    private string statusCPRnummerField;
+
+    private tilmeldingType[] tilmeldingsListeField;
+
+    /// <summary>
+    /// Gets or sets the <see cref="CPRnummer"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+    public string CPRnummer
     {
+        get => cPRnummerField;
+        set => cPRnummerField = value;
+    }
 
-        private string cPRnummerField;
+    /// <summary>
+    /// Gets or sets the <see cref="StatusCPRnummer"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+    public string StatusCPRnummer
+    {
+        get => statusCPRnummerField;
+        set => statusCPRnummerField = value;
+    }
 
-        private string statusCPRnummerField;
-
-        private tilmeldingType[] tilmeldingsListeField;
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(Order = 0)]
-        public string CPRnummer
-        {
-            get
-            {
-                return cPRnummerField;
-            }
-            set
-            {
-                cPRnummerField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElement(Order = 1)]
-        public string StatusCPRnummer
-        {
-            get
-            {
-                return statusCPRnummerField;
-            }
-            set
-            {
-                statusCPRnummerField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArray(Order = 2)]
-        [System.Xml.Serialization.XmlArrayItem("Tilmelding", Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/tilmelding", IsNullable = false)]
-        public tilmeldingType[] TilmeldingsListe
-        {
-            get
-            {
-                return tilmeldingsListeField;
-            }
-            set
-            {
-                tilmeldingsListeField = value;
-            }
-        }
+    /// <summary>
+    /// Gets or sets the <see cref="TilmeldingsListe"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlArrayAttribute(Order = 2)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("Tilmelding",
+        Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/tilmelding", IsNullable = false)]
+    public tilmeldingType[] TilmeldingsListe
+    {
+        get => tilmeldingsListeField;
+        set => tilmeldingsListeField = value;
     }
 }
