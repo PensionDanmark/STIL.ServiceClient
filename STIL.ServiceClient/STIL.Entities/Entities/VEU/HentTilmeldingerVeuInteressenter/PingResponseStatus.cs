@@ -1,4 +1,4 @@
-﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
+﻿namespace STIL.Entities.Entities.VEU.HentTilmeldingerVeuInteressenter;
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
 [System.SerializableAttribute]

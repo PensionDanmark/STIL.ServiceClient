@@ -1,4 +1,4 @@
-﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
+﻿namespace STIL.Entities.Entities.VEU.HentTilmeldingerVeuInteressenter;
 
 [System.SerializableAttribute]
 [System.Diagnostics.DebuggerStepThroughAttribute]

@@ -28,7 +28,7 @@ namespace STIL.ServiceClient.Tests
                             ModtagerSystemID = "MGL3010",
                             ModtagerSystemTransaktionsID = Guid.NewGuid().ToString()
                         },
-                        Besked = new HentTilmeldingerRequest.hentTilmeldingerRequest
+                        Besked = new hentTilmeldingerRequest
                         {
                             Indhold = new hentTilmeldingerReqIndhold
                             {
@@ -47,27 +47,12 @@ namespace STIL.ServiceClient.Tests
             var certStore = new X509Store(StoreLocation.CurrentUser);
             certStore.Open(OpenFlags.ReadOnly);
             X509Certificate2? certificate = certStore.Certificates.Find(X509FindType.FindByThumbprint, thumbprint, validOnly: false).FirstOrDefault();
-            var handler = new HttpClientHandler()
-            {
-                ClientCertificates = { certificate }
-            };
-            var stilClient = new HttpClient(handler);
+            var baseUrl = "https://et.integrationsplatformen.dk";
+            var stilServiceClient = new StilServiceClient(baseUrl, certificate);
 
-            var stilRequest = new StilSoapMessage<HentTilmeldingerRequest>(request);
-            var signedRequest = stilRequest.GetSignedXml(certificate);
-            var content = new StringContent(signedRequest, Encoding.UTF8, "application/soap+xml");
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, "https://et.integrationsplatformen.dk/services/VEU/HentTilmeldingerVeuInteressenter/v1");
-            httpRequest.Content = content;
-            var response = await stilClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead);
-            var textResponse = await response.Content.ReadAsStringAsync();
-            XNamespace soap = XNamespace.Get("http://www.w3.org/2003/05/soap-envelope");
-            XNamespace v1 = XNamespace.Get("http://ipl.stil.dk/services/veu/henttilmeldingerveuinteressenter/v1.0");
-
-            var env = XDocument.Parse(textResponse);
-            var body = env.Root.Element(soap + "Body");
-            var responseElement = body.Element(v1 + "hentTilmeldingerResponse");
-            var s = new XmlSerializer(typeof(hentTilmeldingerResponse));
-            var x = s.Deserialize(responseElement.CreateReader()) as hentTilmeldingerResponse;
+            var result = await stilServiceClient.VEU.HentTilmeldingerVeuInteressenter(request);
+            //result.Message.hentTilmeldingerResponse.Resultat.Resultat.PersonListe.Length;
+            Assert.NotNull(result);
         }
     }
 }
