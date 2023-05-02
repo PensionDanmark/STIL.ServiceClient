@@ -1,57 +1,44 @@
-﻿namespace STIL.Entities.Entities.VEU.HentTilmeldingerVeuInteressenter;
+﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
 
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-[System.Diagnostics.DebuggerStepThrough()]
-[System.Xml.Serialization.XmlType(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/tilmelding")]
-public partial class personoplysningerTilmeldingType
+[System.SerializableAttribute]
+[System.Diagnostics.DebuggerStepThroughAttribute]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/tilmelding")]
+public class personoplysningerTilmeldingType
 {
-
     private string arbejderSomField;
 
     private enumJN loenUnderKursusField;
 
     private bool loenUnderKursusFieldSpecified;
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 0)]
+    /// <summary>
+    /// Gets or sets the <see cref="ArbejderSom"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
     public string ArbejderSom
     {
-        get
-        {
-            return arbejderSomField;
-        }
-        set
-        {
-            arbejderSomField = value;
-        }
+        get => arbejderSomField;
+        set => arbejderSomField = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 1)]
+    /// <summary>
+    /// Gets or sets the <see cref="LoenUnderKursus"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
     public enumJN LoenUnderKursus
     {
-        get
-        {
-            return loenUnderKursusField;
-        }
-        set
-        {
-            loenUnderKursusField = value;
-        }
+        get => loenUnderKursusField;
+        set => loenUnderKursusField = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnore()]
+    /// <summary>
+    /// Gets or sets the <see cref="LoenUnderKursusSpecified"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool LoenUnderKursusSpecified
     {
-        get
-        {
-            return loenUnderKursusFieldSpecified;
-        }
-        set
-        {
-            loenUnderKursusFieldSpecified = value;
-        }
+        get => loenUnderKursusFieldSpecified;
+        set => loenUnderKursusFieldSpecified = value;
     }
 }

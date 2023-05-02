@@ -1,12 +1,11 @@
-﻿namespace STIL.Entities.Entities.VEU.HentTilmeldingerVeuInteressenter;
+﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
 
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-[System.Diagnostics.DebuggerStepThrough()]
-[System.Xml.Serialization.XmlType(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger")]
-public partial class hentTilmeldingerResResultat
+[System.SerializableAttribute]
+[System.Diagnostics.DebuggerStepThroughAttribute]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger")]
+public class hentTilmeldingerResResultat
 {
-
     private string instNrField;
 
     private string svarKodeField;
@@ -15,60 +14,44 @@ public partial class hentTilmeldingerResResultat
 
     private personType[] personListeField;
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 0)]
+    /// <summary>
+    /// Gets or sets the <see cref="InstNr"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
     public string InstNr
     {
-        get
-        {
-            return instNrField;
-        }
-        set
-        {
-            instNrField = value;
-        }
+        get => instNrField;
+        set => instNrField = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 1)]
+    /// <summary>
+    /// Gets or sets the <see cref="SvarKode"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
     public string SvarKode
     {
-        get
-        {
-            return svarKodeField;
-        }
-        set
-        {
-            svarKodeField = value;
-        }
+        get => svarKodeField;
+        set => svarKodeField = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 2)]
+    /// <summary>
+    /// Gets or sets the <see cref="SvarTekst"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
     public string SvarTekst
     {
-        get
-        {
-            return svarTekstField;
-        }
-        set
-        {
-            svarTekstField = value;
-        }
+        get => svarTekstField;
+        set => svarTekstField = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArray(Order = 3)]
-    [System.Xml.Serialization.XmlArrayItem("Person", IsNullable = false)]
+    /// <summary>
+    /// Gets or sets the <see cref="PersonListe"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlArrayAttribute(Order = 3)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("Person", IsNullable = false)]
     public personType[] PersonListe
     {
-        get
-        {
-            return personListeField;
-        }
-        set
-        {
-            personListeField = value;
-        }
+        get => personListeField;
+        set => personListeField = value;
     }
 }

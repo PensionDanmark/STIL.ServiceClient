@@ -1,57 +1,44 @@
-﻿namespace STIL.Entities.Entities.VEU.HentTilmeldingerVeuInteressenter;
+﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
 
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-[System.Diagnostics.DebuggerStepThrough()]
-[System.Xml.Serialization.XmlType(Namespace = "http://ipl.stil.dk/services/veu/henttilmeldingerveuinteressenter/v1.0")]
-public partial class SourceSystemErrorType
+[System.SerializableAttribute]
+[System.Diagnostics.DebuggerStepThroughAttribute]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://ipl.stil.dk/services/veu/henttilmeldingerveuinteressenter/v1.0")]
+public class SourceSystemErrorType
 {
-
     private string sourceSystemNameField;
 
     private string errorCodeField;
 
     private string detailsField;
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 0)]
+    /// <summary>
+    /// Gets or sets the <see cref="SourceSystemName"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
     public string SourceSystemName
     {
-        get
-        {
-            return sourceSystemNameField;
-        }
-        set
-        {
-            sourceSystemNameField = value;
-        }
+        get => sourceSystemNameField;
+        set => sourceSystemNameField = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 1)]
+    /// <summary>
+    /// Gets or sets the <see cref="ErrorCode"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
     public string ErrorCode
     {
-        get
-        {
-            return errorCodeField;
-        }
-        set
-        {
-            errorCodeField = value;
-        }
+        get => errorCodeField;
+        set => errorCodeField = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 2)]
+    /// <summary>
+    /// Gets or sets the <see cref="Details"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
     public string Details
     {
-        get
-        {
-            return detailsField;
-        }
-        set
-        {
-            detailsField = value;
-        }
+        get => detailsField;
+        set => detailsField = value;
     }
 }

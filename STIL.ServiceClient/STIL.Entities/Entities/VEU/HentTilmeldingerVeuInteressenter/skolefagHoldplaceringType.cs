@@ -1,13 +1,11 @@
-﻿namespace STIL.Entities.Entities.VEU.HentTilmeldingerVeuInteressenter;
+﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
 
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-[System.Diagnostics.DebuggerStepThrough()]
-[System.Xml.Serialization.XmlType(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/skolefagHoldplace" +
-                                                     "ring")]
-public partial class skolefagHoldplaceringType
+[System.SerializableAttribute]
+[System.Diagnostics.DebuggerStepThroughAttribute]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/skolefagHoldplacering")]
+public class skolefagHoldplaceringType
 {
-
     private skolefagType skolefagField;
 
     private System.DateTime startdatoField;
@@ -40,228 +38,165 @@ public partial class skolefagHoldplaceringType
 
     private tilstededagType[] tilstededagListeField;
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 0)]
+    /// <summary>
+    /// Gets or sets the <see cref="Skolefag"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
     public skolefagType Skolefag
     {
-        get
-        {
-            return skolefagField;
-        }
-        set
-        {
-            skolefagField = value;
-        }
+        get => skolefagField;
+        set => skolefagField = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(DataType = "date", Order = 1)]
+    /// <summary>
+    /// Gets or sets the <see cref="Startdato"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 1)]
     public System.DateTime Startdato
     {
-        get
-        {
-            return startdatoField;
-        }
-        set
-        {
-            startdatoField = value;
-        }
+        get => startdatoField;
+        set => startdatoField = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(DataType = "date", Order = 2)]
+    /// <summary>
+    /// Gets or sets the <see cref="Slutdato"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 2)]
     public System.DateTime Slutdato
     {
-        get
-        {
-            return slutdatoField;
-        }
-        set
-        {
-            slutdatoField = value;
-        }
+        get => slutdatoField;
+        set => slutdatoField = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnore()]
+    /// <summary>
+    /// Gets or sets the <see cref="SlutdatoSpecified"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool SlutdatoSpecified
     {
-        get
-        {
-            return slutdatoFieldSpecified;
-        }
-        set
-        {
-            slutdatoFieldSpecified = value;
-        }
+        get => slutdatoFieldSpecified;
+        set => slutdatoFieldSpecified = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 3)]
+    /// <summary>
+    /// Gets or sets the <see cref="Gennemfort"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
     public string Gennemfort
     {
-        get
-        {
-            return gennemfortField;
-        }
-        set
-        {
-            gennemfortField = value;
-        }
+        get => gennemfortField;
+        set => gennemfortField = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 4)]
+    /// <summary>
+    /// Gets or sets the <see cref="Fjernundervisning"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
     public enumJN Fjernundervisning
     {
-        get
-        {
-            return fjernundervisningField;
-        }
-        set
-        {
-            fjernundervisningField = value;
-        }
+        get => fjernundervisningField;
+        set => fjernundervisningField = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnore()]
+    /// <summary>
+    /// Gets or sets the <see cref="FjernundervisningSpecified"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool FjernundervisningSpecified
     {
-        get
-        {
-            return fjernundervisningFieldSpecified;
-        }
-        set
-        {
-            fjernundervisningFieldSpecified = value;
-        }
+        get => fjernundervisningFieldSpecified;
+        set => fjernundervisningFieldSpecified = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 5)]
+    /// <summary>
+    /// Gets or sets the <see cref="ForegarUndervisningPaaVirk"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
     public enumJN ForegarUndervisningPaaVirk
     {
-        get
-        {
-            return foregarUndervisningPaaVirkField;
-        }
-        set
-        {
-            foregarUndervisningPaaVirkField = value;
-        }
+        get => foregarUndervisningPaaVirkField;
+        set => foregarUndervisningPaaVirkField = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnore()]
+    /// <summary>
+    /// Gets or sets the <see cref="ForegarUndervisningPaaVirkSpecified"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool ForegarUndervisningPaaVirkSpecified
     {
-        get
-        {
-            return foregarUndervisningPaaVirkFieldSpecified;
-        }
-        set
-        {
-            foregarUndervisningPaaVirkFieldSpecified = value;
-        }
+        get => foregarUndervisningPaaVirkFieldSpecified;
+        set => foregarUndervisningPaaVirkFieldSpecified = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 6)]
+    /// <summary>
+    /// Gets or sets the <see cref="Certifikatkursus"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
     public enumJN Certifikatkursus
     {
-        get
-        {
-            return certifikatkursusField;
-        }
-        set
-        {
-            certifikatkursusField = value;
-        }
+        get => certifikatkursusField;
+        set => certifikatkursusField = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnore()]
+    /// <summary>
+    /// Gets or sets the <see cref="CertifikatkursusSpecified"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool CertifikatkursusSpecified
     {
-        get
-        {
-            return certifikatkursusFieldSpecified;
-        }
-        set
-        {
-            certifikatkursusFieldSpecified = value;
-        }
+        get => certifikatkursusFieldSpecified;
+        set => certifikatkursusFieldSpecified = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 7)]
+    /// <summary>
+    /// Gets or sets the <see cref="VarighedDage"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
     public decimal VarighedDage
     {
-        get
-        {
-            return varighedDageField;
-        }
-        set
-        {
-            varighedDageField = value;
-        }
+        get => varighedDageField;
+        set => varighedDageField = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnore()]
+    /// <summary>
+    /// Gets or sets the <see cref="VarighedDageSpecified"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool VarighedDageSpecified
     {
-        get
-        {
-            return varighedDageFieldSpecified;
-        }
-        set
-        {
-            varighedDageFieldSpecified = value;
-        }
+        get => varighedDageFieldSpecified;
+        set => varighedDageFieldSpecified = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 8)]
+    /// <summary>
+    /// Gets or sets the <see cref="NormeretVarighed"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
     public decimal NormeretVarighed
     {
-        get
-        {
-            return normeretVarighedField;
-        }
-        set
-        {
-            normeretVarighedField = value;
-        }
+        get => normeretVarighedField;
+        set => normeretVarighedField = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnore()]
+    /// <summary>
+    /// Gets or sets the <see cref="NormeretVarighedSpecified"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool NormeretVarighedSpecified
     {
-        get
-        {
-            return normeretVarighedFieldSpecified;
-        }
-        set
-        {
-            normeretVarighedFieldSpecified = value;
-        }
+        get => normeretVarighedFieldSpecified;
+        set => normeretVarighedFieldSpecified = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArray(Order = 9)]
-    [System.Xml.Serialization.XmlArrayItem("Tilstededag", Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/tilstededag", IsNullable = false)]
+    /// <summary>
+    /// Gets or sets the <see cref="TilstededagListe"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlArrayAttribute(Order = 9)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("Tilstededag",
+        Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/tilstededag", IsNullable = false)]
     public tilstededagType[] TilstededagListe
     {
-        get
-        {
-            return tilstededagListeField;
-        }
-        set
-        {
-            tilstededagListeField = value;
-        }
+        get => tilstededagListeField;
+        set => tilstededagListeField = value;
     }
 }

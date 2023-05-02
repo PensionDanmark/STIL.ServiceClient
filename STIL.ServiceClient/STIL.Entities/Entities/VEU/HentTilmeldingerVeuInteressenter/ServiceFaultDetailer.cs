@@ -1,12 +1,11 @@
-﻿namespace STIL.Entities.Entities.VEU.HentTilmeldingerVeuInteressenter;
+﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
 
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-[System.Diagnostics.DebuggerStepThrough()]
-[System.Xml.Serialization.XmlType(AnonymousType = true, Namespace = "http://ipl.stil.dk/services/veu/henttilmeldingerveuinteressenter/v1.0")]
-public partial class ServiceFaultDetailer
+[System.SerializableAttribute]
+[System.Diagnostics.DebuggerStepThroughAttribute]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://ipl.stil.dk/services/veu/henttilmeldingerveuinteressenter/v1.0")]
+public class ServiceFaultDetailer
 {
-
     private string correlationIDField;
 
     private System.DateTime timestampField;
@@ -19,87 +18,63 @@ public partial class ServiceFaultDetailer
 
     private SourceSystemErrorType sourceSystemErrorField;
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 0)]
+    /// <summary>
+    /// Gets or sets the <see cref="CorrelationID"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
     public string CorrelationID
     {
-        get
-        {
-            return correlationIDField;
-        }
-        set
-        {
-            correlationIDField = value;
-        }
+        get => correlationIDField;
+        set => correlationIDField = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 1)]
+    /// <summary>
+    /// Gets or sets the <see cref="Timestamp"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
     public System.DateTime Timestamp
     {
-        get
-        {
-            return timestampField;
-        }
-        set
-        {
-            timestampField = value;
-        }
+        get => timestampField;
+        set => timestampField = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 2)]
+    /// <summary>
+    /// Gets or sets the <see cref="ErrorCode"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
     public string ErrorCode
     {
-        get
-        {
-            return errorCodeField;
-        }
-        set
-        {
-            errorCodeField = value;
-        }
+        get => errorCodeField;
+        set => errorCodeField = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 3)]
+    /// <summary>
+    /// Gets or sets the <see cref="ErrorMessage"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
     public string ErrorMessage
     {
-        get
-        {
-            return errorMessageField;
-        }
-        set
-        {
-            errorMessageField = value;
-        }
+        get => errorMessageField;
+        set => errorMessageField = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 4)]
+    /// <summary>
+    /// Gets or sets the <see cref="Details"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
     public string Details
     {
-        get
-        {
-            return detailsField;
-        }
-        set
-        {
-            detailsField = value;
-        }
+        get => detailsField;
+        set => detailsField = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 5)]
+    /// <summary>
+    /// Gets or sets the <see cref="SourceSystemError"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
     public SourceSystemErrorType SourceSystemError
     {
-        get
-        {
-            return sourceSystemErrorField;
-        }
-        set
-        {
-            sourceSystemErrorField = value;
-        }
+        get => sourceSystemErrorField;
+        set => sourceSystemErrorField = value;
     }
 }

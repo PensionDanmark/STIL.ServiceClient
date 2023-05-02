@@ -1,58 +1,44 @@
-﻿namespace STIL.Entities.Entities.VEU.HentTilmeldingerVeuInteressenter;
+﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
 
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-[System.Diagnostics.DebuggerStepThrough()]
-[System.Xml.Serialization.XmlType(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/skolefagHoldplace" +
-                                                     "ring")]
-public partial class skolefagType
+[System.SerializableAttribute]
+[System.Diagnostics.DebuggerStepThroughAttribute]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/skolefagHoldplacering")]
+public class skolefagType
 {
-
     private string skolefagskodeField;
 
     private string niveauField;
 
     private string betegnelseField;
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 0)]
+    /// <summary>
+    /// Gets or sets the <see cref="Skolefagskode"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
     public string Skolefagskode
     {
-        get
-        {
-            return skolefagskodeField;
-        }
-        set
-        {
-            skolefagskodeField = value;
-        }
+        get => skolefagskodeField;
+        set => skolefagskodeField = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 1)]
+    /// <summary>
+    /// Gets or sets the <see cref="Niveau"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
     public string Niveau
     {
-        get
-        {
-            return niveauField;
-        }
-        set
-        {
-            niveauField = value;
-        }
+        get => niveauField;
+        set => niveauField = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 2)]
+    /// <summary>
+    /// Gets or sets the <see cref="Betegnelse"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
     public string Betegnelse
     {
-        get
-        {
-            return betegnelseField;
-        }
-        set
-        {
-            betegnelseField = value;
-        }
+        get => betegnelseField;
+        set => betegnelseField = value;
     }
 }

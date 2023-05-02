@@ -1,12 +1,11 @@
-﻿namespace STIL.Entities.Entities.VEU.HentTilmeldingerVeuInteressenter;
+﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
 
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-[System.Diagnostics.DebuggerStepThrough()]
-[System.Xml.Serialization.XmlType(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/tilstededag")]
-public partial class tilstededagType
+[System.SerializableAttribute]
+[System.Diagnostics.DebuggerStepThroughAttribute]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/tilstededag")]
+public class tilstededagType
 {
-
     private System.DateTime datoField;
 
     private decimal normTimerField;
@@ -19,87 +18,63 @@ public partial class tilstededagType
 
     private undervisningsstedType undervisningsstedField;
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(DataType = "date", Order = 0)]
+    /// <summary>
+    /// Gets or sets the <see cref="Dato"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 0)]
     public System.DateTime Dato
     {
-        get
-        {
-            return datoField;
-        }
-        set
-        {
-            datoField = value;
-        }
+        get => datoField;
+        set => datoField = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 1)]
+    /// <summary>
+    /// Gets or sets the <see cref="NormTimer"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
     public decimal NormTimer
     {
-        get
-        {
-            return normTimerField;
-        }
-        set
-        {
-            normTimerField = value;
-        }
+        get => normTimerField;
+        set => normTimerField = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnore()]
+    /// <summary>
+    /// Gets or sets the <see cref="NormTimerSpecified"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool NormTimerSpecified
     {
-        get
-        {
-            return normTimerFieldSpecified;
-        }
-        set
-        {
-            normTimerFieldSpecified = value;
-        }
+        get => normTimerFieldSpecified;
+        set => normTimerFieldSpecified = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 2)]
+    /// <summary>
+    /// Gets or sets the <see cref="TimerTilstede"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
     public decimal TimerTilstede
     {
-        get
-        {
-            return timerTilstedeField;
-        }
-        set
-        {
-            timerTilstedeField = value;
-        }
+        get => timerTilstedeField;
+        set => timerTilstedeField = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnore()]
+    /// <summary>
+    /// Gets or sets the <see cref="TimerTilstedeSpecified"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool TimerTilstedeSpecified
     {
-        get
-        {
-            return timerTilstedeFieldSpecified;
-        }
-        set
-        {
-            timerTilstedeFieldSpecified = value;
-        }
+        get => timerTilstedeFieldSpecified;
+        set => timerTilstedeFieldSpecified = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 3)]
+    /// <summary>
+    /// Gets or sets the <see cref="Undervisningssted"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
     public undervisningsstedType Undervisningssted
     {
-        get
-        {
-            return undervisningsstedField;
-        }
-        set
-        {
-            undervisningsstedField = value;
-        }
+        get => undervisningsstedField;
+        set => undervisningsstedField = value;
     }
 }

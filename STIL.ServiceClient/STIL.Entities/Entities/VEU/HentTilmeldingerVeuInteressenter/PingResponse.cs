@@ -1,25 +1,20 @@
-﻿namespace STIL.Entities.Entities.VEU.HentTilmeldingerVeuInteressenter;
+﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
 
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-[System.Diagnostics.DebuggerStepThrough()]
-[System.Xml.Serialization.XmlType(AnonymousType = true, Namespace = "http://ipl.stil.dk/services/veu/henttilmeldingerveuinteressenter/v1.0")]
-public partial class PingResponse
+[System.SerializableAttribute]
+[System.Diagnostics.DebuggerStepThroughAttribute]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://ipl.stil.dk/services/veu/henttilmeldingerveuinteressenter/v1.0")]
+public class PingResponse
 {
-
+        
     private PingResponseStatus statusField;
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 0)]
-    public PingResponseStatus Status
-    {
-        get
-        {
-            return statusField;
-        }
-        set
-        {
-            statusField = value;
-        }
+    /// <summary>
+    /// Gets or sets the <see cref="Status"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+    public PingResponseStatus Status {
+        get => statusField;
+        set => statusField = value;
     }
 }

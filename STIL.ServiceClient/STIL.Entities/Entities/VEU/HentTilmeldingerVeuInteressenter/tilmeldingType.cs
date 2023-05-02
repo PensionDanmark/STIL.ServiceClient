@@ -1,12 +1,11 @@
-﻿namespace STIL.Entities.Entities.VEU.HentTilmeldingerVeuInteressenter;
+﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
 
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-[System.Diagnostics.DebuggerStepThrough()]
-[System.Xml.Serialization.XmlType(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/tilmelding")]
-public partial class tilmeldingType
+[System.SerializableAttribute]
+[System.Diagnostics.DebuggerStepThroughAttribute]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/tilmelding")]
+public class tilmeldingType
 {
-
     private string hoplGUIDField;
 
     private personoplysningerTilmeldingType personoplysningerTilmeldingField;
@@ -19,87 +18,63 @@ public partial class tilmeldingType
 
     private holdplaceringType holdplaceringField;
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 0)]
+    /// <summary>
+    /// Gets or sets the <see cref="HoplGUID"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
     public string HoplGUID
     {
-        get
-        {
-            return hoplGUIDField;
-        }
-        set
-        {
-            hoplGUIDField = value;
-        }
+        get => hoplGUIDField;
+        set => hoplGUIDField = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 1)]
+    /// <summary>
+    /// Gets or sets the <see cref="PersonoplysningerTilmelding"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
     public personoplysningerTilmeldingType PersonoplysningerTilmelding
     {
-        get
-        {
-            return personoplysningerTilmeldingField;
-        }
-        set
-        {
-            personoplysningerTilmeldingField = value;
-        }
+        get => personoplysningerTilmeldingField;
+        set => personoplysningerTilmeldingField = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 2)]
+    /// <summary>
+    /// Gets or sets the <see cref="Arbejdsgiver"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
     public arbejdsgiverType Arbejdsgiver
     {
-        get
-        {
-            return arbejdsgiverField;
-        }
-        set
-        {
-            arbejdsgiverField = value;
-        }
+        get => arbejdsgiverField;
+        set => arbejdsgiverField = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 3)]
+    /// <summary>
+    /// Gets or sets the <see cref="Skole"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
     public skoleType Skole
     {
-        get
-        {
-            return skoleField;
-        }
-        set
-        {
-            skoleField = value;
-        }
+        get => skoleField;
+        set => skoleField = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 4)]
+    /// <summary>
+    /// Gets or sets the <see cref="Hold"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
     public holdType Hold
     {
-        get
-        {
-            return holdField;
-        }
-        set
-        {
-            holdField = value;
-        }
+        get => holdField;
+        set => holdField = value;
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement(Order = 5)]
+    /// <summary>
+    /// Gets or sets the <see cref="Holdplacering"/> value.
+    /// </summary>
+    [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
     public holdplaceringType Holdplacering
     {
-        get
-        {
-            return holdplaceringField;
-        }
-        set
-        {
-            holdplaceringField = value;
-        }
+        get => holdplaceringField;
+        set => holdplaceringField = value;
     }
 }
