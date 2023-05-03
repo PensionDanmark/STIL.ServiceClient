@@ -1,20 +1,18 @@
 using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Xml.Linq;
-using System.Xml.Serialization;
-using STIL.ServiceClient.Util.SoapHelper;
+using FluentAssertions;
 using STIL.Entities.Entities.VEU.HentTilmeldingerVeuInteressenter;
 
 namespace STIL.ServiceClient.Tests
 {
-    public class UnitTest1
+    public class StilVeuTests
     {
-        [Fact]
-        public async Task Test1()
+        [Fact(Skip = "Only relevant when live testing locally")]
+        [Trait("Category", "Integration")]
+        public async Task Get_HentTilmeldingerVeuInteressenter_ReturnsCorrectResult()
         {
             var request = new HentTilmeldingerRequest
             {
-                Identifier = new Identifier
+                Identifier = new Entities.Entities.VEU.HentTilmeldingerVeuInteressenter.Identifier
                 {
                     SystemName = "MGL3010",
                     SystemTransactionID = Guid.NewGuid().ToString()
@@ -50,9 +48,14 @@ namespace STIL.ServiceClient.Tests
             var baseUrl = "https://et.integrationsplatformen.dk";
             var stilServiceClient = new StilServiceClient(baseUrl, certificate);
 
+            // Get the same 2 result just for fun.
             var result = await stilServiceClient.VEU.HentTilmeldingerVeuInteressenter(request);
-            //result.Message.hentTilmeldingerResponse.Resultat.Resultat.PersonListe.Length;
-            Assert.NotNull(result);
+            var result2 = await stilServiceClient.VEU.HentTilmeldingerVeuInteressenter(request);
+
+            result.Should().NotBeNull();
+            result2.Should().NotBeNull();
+
+            result.Message.hentTilmeldingerResponse.Resultat.Resultat.PersonListe.Length.Should().Be(10);
         }
     }
 }
