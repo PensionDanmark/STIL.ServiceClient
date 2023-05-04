@@ -45,17 +45,33 @@ namespace STIL.ServiceClient
     ///
     /// // Use the response data
     /// Console.WriteLine($"Number of tilmeldinger: {result.Message.hentTilmeldingerResponse.Resultat.Resultat.PersonListe.Length}");
-    /// </example> 
+    /// </example>
+    
     /// </summary>
     public class StilServiceClient
     {
         private readonly X509Certificate2 _clientCertificate;
         private readonly X509Certificate2 _signingCertificate;
         private readonly string _baseUrl = "/services";
+        private string _version = "/v1";
         private readonly StringBuilder _baseUrlBuilder = new();
         private HttpClient _stilHttpClient { get; set; }
         internal VeuClient VEU { get; private set; }
-        
+
+        /// <summary>
+        /// Sets the api version. Default: /v1
+        /// </summary>
+        public string Version
+        {
+            get => this._version;
+            set => this._version = value;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="StilServiceClient" /> class.
+        /// </summary>
+        /// <param name="baseUrl">The baseUrl for the SOAP services, ex. https://et.integrationsplatformen.dk</param>
+        /// <param name="clientAndSigningCertificate">The certificate used for both the http client and xml signing.</param>
         public StilServiceClient(string baseUrl, X509Certificate2 clientAndSigningCertificate)
         {
             _clientCertificate = clientAndSigningCertificate;
@@ -64,6 +80,12 @@ namespace STIL.ServiceClient
             InstantiateClients(baseUrl);
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="StilServiceClient" /> class.
+        /// </summary>
+        /// <param name="baseUrl">The baseUrl for the SOAP services, ex. https://et.integrationsplatformen.dk.</param>
+        /// <param name="clientCertificate">The http client certificate.</param>
+        /// <param name="signingCertificate">The xml signing certificate.</param>
         public StilServiceClient(string baseUrl, X509Certificate2 clientCertificate, X509Certificate2 signingCertificate)
         {
             _clientCertificate = clientCertificate;
@@ -104,14 +126,14 @@ namespace STIL.ServiceClient
                 return new VeuClient(stilServiceClient);
             }
 
-            public async Task<hentTilmeldingerResponse> HentTilmeldingerVeuInteressenter(HentTilmeldingerRequest dataRequest, string version = "v1", CancellationToken cancellationToken = default)
+            public async Task<hentTilmeldingerResponse> HentTilmeldingerVeuInteressenter(HentTilmeldingerRequest dataRequest, CancellationToken cancellationToken = default)
             {
-                return await _stilServiceClient.SendSoapRequest<HentTilmeldingerRequest, hentTilmeldingerResponse>(nameof(HentTilmeldingerVeuInteressenter), dataRequest, version: version, cancellationToken: cancellationToken);
+                return await _stilServiceClient.SendSoapRequest<HentTilmeldingerRequest, hentTilmeldingerResponse>(nameof(HentTilmeldingerVeuInteressenter), dataRequest, cancellationToken: cancellationToken);
             }
 
-            public async Task<HentUdbudResponse> HentUdbud(HentUdbudRequest dataRequest, string version = "v1", CancellationToken cancellationToken = default)
+            public async Task<HentUdbudResponse> HentUdbud(HentUdbudRequest dataRequest, CancellationToken cancellationToken = default)
             {
-                return await _stilServiceClient.SendSoapRequest<HentUdbudRequest, HentUdbudResponse>(nameof(HentUdbud), dataRequest, version: version, cancellationToken: cancellationToken);
+                return await _stilServiceClient.SendSoapRequest<HentUdbudRequest, HentUdbudResponse>(nameof(HentUdbud), dataRequest, cancellationToken: cancellationToken);
             }
         }
 
@@ -145,7 +167,7 @@ namespace STIL.ServiceClient
             }
         }
 
-        protected virtual async Task<TResponse> SendSoapRequest<TRequest, TResponse>(string methodName, TRequest dataRequest, string version = "v1", CancellationToken cancellationToken = default) 
+        protected virtual async Task<TResponse> SendSoapRequest<TRequest, TResponse>(string methodName, TRequest dataRequest, CancellationToken cancellationToken = default) 
             where TRequest : class 
             where TResponse : class
         {
@@ -157,7 +179,7 @@ namespace STIL.ServiceClient
                 request.Method = HttpMethod.Post;
                 request.Content = new StringContent(signedRequest, Encoding.UTF8, "application/soap+xml");
                 var urlBuilder = _baseUrlBuilder;
-                urlBuilder.Append($"/{methodName}/{version}");
+                urlBuilder.Append($"/{methodName}{Version}");
                 request.RequestUri = new Uri(urlBuilder.ToString(), UriKind.RelativeOrAbsolute);
                 var response = await _stilHttpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken);
                 try

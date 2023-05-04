@@ -6,7 +6,8 @@ namespace STIL.ServiceClient.Tests
 {
     public class StilVeuTests
     {
-        [Fact(Skip = "Only relevant when live testing locally")]
+        ////[Fact(Skip = "Only relevant when live testing locally")]
+        [Fact]
         [Trait("Category", "Integration")]
         public async Task Get_HentTilmeldingerVeuInteressenter_ReturnsCorrectResult()
         {
