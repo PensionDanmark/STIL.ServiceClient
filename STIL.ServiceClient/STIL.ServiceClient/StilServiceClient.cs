@@ -182,9 +182,9 @@ namespace STIL.ServiceClient
                 var result = xmlSerializer.Deserialize(soapBody.FirstNode.CreateReader()) as T;
                 return result;
             }
-            catch (InvalidOperationException ex)
+            catch (Exception ex)
             {
-                throw new InvalidOperationException("Could not xml deserialize the response body string as " + typeof(T).FullName + ".", ex);
+                throw new ApiException("Could not deserialize the response body string as " + typeof(T).FullName + ".", (int)response.StatusCode, str, response.RequestMessage?.RequestUri.AbsoluteUri, headers, ex);
             }
         }
 
