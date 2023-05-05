@@ -11,6 +11,7 @@ using System.Xml.Linq;
 using System.Xml.Serialization;
 using STIL.ServiceClient.Properties;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net.Http.Headers;
 using STIL.Entities.Entities.VEU.HentUdbud;
@@ -53,7 +54,7 @@ namespace STIL.ServiceClient
         private readonly X509Certificate2 _clientCertificate;
         private readonly X509Certificate2 _signingCertificate;
         private readonly string _baseUrl = "/services";
-        private string _version = "/v1";
+        private string _version = "v1";
         private readonly StringBuilder _baseUrlBuilder = new();
         private HttpClient _stilHttpClient { get; set; }
         internal VeuClient VEU { get; private set; }
@@ -139,26 +140,46 @@ namespace STIL.ServiceClient
 
         #endregion VeuClient
 
-        protected virtual async Task<T> ReadObjectResponseAsync<T>(
-            HttpResponseMessage response,
+        /// <summary>
+        /// Deserialize response from xml.
+        /// </summary>
+        /// <typeparam name="T">The return type </typeparam>
+        /// <param name="response">The response.</param>
+        /// <param name="headers">The headers.</param>
+        /// <returns>The deserialized response.</returns>
+        /// <exception cref="InvalidOperationException">Thrown when document cannot be deserialized.</exception>
+        protected virtual async Task<T?> ReadObjectResponseAsync<T>(
+            HttpResponseMessage? response,
             IReadOnlyDictionary<string, IEnumerable<string>> headers) where T : class
         {
-            if (response == null || response.Content == null)
+            if (response?.Content == null)
                 return default;
 
-            string str = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+            var str = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
             try
             {
-                XNamespace soap = XNamespace.Get("http://www.w3.org/2003/05/soap-envelope");
-                XNamespace v1 = XNamespace.Get("http://ipl.stil.dk/services/veu/henttilmeldingerveuinteressenter/v1.0");
+                var document = XDocument.Parse(str);
+                if (document?.Root is null)
+                {
+                    throw new NullReferenceException("Document root element does not exist");
+                }
 
-                var env = XDocument.Parse(str);
-                var body = env.Root.Element(soap + "Body");
-                var responseElement = body.Element(v1 + "hentTilmeldingerResponse");
-                var s = new XmlSerializer(typeof(T));
-                var result = s.Deserialize(responseElement.CreateReader()) as T;
+                var soapEnvelope = document.Root.GetNamespaceOfPrefix("soap");
+                var soapBody = document.Root.Element(soapEnvelope + "Body");
+                if (soapBody?.FirstNode is null)
+                {
+                    throw new NullReferenceException("Soap body element does not exist");
+                }
 
+                var responseName = ((XElement)soapBody.FirstNode).Name.LocalName;
+                if (responseName != (typeof(T).Name))
+                {
+                    throw new InvalidOperationException($"The response type: {typeof(T).Name} does not match the response name: {responseName} of the xml element.");
+                }
+
+                var xmlSerializer = new XmlSerializer(typeof(T));
+                var result = xmlSerializer.Deserialize(soapBody.FirstNode.CreateReader()) as T;
                 return result;
             }
             catch (InvalidOperationException ex)
@@ -179,7 +200,7 @@ namespace STIL.ServiceClient
                 request.Method = HttpMethod.Post;
                 request.Content = new StringContent(signedRequest, Encoding.UTF8, "application/soap+xml");
                 var urlBuilder = _baseUrlBuilder;
-                urlBuilder.Append($"/{methodName}{Version}");
+                urlBuilder.Append($"/{methodName}/{Version}");
                 request.RequestUri = new Uri(urlBuilder.ToString(), UriKind.RelativeOrAbsolute);
                 var response = await _stilHttpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken);
                 try
