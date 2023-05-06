@@ -1,6 +1,7 @@
 using System.Security.Cryptography.X509Certificates;
 using FluentAssertions;
 using STIL.Entities.Entities.VEU.HentTilmeldingerVeuInteressenter;
+using STIL.Entities.Entities.VEU.HentUdbud;
 
 namespace STIL.ServiceClient.Tests
 {
@@ -50,6 +51,7 @@ namespace STIL.ServiceClient.Tests
             var stilServiceClient = new StilServiceClient(baseUrl, certificate);
 
             // Get the same 2 result just for fun.
+            var result0 = await stilServiceClient.VEU.HentUdbud(new HentUdbudRequest());
             var result = await stilServiceClient.VEU.HentTilmeldingerVeuInteressenter(request);
             var result2 = await stilServiceClient.VEU.HentTilmeldingerVeuInteressenter(request);
 
