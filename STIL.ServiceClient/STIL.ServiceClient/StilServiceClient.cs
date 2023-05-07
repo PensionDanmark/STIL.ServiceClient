@@ -1,5 +1,4 @@
-﻿using STIL.Entities.Entities.VEU.HentTilmeldingerVeuInteressenter;
-using STIL.ServiceClient.Util.SoapHelper;
+﻿using STIL.ServiceClient.Util.SoapHelper;
 using System;
 using System.Net;
 using System.Net.Http;
@@ -13,7 +12,6 @@ using STIL.ServiceClient.Properties;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
-using STIL.Entities.Entities.VEU.HentUdbud;
 
 namespace STIL.ServiceClient
 {
@@ -48,7 +46,7 @@ namespace STIL.ServiceClient
     /// </example>
     
     /// </summary>
-    public class StilServiceClient
+    public partial class StilServiceClient
     {
         private readonly X509Certificate2 _clientCertificate;
         private readonly X509Certificate2 _signingCertificate;
@@ -109,50 +107,6 @@ namespace STIL.ServiceClient
             VEU = VeuClient.CreateInstance(this);
         }
 
-        #region VeuClient
-
-        internal class VeuClient
-        {
-            private readonly StilServiceClient _stilServiceClient;
-
-            private VeuClient(StilServiceClient stilServiceClient)
-            {
-                _stilServiceClient = stilServiceClient;
-                _stilServiceClient._baseUrlBuilder.Append("/VEU");
-            }
-
-            internal static VeuClient CreateInstance(StilServiceClient stilServiceClient)
-            {
-                return new VeuClient(stilServiceClient);
-            }
-
-            /// <summary>
-            /// Hent tilmeldinger VeuInteressenter.
-            /// STIL documentation: https://viden.stil.dk/pages/viewpage.action?pageId=121963487
-            /// </summary>
-            /// <param name="dataRequest">The data request body.</param>
-            /// <param name="cancellationToken">The cancellation token.</param>
-            /// <returns>An instance of <see cref="hentTilmeldingerResponse"/>.</returns>
-            public async Task<hentTilmeldingerResponse> HentTilmeldingerVeuInteressenter(HentTilmeldingerRequest dataRequest, CancellationToken cancellationToken = default)
-            {
-                return await _stilServiceClient.SendSoapRequest<HentTilmeldingerRequest, hentTilmeldingerResponse>(nameof(HentTilmeldingerVeuInteressenter), dataRequest, cancellationToken: cancellationToken);
-            }
-
-            /// <summary>
-            /// Hent Udbud.
-            /// STIL documentation: https://viden.stil.dk/pages/viewpage.action?pageId=121963479
-            /// </summary>
-            /// <param name="dataRequest">The data request body.</param>
-            /// <param name="cancellationToken">The cancellation token.</param>
-            /// <returns>An instance of <see cref="HentUdbudResponse"/>.</returns>
-            public async Task<HentUdbudResponse> HentUdbud(HentUdbudRequest dataRequest, CancellationToken cancellationToken = default)
-            {
-                return await _stilServiceClient.SendSoapRequest<HentUdbudRequest, HentUdbudResponse>(nameof(HentUdbud), dataRequest, cancellationToken: cancellationToken);
-            }
-        }
-
-        #endregion VeuClient
-
         /// <summary>
         /// Deserialize response from xml.
         /// </summary>
@@ -182,7 +136,7 @@ namespace STIL.ServiceClient
                     throw new InvalidOperationException($"The response type: {typeof(T).Name} does not match the response name of the xml element.");
                 }
 
-                XmlSerializer serializer = new XmlSerializer(typeof(T));
+                XmlSerializer serializer = new XmlSerializer(typeof(T), body.GetNamespaceOfPrefix(Version)?.NamespaceName);
                 using (var reader = body.CreateReader())
                 {
                     return serializer.Deserialize(reader) as T;
@@ -246,7 +200,7 @@ namespace STIL.ServiceClient
                     {
                         // TODO: Implement other known status code failures.
                         case HttpStatusCode.BadRequest:
-                            var responseText = response.Content != null ? await response.Content.ReadAsStringAsync().ConfigureAwait(false) : "";
+                            var responseText = response.Content != null ? await response.Content.ReadAsStringAsync().ConfigureAwait(false) : string.Empty;
                             throw new ApiException("Bad request", (int)response.StatusCode, responseText, response.RequestMessage?.RequestUri.AbsoluteUri, headers, null!);
 
                         default:
@@ -257,7 +211,7 @@ namespace STIL.ServiceClient
                 }
                 finally
                 {
-                    response?.Dispose();
+                    response.Dispose();
                 }
             }
         }

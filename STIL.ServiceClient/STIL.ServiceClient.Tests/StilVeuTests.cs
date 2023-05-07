@@ -43,6 +43,7 @@ namespace STIL.ServiceClient.Tests
                 }
             };
 
+            // Retrieve certificate locally.
             var thumbprint = "87BA4C291BBBCDBC118723EFBE05C8785D1A5C32";
             var certStore = new X509Store(StoreLocation.CurrentUser);
             certStore.Open(OpenFlags.ReadOnly);
@@ -50,15 +51,61 @@ namespace STIL.ServiceClient.Tests
             var baseUrl = "https://et.integrationsplatformen.dk";
             var stilServiceClient = new StilServiceClient(baseUrl, certificate);
 
-            // Get the same 2 result just for fun.
-            var result0 = await stilServiceClient.VEU.HentUdbud(new HentUdbudRequest());
             var result = await stilServiceClient.VEU.HentTilmeldingerVeuInteressenter(request);
-            var result2 = await stilServiceClient.VEU.HentTilmeldingerVeuInteressenter(request);
 
             result.Should().NotBeNull();
-            result2.Should().NotBeNull();
 
             result.Message.hentTilmeldingerResponse.Resultat.Resultat.PersonListe.Length.Should().Be(10);
         }
+
+        ////[Fact(Skip = "Only relevant when live testing locally")]
+        [Fact]
+        [Trait("Category", "Integration")]
+        public async Task Get_HentUdbud_ReturnsCorrectResult()
+        {
+            var request = new HentUdbudRequest()
+            {
+                Identifier = new Entities.Entities.VEU.HentUdbud.Identifier
+                {
+                    SystemName = "MGL3010",
+                    SystemTransactionID = Guid.NewGuid().ToString()
+                },
+                Message = new HentUdbudRequestMessage()
+                {
+                    HentUdbudRequest = new HentUdbudRequest1()
+                    {
+                        Indhold = new IndholdRequestType()
+                        {
+                            DsNummerListe = new []{"123"}
+                        },
+                        Modtager = new ModtagerType()
+                        {
+                            ModtagerSystemId = "MGL3010",
+                            ModtagerSystemTransaktionsID = Guid.NewGuid().ToString(),
+                        }
+                    }
+                }
+            };
+
+            // Retrieve certificate locally.
+            var baseUrl = "https://et.integrationsplatformen.dk";
+            var stilServiceClient = new StilServiceClient(baseUrl, GetCertificate());
+
+            var result = await stilServiceClient.VEU.HentUdbud(request);
+
+            result.Should().NotBeNull();
+        }
+
+        public static X509Certificate2 GetCertificate()
+        {
+            // Retrieve certificate locally.
+            var thumbprint = "87BA4C291BBBCDBC118723EFBE05C8785D1A5C32";
+            var certStore = new X509Store(StoreLocation.CurrentUser);
+            certStore.Open(OpenFlags.ReadOnly);
+            return certStore.Certificates.Find(X509FindType.FindByThumbprint, thumbprint, validOnly: false).FirstOrDefault();
+            
+        }
     }
+
+
 }
