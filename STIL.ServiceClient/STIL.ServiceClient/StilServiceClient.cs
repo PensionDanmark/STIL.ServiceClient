@@ -12,6 +12,13 @@ using STIL.ServiceClient.Properties;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
+using System.ServiceModel.Channels;
+using System.Xml;
+using System.IO;
+using System.ServiceModel;
+using STIL.Entities.Entities.VEU.HentUdbud;
+using STIL.Entities.Common;
+using STIL.Entities.Entities.VEU.HentTilmeldingerVeuInteressenter;
 
 namespace STIL.ServiceClient
 {
@@ -136,7 +143,7 @@ namespace STIL.ServiceClient
                     throw new InvalidOperationException($"The response type: {typeof(T).Name} does not match the response name of the xml element.");
                 }
 
-                XmlSerializer serializer = new XmlSerializer(typeof(T), body.GetNamespaceOfPrefix(Version)?.NamespaceName);
+                XmlSerializer serializer = new XmlSerializer(typeof(T), body.GetNamespaceOfPrefix(Version)?.NamespaceName ?? body.GetDefaultNamespace().NamespaceName);
                 using (var reader = body.CreateReader())
                 {
                     return serializer.Deserialize(reader) as T;
@@ -149,19 +156,60 @@ namespace STIL.ServiceClient
         }
 
         /// <summary>
+        /// Gets the deserialized error object as <see cref="IServiceFaultDetailer"/>
+        /// Returns null if error could not be deserialized.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="response">The http response.</param>
+        /// <returns>The deserialized instance of <see cref="IServiceFaultDetailer"/>.</returns>
+        protected virtual async Task<IServiceFaultDetailer?> GetErrorObjectResponseAsync<T>(
+            HttpResponseMessage? response) where T : class
+        {
+            if (response?.Content == null)
+            {
+                return default;
+            }
+
+            try
+            {
+                var responseText = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                XDocument document = XDocument.Parse(responseText);
+                XElement? body = document.Root?.Descendants().FirstOrDefault(d => d.Name.LocalName == typeof(T).Name);
+                if (body == null)
+                {
+                    return null;
+                }
+
+                XmlSerializer serializer = new XmlSerializer(typeof(T), body.GetDefaultNamespace().NamespaceName);
+                using (var reader = body.CreateReader())
+                {
+                    
+                    return serializer.Deserialize(reader) as T as IServiceFaultDetailer;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
         /// Send Soap Request method.
         /// Can be overridden in any derived classes.
         /// </summary>
         /// <typeparam name="TRequest">The request type.</typeparam>
         /// <typeparam name="TResponse">The response type.</typeparam>
+        /// <typeparam name="TServiceFaultDetailer">The service fault detailer type.</typeparam>
         /// <param name="methodName">The method name used in request uri.</param>
         /// <param name="dataRequest">The data request body.</param>
+        /// <param name="serviceFaultDetailer">The service fault detailer model when error happens.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns></returns>
         /// <exception cref="ApiException">Thrown when</exception>
-        protected virtual async Task<TResponse> SendSoapRequest<TRequest, TResponse>(string methodName, TRequest dataRequest, CancellationToken cancellationToken = default) 
+        protected virtual async Task<TResponse> SendSoapRequest<TRequest, TResponse, TServiceFaultDetailer>(string methodName, TRequest dataRequest, CancellationToken cancellationToken = default) 
             where TRequest : class 
             where TResponse : class
+            where TServiceFaultDetailer : class
         {
             // TODO: Implement Polly retry policies, for 500 / 503 connection fails.
             var stilRequest = new StilSoapMessage<TRequest>(dataRequest);
@@ -200,8 +248,41 @@ namespace STIL.ServiceClient
                     {
                         // TODO: Implement other known status code failures.
                         case HttpStatusCode.BadRequest:
-                            var responseText = response.Content != null ? await response.Content.ReadAsStringAsync().ConfigureAwait(false) : string.Empty;
-                            throw new ApiException("Bad request", (int)response.StatusCode, responseText, response.RequestMessage?.RequestUri.AbsoluteUri, headers, null!);
+                        {
+                            if (response.Content is null)
+                            {
+                                throw new ApiException("Bad request", (int)response.StatusCode, "No error response found.", response.RequestMessage?.RequestUri.AbsoluteUri, headers, null!);
+                            }
+                                //using var xmlReader = XmlReader.Create(await response.Content.ReadAsStringAsync().ConfigureAwait(false));
+
+                                var sb = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                                var lotto = await ReadErrorObjectResponseAsync<TServiceFaultDetailer>(response, headers)
+                                    .ConfigureAwait(false);
+                                var document = XDocument.Parse(sb);
+                                var soapEnvelope = XNamespace.Get("http://www.w3.org/2003/05/soap-envelope");
+                                var soapBody = document.Descendants(soapEnvelope + "Body").FirstOrDefault();
+                                if (soapBody != null)
+                                {
+                                    var errorMessage = soapBody.Descendants().FirstOrDefault(e => e.Name.LocalName == "ErrorMessage")?.Value;
+                                    if (!string.IsNullOrEmpty(errorMessage))
+                                    {
+                                        Console.WriteLine(errorMessage);
+                                    }
+                                }
+
+                                using (var memStream = new MemoryStream(Encoding.Default.GetBytes(sb)))
+                                {
+                                    var xmlReader = new XmlTextReader(memStream);
+                                    var message3 = Message.CreateMessage(xmlReader, int.MaxValue, MessageVersion.Soap12WSAddressing10);
+                                    var msgFault = MessageFault.CreateFault(message3, int.MaxValue);
+                                    var ok = new FaultException(msgFault.Reason, msgFault.Code, "fy skamme");
+                                    throw new ApiException("Bad request", (int)response.StatusCode, ok.Message, response.RequestMessage?.RequestUri.AbsoluteUri, headers, null!);
+                                }
+
+                            var ok2 = MessageVersion.CreateVersion(MessageVersion.CreateVersion(EnvelopeVersion.Soap12).Envelope);
+
+                            throw new ApiException("Bad request", (int)response.StatusCode, "test", response.RequestMessage?.RequestUri.AbsoluteUri, headers, null!);
+                        }
 
                         default:
                             var requestUrl = response.RequestMessage?.RequestUri.AbsoluteUri;

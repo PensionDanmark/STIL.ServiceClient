@@ -1,10 +1,12 @@
-﻿namespace STIL.Entities.Entities.VEU.HentTilmeldingerVeuInteressenter;
+﻿using STIL.Entities.Common;
+
+namespace STIL.Entities.Entities.VEU.HentTilmeldingerVeuInteressenter;
 
 [System.SerializableAttribute]
 [System.Diagnostics.DebuggerStepThroughAttribute]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://ipl.stil.dk/services/veu/henttilmeldingerveuinteressenter/v1.0")]
-public class ServiceFaultDetailer
+public class ServiceFaultDetailer : IServiceFaultDetailer
 {
     private string correlationIDField;
 

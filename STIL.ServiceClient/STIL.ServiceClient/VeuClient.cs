@@ -32,7 +32,7 @@ public partial class StilServiceClient
         public async Task<hentTilmeldingerResponse> HentTilmeldingerVeuInteressenter(
             HentTilmeldingerRequest dataRequest, CancellationToken cancellationToken = default)
         {
-            return await _stilServiceClient.SendSoapRequest<HentTilmeldingerRequest, hentTilmeldingerResponse>(
+            return await _stilServiceClient.SendSoapRequest<HentTilmeldingerRequest, hentTilmeldingerResponse, STIL.Entities.Entities.VEU.HentTilmeldingerVeuInteressenter.ServiceFaultDetailer>(
                 nameof(HentTilmeldingerVeuInteressenter), dataRequest, cancellationToken: cancellationToken);
         }
 
@@ -42,11 +42,11 @@ public partial class StilServiceClient
         /// </summary>
         /// <param name="dataRequest">The data request body.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>An instance of <see cref="HentUdbudResponse"/>.</returns>
+        /// <returns>An instance of <see cref="Entities.Entities.VEU.HentUdbud.HentUdbudResponse"/>.</returns>
         public async Task<HentUdbudResponse> HentUdbud(HentUdbudRequest dataRequest,
             CancellationToken cancellationToken = default)
         {
-            return await _stilServiceClient.SendSoapRequest<HentUdbudRequest, HentUdbudResponse>(nameof(HentUdbud),
+            return await _stilServiceClient.SendSoapRequest<HentUdbudRequest, HentUdbudResponse, STIL.Entities.Entities.VEU.HentUdbud.ServiceFaultDetailer>(nameof(HentUdbud),
                 dataRequest, cancellationToken: cancellationToken);
         }
     }

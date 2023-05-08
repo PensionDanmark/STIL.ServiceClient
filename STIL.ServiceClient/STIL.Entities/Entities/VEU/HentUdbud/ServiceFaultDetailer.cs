@@ -1,4 +1,5 @@
 ﻿using System;
+using STIL.Entities.Common;
 
 namespace STIL.Entities.Entities.VEU.HentUdbud;
 
@@ -6,7 +7,7 @@ namespace STIL.Entities.Entities.VEU.HentUdbud;
 [System.Diagnostics.DebuggerStepThroughAttribute]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://ipl.stil.dk/services/veu/hentudbud/v1.0")]
-public class ServiceFaultDetailer
+public class ServiceFaultDetailer : IServiceFaultDetailer
 {
     private string correlationIDField;
 

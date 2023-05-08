@@ -1,4 +1,5 @@
 using System.Security.Cryptography.X509Certificates;
+using System.ServiceModel.Channels;
 using FluentAssertions;
 using STIL.Entities.Entities.VEU.HentTilmeldingerVeuInteressenter;
 using STIL.Entities.Entities.VEU.HentUdbud;
@@ -91,7 +92,9 @@ namespace STIL.ServiceClient.Tests
             var baseUrl = "https://et.integrationsplatformen.dk";
             var stilServiceClient = new StilServiceClient(baseUrl, GetCertificate());
 
-            var result = await stilServiceClient.VEU.HentUdbud(request);
+            var request2 = new HentUdbudRequest();
+            
+            var result = await stilServiceClient.VEU.HentUdbud(request2);
 
             result.Should().NotBeNull();
         }
