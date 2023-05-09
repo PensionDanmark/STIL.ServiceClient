@@ -1,6 +1,16 @@
+using System.IO;
+using System.Net;
+using System.Reflection;
+using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.ServiceModel.Channels;
 using FluentAssertions;
+using Microsoft.VisualStudio.TestPlatform.ObjectModel.Client;
+using Microsoft.VisualStudio.TestPlatform.ObjectModel.DataCollection;
+using Moq;
+using Moq.Contrib.HttpClient;
+using Moq.Protected;
+using STIL.Entities.Common;
 using STIL.Entities.Entities.VEU.HentTilmeldingerVeuInteressenter;
 using STIL.Entities.Entities.VEU.HentUdbud;
 
@@ -87,16 +97,47 @@ namespace STIL.ServiceClient.Tests
                     }
                 }
             };
-
+             
             // Retrieve certificate locally.
             var baseUrl = "https://et.integrationsplatformen.dk";
-            var stilServiceClient = new StilServiceClient(baseUrl, GetCertificate());
+            IStilServiceClient stilServiceClient = new StilServiceClient(baseUrl, GetCertificate());
 
             var request2 = new HentUdbudRequest();
             
             var result = await stilServiceClient.VEU.HentUdbud(request2);
 
             result.Should().NotBeNull();
+        }
+
+        [Fact]
+        public async Task HentTilmeldingerVeuInteressenter_ShouldReturnExpectedResult()
+        {
+            // Arrange
+            var handler = new Mock<HttpMessageHandler>();
+            var httpClient = handler.CreateClient();
+
+            handler.SetupAnyRequest()
+                .ReturnsResponse(HttpStatusCode.OK, response =>
+                {
+                    response.Content = new StringContent(UtilMethods.GetXmlContentFromFile("hentTilmeldingerResponse.xml"));
+                });
+            
+            X509Certificate2 cert = UtilMethods.CreateSelfSignedCertificate("test", DateTime.UtcNow, DateTime.UtcNow.AddMinutes(5));
+
+            // Create an instance of the StilServiceClient and set its HttpClient to the mock object
+            var sut = new StilServiceClient("https://example.com", cert);
+            sut.GetType()
+                         .GetProperty("StilHttpClient", BindingFlags.Instance | BindingFlags.NonPublic)
+                         .SetValue(sut, httpClient);
+
+            // Act
+            var request = new HentTilmeldingerRequest();
+
+            var response = await sut.VEU.HentTilmeldingerVeuInteressenter(request);
+
+            // Assert
+            response.Should().NotBeNull();
+            response.Message.hentTilmeldingerResponse.Resultat.Resultat.PersonListe.Length.Should().Be(10);
         }
 
         public static X509Certificate2 GetCertificate()

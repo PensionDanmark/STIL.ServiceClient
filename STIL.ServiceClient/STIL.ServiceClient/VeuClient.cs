@@ -7,7 +7,10 @@ namespace STIL.ServiceClient;
 
 public partial class StilServiceClient
 {
-    internal class VeuClient
+    /// <summary>
+    /// The VEU Client.
+    /// </summary>
+    public class VeuClient
     {
         private readonly StilServiceClient _stilServiceClient;
 

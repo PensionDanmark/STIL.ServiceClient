@@ -51,9 +51,9 @@ namespace STIL.ServiceClient
     /// // Use the response data
     /// Console.WriteLine($"Number of tilmeldinger: {result.Message.hentTilmeldingerResponse.Resultat.Resultat.PersonListe.Length}");
     /// </example>
-    
+
     /// </summary>
-    public partial class StilServiceClient
+    public partial class StilServiceClient : IStilServiceClient
     {
         private readonly X509Certificate2 _clientCertificate;
         private readonly X509Certificate2 _signingCertificate;
@@ -61,7 +61,10 @@ namespace STIL.ServiceClient
         private string _version = "v1";
         private readonly StringBuilder _baseUrlBuilder = new();
         private HttpClient StilHttpClient { get; set; }
-        internal VeuClient VEU { get; private set; }
+        /// <summary>
+        /// The STIL VEU area.
+        /// </summary>
+        public VeuClient VEU { get; private set; }
 
         /// <summary>
         /// Sets the api version. Default: /v1
@@ -106,7 +109,7 @@ namespace STIL.ServiceClient
             var handler = new HttpClientHandler()
             {
                 ClientCertificates = { _clientCertificate },
-                
+
             };
             StilHttpClient = new HttpClient(handler);
             _baseUrlBuilder.Append(baseUrl.TrimEnd('/')).Append(_baseUrl);
@@ -162,7 +165,7 @@ namespace STIL.ServiceClient
         /// <typeparam name="T"></typeparam>
         /// <param name="response">The http response.</param>
         /// <returns>The deserialized instance of <see cref="IServiceFaultDetailer"/>.</returns>
-        protected virtual async Task<IServiceFaultDetailer?> GetErrorObjectResponseAsync<T>(
+        protected virtual async Task<FaultException?> GetFaultException<T>(
             HttpResponseMessage? response) where T : class
         {
             if (response?.Content == null)
@@ -172,24 +175,29 @@ namespace STIL.ServiceClient
 
             try
             {
-                var responseText = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-                XDocument document = XDocument.Parse(responseText);
-                XElement? body = document.Root?.Descendants().FirstOrDefault(d => d.Name.LocalName == typeof(T).Name);
-                if (body == null)
+                using (var memStream = await response.Content.ReadAsStreamAsync())
                 {
-                    return null;
-                }
+                    var xmlReader = new XmlTextReader(memStream);
+                    var message = Message.CreateMessage(xmlReader, int.MaxValue, MessageVersion.Soap12WSAddressing10);
+                    var msgFault = MessageFault.CreateFault(message, int.MaxValue);
+                    var details = await GetErrorDetails<T>(response);
 
-                XmlSerializer serializer = new XmlSerializer(typeof(T), body.GetDefaultNamespace().NamespaceName);
-                using (var reader = body.CreateReader())
-                {
-                    
-                    return serializer.Deserialize(reader) as T as IServiceFaultDetailer;
+                    if (details.serviceFaultDetailer != null)
+                    {
+                        return new FaultException<T>(details.serviceFaultDetailer, msgFault.Reason, msgFault.Code, response.RequestMessage?.RequestUri.AbsoluteUri);
+                    }
+
+                    if (details.errorMessage != null)
+                    {
+                        return new FaultException(details.errorMessage);
+                    }
+
+                    return new FaultException(msgFault, response.RequestMessage?.RequestUri.AbsoluteUri);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return null;
+                return new FaultException(ex.Message);
             }
         }
 
@@ -206,8 +214,8 @@ namespace STIL.ServiceClient
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns></returns>
         /// <exception cref="ApiException">Thrown when</exception>
-        protected virtual async Task<TResponse> SendSoapRequest<TRequest, TResponse, TServiceFaultDetailer>(string methodName, TRequest dataRequest, CancellationToken cancellationToken = default) 
-            where TRequest : class 
+        protected virtual async Task<TResponse> SendSoapRequest<TRequest, TResponse, TServiceFaultDetailer>(string methodName, TRequest dataRequest, CancellationToken cancellationToken = default)
+            where TRequest : class
             where TResponse : class
             where TServiceFaultDetailer : class
         {
@@ -248,41 +256,15 @@ namespace STIL.ServiceClient
                     {
                         // TODO: Implement other known status code failures.
                         case HttpStatusCode.BadRequest:
-                        {
-                            if (response.Content is null)
                             {
-                                throw new ApiException("Bad request", (int)response.StatusCode, "No error response found.", response.RequestMessage?.RequestUri.AbsoluteUri, headers, null!);
+                                if (response.Content is null)
+                                {
+                                    throw new ApiException("Bad request", (int)response.StatusCode, "No error response found.", response.RequestMessage?.RequestUri.AbsoluteUri, headers, null!);
+                                }
+
+                                var faultException = await GetFaultException<TServiceFaultDetailer>(response);
+                                throw new ApiException("Bad request", (int)response.StatusCode, faultException?.Message, response.RequestMessage?.RequestUri.AbsoluteUri, headers, faultException!);
                             }
-                                //using var xmlReader = XmlReader.Create(await response.Content.ReadAsStringAsync().ConfigureAwait(false));
-
-                                var sb = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-                                var lotto = await ReadErrorObjectResponseAsync<TServiceFaultDetailer>(response, headers)
-                                    .ConfigureAwait(false);
-                                var document = XDocument.Parse(sb);
-                                var soapEnvelope = XNamespace.Get("http://www.w3.org/2003/05/soap-envelope");
-                                var soapBody = document.Descendants(soapEnvelope + "Body").FirstOrDefault();
-                                if (soapBody != null)
-                                {
-                                    var errorMessage = soapBody.Descendants().FirstOrDefault(e => e.Name.LocalName == "ErrorMessage")?.Value;
-                                    if (!string.IsNullOrEmpty(errorMessage))
-                                    {
-                                        Console.WriteLine(errorMessage);
-                                    }
-                                }
-
-                                using (var memStream = new MemoryStream(Encoding.Default.GetBytes(sb)))
-                                {
-                                    var xmlReader = new XmlTextReader(memStream);
-                                    var message3 = Message.CreateMessage(xmlReader, int.MaxValue, MessageVersion.Soap12WSAddressing10);
-                                    var msgFault = MessageFault.CreateFault(message3, int.MaxValue);
-                                    var ok = new FaultException(msgFault.Reason, msgFault.Code, "fy skamme");
-                                    throw new ApiException("Bad request", (int)response.StatusCode, ok.Message, response.RequestMessage?.RequestUri.AbsoluteUri, headers, null!);
-                                }
-
-                            var ok2 = MessageVersion.CreateVersion(MessageVersion.CreateVersion(EnvelopeVersion.Soap12).Envelope);
-
-                            throw new ApiException("Bad request", (int)response.StatusCode, "test", response.RequestMessage?.RequestUri.AbsoluteUri, headers, null!);
-                        }
 
                         default:
                             var requestUrl = response.RequestMessage?.RequestUri.AbsoluteUri;
@@ -290,6 +272,7 @@ namespace STIL.ServiceClient
                             throw new ApiException("The HTTP status code of the response was not expected (" + ((int)response.StatusCode) + ").", (int)response.StatusCode, responseData, response.RequestMessage?.RequestUri.AbsoluteUri, headers, null!);
                     }
                 }
+
                 finally
                 {
                     response.Dispose();
@@ -297,6 +280,28 @@ namespace STIL.ServiceClient
             }
         }
 
+        private async Task<(T? serviceFaultDetailer, string? errorMessage)> GetErrorDetails<T>(HttpResponseMessage response) where T : class
+        {
+            try
+            {
+                var responseText = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                XDocument document = XDocument.Parse(responseText);
+                XElement? body = document.Root?.Descendants().FirstOrDefault(d => d.Name.LocalName == typeof(T).Name);
+                if (body == null)
+                {
+                    return (null, null);
+                }
 
+                XmlSerializer serializer = new XmlSerializer(typeof(T), body.GetDefaultNamespace().NamespaceName);
+                using (var reader = body.CreateReader())
+                {
+                    return (serializer.Deserialize(reader) as T, null);
+                }
+            }
+            catch (Exception ex)
+            {
+                return (null, $"Failed to get additional error details of {typeof(T)} from response. Error: {ex.Message}");
+            }
+        }
     }
 }
