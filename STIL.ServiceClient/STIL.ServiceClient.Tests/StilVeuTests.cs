@@ -8,11 +8,10 @@ using FluentAssertions;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.Client;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.DataCollection;
 using Moq;
-using Moq.Contrib.HttpClient;
 using Moq.Protected;
-using STIL.Entities.Common;
 using STIL.Entities.Entities.VEU.HentTilmeldingerVeuInteressenter;
 using STIL.Entities.Entities.VEU.HentUdbud;
+using STIL.ServiceClient.Tests.Extensions;
 
 namespace STIL.ServiceClient.Tests
 {
@@ -113,23 +112,7 @@ namespace STIL.ServiceClient.Tests
         public async Task HentTilmeldingerVeuInteressenter_ShouldReturnExpectedResult()
         {
             // Arrange
-            var handler = new Mock<HttpMessageHandler>();
-            var httpClient = handler.CreateClient();
-
-            handler.SetupAnyRequest()
-                .ReturnsResponse(HttpStatusCode.OK, response =>
-                {
-                    response.Content = new StringContent(UtilMethods.GetXmlContentFromFile("hentTilmeldingerResponse.xml"));
-                });
-            
-            X509Certificate2 cert = UtilMethods.CreateSelfSignedCertificate("test", DateTime.UtcNow, DateTime.UtcNow.AddMinutes(5));
-
-            // Create an instance of the StilServiceClient and set its HttpClient to the mock object
-            var sut = new StilServiceClient("https://example.com", cert);
-            sut.GetType()
-                         .GetProperty("StilHttpClient", BindingFlags.Instance | BindingFlags.NonPublic)
-                         .SetValue(sut, httpClient);
-
+            var sut = UtilMethods.CreateStilServiceClientMock("hentTilmeldingerResponse.xml");
             // Act
             var request = new HentTilmeldingerRequest();
 

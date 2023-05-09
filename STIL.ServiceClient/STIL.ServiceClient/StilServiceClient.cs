@@ -17,7 +17,6 @@ using System.Xml;
 using System.IO;
 using System.ServiceModel;
 using STIL.Entities.Entities.VEU.HentUdbud;
-using STIL.Entities.Common;
 using STIL.Entities.Entities.VEU.HentTilmeldingerVeuInteressenter;
 
 namespace STIL.ServiceClient
@@ -159,12 +158,12 @@ namespace STIL.ServiceClient
         }
 
         /// <summary>
-        /// Gets the deserialized error object as <see cref="IServiceFaultDetailer"/>
+        /// Gets the fault exception <see cref="FaultException"/>
         /// Returns null if error could not be deserialized.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="response">The http response.</param>
-        /// <returns>The deserialized instance of <see cref="IServiceFaultDetailer"/>.</returns>
+        /// <returns>instance of <see cref="FaultException"/>.</returns>
         protected virtual async Task<FaultException?> GetFaultException<T>(
             HttpResponseMessage? response) where T : class
         {
@@ -254,7 +253,6 @@ namespace STIL.ServiceClient
 
                     switch (response.StatusCode)
                     {
-                        // TODO: Implement other known status code failures.
                         case HttpStatusCode.BadRequest:
                             {
                                 if (response.Content is null)
