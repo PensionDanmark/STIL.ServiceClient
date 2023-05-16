@@ -4,9 +4,7 @@ using System.Text;
 
 namespace STIL.Entities.VEU.HentOptagedePladser
 {
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.SerializableAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.Xml.Serialization.XmlRoot(ElementName = "HentOptagedePladserResponse", Namespace = "http://ipl.stil.dk/services/veu/hentoptagedepladser/v1")]
     public class HentOptagedePladserResponse1
     {
