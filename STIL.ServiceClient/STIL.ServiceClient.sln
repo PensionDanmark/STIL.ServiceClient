@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STIL.ServiceClient", "STIL.ServiceClient\STIL.ServiceClient.csproj", "{43FC2AFF-1DEE-4239-B167-8364B1F127CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "STIL.ServiceClient", "STIL.ServiceClient\STIL.ServiceClient.csproj", "{43FC2AFF-1DEE-4239-B167-8364B1F127CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STIL.Entities", "STIL.Entities\STIL.Entities.csproj", "{4E43591B-6751-436A-9958-D63B1DE5187D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "STIL.Entities", "STIL.Entities\STIL.Entities.csproj", "{4E43591B-6751-436A-9958-D63B1DE5187D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STIL.ServiceClient.Tests", "STIL.ServiceClient.Tests\STIL.ServiceClient.Tests.csproj", "{384A67FC-0299-4E05-9D00-CDCACE62F42B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "STIL.ServiceClient.Tests", "STIL.ServiceClient.Tests\STIL.ServiceClient.Tests.csproj", "{384A67FC-0299-4E05-9D00-CDCACE62F42B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

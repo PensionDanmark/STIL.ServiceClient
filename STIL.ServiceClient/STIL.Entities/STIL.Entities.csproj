@@ -4,5 +4,4 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>default</LangVersion>
   </PropertyGroup>
-
 </Project>

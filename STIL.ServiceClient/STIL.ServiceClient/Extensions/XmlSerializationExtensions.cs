@@ -1,10 +1,7 @@
-﻿using System.Runtime.CompilerServices;
-using System.IO;
+﻿using System.IO;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
-
-[assembly: InternalsVisibleTo("STIL.SoapHelper.Tests")]
 
 namespace STIL.SoapHelper
 {

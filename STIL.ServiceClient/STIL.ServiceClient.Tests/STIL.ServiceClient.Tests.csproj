@@ -10,18 +10,30 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Samples\hentTilmeldingerResponse.xml" />
-    <None Remove="Samples\hentTilmeldingerResponse_shortlist.xml" />
+    <None Remove="Samples\HentOptagedePladser_ErrorResponse_400.xml" />
+    <None Remove="Samples\HentOptagedePladser_ValidResponse.xml" />
   </ItemGroup>
 
+	<ItemGroup>
+		<Using Include="Xunit" />
+		<Using Include="Moq" />
+		<Using Include="FluentAssertions" />
+		<Using Include="System.DateTime" Alias="DT" />
+	</ItemGroup>
+
   <ItemGroup>
-    <EmbeddedResource Include="Samples\hentTilmeldingerResponse.xml" />
-    <EmbeddedResource Include="Samples\hentTilmeldingerResponse_shortlist.xml" />
+    <EmbeddedResource Include="Samples\HentOptagedePladser_ErrorResponse_400.xml" />
+    <EmbeddedResource Include="Samples\HentOptagedePladser_ValidResponse.xml" />
+    <EmbeddedResource Include="Samples\HentTilmeldingerVeuInteressenter_ValidResponse.xml" />
+    <EmbeddedResource Include="Samples\HentTilmeldingerVeuInteressenter_ErrorResponse_400.xml" />
+    <EmbeddedResource Include="Samples\HentUdbud_ErrorResponse_500.xml" />
+    <EmbeddedResource Include="Samples\HentUdbud_ValidResponse.xml" />
+    <EmbeddedResource Include="Samples\HentUdbud_ErrorResponse_400.xml" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="6.11.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.2" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.5.0" />
     <PackageReference Include="Moq" Version="4.18.4" />
     <PackageReference Include="System.ServiceModel.Primitives" Version="4.10.2" />
     <PackageReference Include="xunit" Version="2.4.2" />
@@ -29,7 +41,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="coverlet.collector" Version="3.1.2">
+    <PackageReference Include="coverlet.collector" Version="3.2.0">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>

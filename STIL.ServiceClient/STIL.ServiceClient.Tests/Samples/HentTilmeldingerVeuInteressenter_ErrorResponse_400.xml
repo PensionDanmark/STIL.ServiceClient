@@ -1,0 +1,27 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+	<soap:Body>
+		<soap:Fault>
+			<soap:Code>
+				<soap:Value>soap:Sender</soap:Value>
+			</soap:Code>
+			<soap:Reason>
+				<soap:Text xml:lang="en">Input error</soap:Text>
+			</soap:Reason>
+			<soap:Detail>
+				<ServiceFaultDetailer xmlns="http://ipl.stil.dk/services/veu/henttilmeldingerveuinteressenter/v1.0">
+					<CorrelationID>7705dbac-c24d-47b3-bcc8-18ca38e62fb7</CorrelationID>
+					<Timestamp>2023-05-12T09:17:31.736371332</Timestamp>
+					<ErrorCode>IPL000002</ErrorCode>
+					<ErrorMessage>The request is invalid according to the schema definition. Check details for further information</ErrorMessage>
+					<Details>
+						Validation failed for: com.sun.org.apache.xerces.internal.jaxp.validation.XMLSchema@160614dc
+						errors: [
+						org.xml.sax.SAXParseException: cvc-maxLength-valid: Value '0101198000123' with length = '13' is not facet-valid with respect to maxLength '10' for type '#AnonType_CPRnummercprNummerListe'., Line : 1, Column : 970
+						org.xml.sax.SAXParseException: cvc-type.3.1.3: The value '0101198000123' of element 'CPRnummer' is not valid., Line : 1, Column : 970
+						]. Exchange[2A752B47FC9F3F5-0000000000000175]
+					</Details>
+				</ServiceFaultDetailer>
+			</soap:Detail>
+		</soap:Fault>
+	</soap:Body>
+</soap:Envelope>

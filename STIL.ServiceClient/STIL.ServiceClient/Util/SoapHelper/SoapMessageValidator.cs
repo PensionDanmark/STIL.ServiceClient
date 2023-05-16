@@ -18,7 +18,7 @@ namespace STIL.ServiceClient.Util.SoapHelper
         {
             _xmlDocument = xmlDocument;
         }
-        
+
         /// <summary>
         /// Validates that the document looks like a SOAP message by inspecting the
         /// Envelope, Header and Security elements.
@@ -26,7 +26,6 @@ namespace STIL.ServiceClient.Util.SoapHelper
         /// <returns>The Security element of the SOAP Header.</returns>
         public XmlNode FindSecurityElement()
         {
-            
             var envelopeNode = FindFirstChildElement(
                 _xmlDocument,
                 "Envelope",
@@ -37,14 +36,15 @@ namespace STIL.ServiceClient.Util.SoapHelper
                 "Header",
                 "Envelope element has no content",
                 "Expected a 'Header' element as first child of the 'Envelope' element");
-            var securityNode = FindFirstChildElement(headerNode,
+            var securityNode = FindFirstChildElement(
+                headerNode,
                 "Security",
                 "Header element has no security element",
                 "Expected a 'Security' element as first child of the 'Header' element");
-            
+
             return securityNode;
         }
-        
+
         /// <summary>
         /// Finds the first child element of the given <see cref="XmlNode"/> parent element.
         /// </summary>
@@ -63,7 +63,7 @@ namespace STIL.ServiceClient.Util.SoapHelper
         /// <summary>
         /// Ensure that the given <see cref="XmlNode"/> is not null.
         /// </summary>
-        /// <param name="node">The node to check for null</param>
+        /// <param name="node">The node to check for null.</param>
         /// <returns>The guarenteed non-null <see cref="XmlNode"/>.</returns>
         /// <exception cref="ArgumentNullException">Thrown if the given <see cref="XmlNode"/> is null.</exception>
         private static XmlNode ValidateNode(XmlNode node)
@@ -100,8 +100,5 @@ namespace STIL.ServiceClient.Util.SoapHelper
 
             return childNode;
         }
-
-
-
     }
 }

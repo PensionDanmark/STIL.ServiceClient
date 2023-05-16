@@ -10,33 +10,33 @@ namespace STIL.ServiceClient.Util.SoapHelper
     /// Helper class for building a SOAP message for STIL.
     /// </summary>
     /// <typeparam name="T">The type of the SOAP Body content.</typeparam>
-    internal class StilSoapBuilder<T>
+    internal class SoapBuilder<T>
     {
+        private const string ValueType = "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3";
+        private const string EncodingType = "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary";
         private readonly T _body;
         private readonly XNamespace soapenvNs = XNamespace.Get("http://www.w3.org/2003/05/soap-envelope");
         private readonly XNamespace securityUtilNs = XNamespace.Get("http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd");
         private readonly XNamespace securityWSNs = XNamespace.Get("http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd");
         private readonly XNamespace xsiNs = XNamespace.Get("http://www.w3.org/2001/XMLSchema-instance");
         private readonly XNamespace xsdNs = XNamespace.Get("http://www.w3.org/2001/XMLSchema");
-        private const string ValueType = "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3";
-        private const string EncodingType = "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary";
-        
-        /// <summary>
-        /// Contains the identifier that identifies the signing certificate element (a.k.a. BinarySecurityToken).
-        /// </summary>
-        public Guid TokenId { get; private set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StilSoapBuilder{T}"/> class.
+        /// Initializes a new instance of the <see cref="SoapBuilder{T}"/> class.
         /// </summary>
         /// <param name="body">The element to be placed in the SOAP body of the SOAP message.</param>
-        public StilSoapBuilder(T body)
+        public SoapBuilder(T body)
         {
             _body = body;
         }
 
         /// <summary>
-        /// Builds an unsigned SOAP message. This constructs all parts needed to sign the SOAP Envelope
+        /// Gets the identifier that identifies the signing certificate element (a.k.a. BinarySecurityToken).
+        /// </summary>
+        public Guid TokenId { get; private set; }
+
+        /// <summary>
+        /// Builds an unsigned SOAP message. This constructs all parts needed to sign the SOAP Envelope.
         /// </summary>
         /// <param name="signingCertificate">The certificate that will be used to sign the message.</param>
         /// <returns>A document ready to be signed with the signing certificate.</returns>
@@ -49,9 +49,9 @@ namespace STIL.ServiceClient.Util.SoapHelper
 
             return document;
         }
-        
+
         /// <summary>
-        /// Adds the SOAP body contents
+        /// Adds the SOAP body contents.
         /// </summary>
         /// <param name="document">The document to attach the body content to.</param>
         private void AddBodyContents(XDocument document)
@@ -60,7 +60,7 @@ namespace STIL.ServiceClient.Util.SoapHelper
             bodyElement.Add(
                 new XElement(_body.Serialize()));
         }
-        
+
         /// <summary>
         /// Adds the SOAP Body element.
         /// </summary>
@@ -69,24 +69,26 @@ namespace STIL.ServiceClient.Util.SoapHelper
         {
             var envelope = document.Root;
             envelope.Add(
-                new XElement(soapenvNs + "Body",
+                new XElement(
+                    soapenvNs + "Body",
                     new XAttribute(securityUtilNs + "Id", "BodyRef"),
                     new XAttribute(XNamespace.Xmlns + "xsi", xsiNs),
                     new XAttribute(XNamespace.Xmlns + "xsd", xsdNs)));
             AddBodyContents(document);
         }
-        
+
         /// <summary>
         /// Adds the top level SOAP Envelope element.
         /// </summary>
         /// <param name="document">The document to add the envelope to.</param>
         private void AddEnvelope(XDocument document)
         {
-            document.Add(new XElement(soapenvNs + "Envelope",
+            document.Add(new XElement(
+                soapenvNs + "Envelope",
                 new XAttribute(XNamespace.Xmlns + "s", soapenvNs),
                 new XAttribute(XNamespace.Xmlns + "u", securityUtilNs)));
         }
-        
+
         /// <summary>
         /// Adds the SOAP Header element.
         /// </summary>
@@ -102,7 +104,7 @@ namespace STIL.ServiceClient.Util.SoapHelper
             var tokenId = AddBinarySecurityToken(document, signingCertificate);
             return tokenId;
         }
-        
+
         /// <summary>
         /// Adds the public key of the certificate that will be used to sign the document.
         /// </summary>
@@ -113,14 +115,15 @@ namespace STIL.ServiceClient.Util.SoapHelper
         {
             var id = Guid.NewGuid();
             var secElement = document.Descendants(securityWSNs + "Security").Single();
-            secElement.Add(new XElement(securityWSNs + "BinarySecurityToken",
+            secElement.Add(new XElement(
+                securityWSNs + "BinarySecurityToken",
                 new XAttribute(securityUtilNs + "Id", $"SecurityToken-{id}"),
                 new XAttribute("ValueType", ValueType),
                 new XAttribute("EncodingType", EncodingType),
                 Convert.ToBase64String(signingCertificate.GetRawCertData())));
             return id;
         }
-        
+
         /// <summary>
         /// Adds a Timestamp element to the header element.
         /// </summary>
@@ -130,12 +133,13 @@ namespace STIL.ServiceClient.Util.SoapHelper
             var secElement = document.Descendants(securityWSNs + "Security").Single();
             var created = $"{DateTime.UtcNow:O}".Substring(0, 23) + "Z";
             var expires = $"{DateTime.UtcNow.AddMinutes(5):O}".Substring(0, 23) + "Z";
-            secElement.Add(new XElement(securityUtilNs + "Timestamp", 
+            secElement.Add(new XElement(
+                securityUtilNs + "Timestamp",
                 new XAttribute(securityUtilNs + "Id", $"TimestampRef"),
                 new XElement(securityUtilNs + "Created", created),
                 new XElement(securityUtilNs + "Expires", expires)));
         }
-        
+
         /// <summary>
         /// Adds a 'Security' element to the SOAP Header element.
         /// </summary>
@@ -144,7 +148,8 @@ namespace STIL.ServiceClient.Util.SoapHelper
         {
             var header = document.Descendants(soapenvNs + "Header").Single();
             header.Add(
-                new XElement(securityWSNs + "Security",
+                new XElement(
+                    securityWSNs + "Security",
                     new XAttribute(new XAttribute(soapenvNs + "mustUnderstand", "1")),
                     new XAttribute(XNamespace.Xmlns + "o", securityWSNs)));
         }
