@@ -11,6 +11,9 @@ jobs:
   publish:
     name: build, pack & publish
     runs-on: ubuntu-latest
+    env:
+      PROJECT_PATH: ./STIL.ServiceClient/STIL.ServiceClient/STIL.ServiceClient.csproj
+      TEST_PATH: ./STIL.ServiceClient/STIL.ServiceClient.Tests/STIL.ServiceClient.Tests.csproj
     steps:
       - uses: actions/checkout@v2
       - name: Setup dotnet
@@ -18,22 +21,18 @@ jobs:
         with:
           dotnet-version: 6.0.x
       - name: Install dependencies
-        run: dotnet restore
+        run: dotnet restore ${{ env.PROJECT_PATH }}
       - name: Build
-        run: dotnet build --configuration Release --no-restore
-      - name: Bump versions
-        uses: MortenMeisler/dotnet-bump-version@master
-        with:
-            github_token: ${{ secrets.REPO_TOKEN }}
-            version_files: "**/STIL.ServiceClient.csproj"
-      
+        run: dotnet build ${{ env.PROJECT_PATH }} -c Release --no-restore
+      - name: Test
+        run: dotnet test ${{ env.TEST_PATH }} -c Release
       # Publish
       - name: publish on version change
         id: publish_nuget
         uses: brandedoutcast/publish-nuget@v2.5.5
         with:
           # Filepath of the project to be packaged, relative to root of repository
-          PROJECT_FILE_PATH: STIL.ServiceClient/STIL.ServiceClient.csproj
+          PROJECT_FILE_PATH: ${{ env.PROJECT_PATH }}
           
           # API key to authenticate with NuGet server
           NUGET_KEY: ${{secrets.NUGET_API_KEY}}
