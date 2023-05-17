@@ -9,13 +9,9 @@ namespace STIL.Entities.VEU.HentUdbud;
 public class uddannelseType
 {
     private string cOSAformalField;
-
     private string versionField;
-
     private string betegnelseField;
-
     private UddannelsestypeType uddannelsestypeField;
-
     private bool uddannelsestypeFieldSpecified;
 
     /// <summary>

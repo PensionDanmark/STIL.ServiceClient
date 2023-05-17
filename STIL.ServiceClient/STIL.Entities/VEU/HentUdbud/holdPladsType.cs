@@ -9,9 +9,7 @@ namespace STIL.Entities.VEU.HentUdbud;
 public class holdPladsType
 {
     private DateTime datoField;
-
     private decimal antalPladserField;
-
     private bool antalPladserFieldSpecified;
 
     /// <summary>

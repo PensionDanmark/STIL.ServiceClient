@@ -9,7 +9,6 @@ namespace STIL.Entities.VEU.HentUdbud;
 public class skoleFagPaHoldUdliciteretTil
 {
     private string cVRnrField;
-
     private string pnummerField;
 
     /// <summary>

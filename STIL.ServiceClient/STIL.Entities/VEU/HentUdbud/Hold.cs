@@ -9,85 +9,45 @@ namespace STIL.Entities.VEU.HentUdbud;
 public class Hold
 {
     private string aktiGuidField;
-
     private DateTime startdatoField;
-
     private DateTime slutdatoField;
-
     private string kortBetegnelseField;
-
     private string betegnelseField;
-
     private string beskrivelseField;
-
     private string uGNavnField;
-
     private decimal antalPladserField;
-
     private bool antalPladserFieldSpecified;
-
     private decimal elevLektionerField;
-
     private bool elevLektionerFieldSpecified;
-
     private enumJN aflystField;
-
     private DateTime aflystPrdatoField;
-
     private bool aflystPrdatoFieldSpecified;
-
     private string undervisningstidField;
-
     private UndervisningsformType undervisningsformField;
-
     private bool undervisningsformFieldSpecified;
-
     private DateTime tilmeldingsfristField;
-
     private IndberetningsprincipType indberetningsprincipField;
-
     private enumJN lastField;
-
     private string forudsaetningerField;
-
     private string kviknrField;
-
     private string kontaktpersonField;
-
     private string kontaktTelefonnrField;
-
     private string emailField;
-
     private string hjemmesideField;
-
     private string aktivitetsafdelingField;
-
     private string projektomradeField;
-
     private string ansvarsomradeField;
-
     private decimal minimumAntalTilmeldteField;
-
     private bool minimumAntalTilmeldteFieldSpecified;
-
     private enumJN kontraktuddannelseField;
-
     private enumJN garantiKursusField;
-
     private decimal deltagerPrisBeloebField;
-
     private bool deltagerPrisBeloebFieldSpecified;
-
     private skoleType skoleField;
-
     private lokationType lokationField;
-
     private uddannelseType uddannelseField;
-
     private holdPladsType[] holdPladsListeField;
-
     private tillegsprisType[] tillegsprisListeField;
-
     private skolefagPaHoldType[] skolefagPaHoldListeField;
 
     /// <summary>

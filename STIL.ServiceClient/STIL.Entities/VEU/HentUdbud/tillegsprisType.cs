@@ -9,11 +9,8 @@ namespace STIL.Entities.VEU.HentUdbud;
 public class tillegsprisType
 {
     private decimal tillegsprisField;
-
     private bool tillegsprisFieldSpecified;
-
     private string tillegsprisArsagField;
-
     private enumJN finanslovFastsatField;
 
     /// <summary>

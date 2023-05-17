@@ -9,9 +9,7 @@ namespace STIL.Entities.VEU.HentUdbud;
 public class SourceSystemErrorType
 {
     private string sourceSystemNameField;
-
     private string errorCodeField;
-
     private string detailsField;
 
     /// <summary>

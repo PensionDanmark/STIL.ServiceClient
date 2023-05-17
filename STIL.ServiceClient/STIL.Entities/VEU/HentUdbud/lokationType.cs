@@ -9,17 +9,11 @@ namespace STIL.Entities.VEU.HentUdbud;
 public class lokationType
 {
     private string lokationIdentifikatorField;
-
     private string betegnelseField;
-
     private string gadeField;
-
     private string stedField;
-
     private string postNrField;
-
     private string kommunekodeField;
-
     private string telefonnummerField;
 
     /// <summary>

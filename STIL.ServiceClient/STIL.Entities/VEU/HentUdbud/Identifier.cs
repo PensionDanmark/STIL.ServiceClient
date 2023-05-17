@@ -9,7 +9,6 @@ namespace STIL.Entities.VEU.HentUdbud;
 public class Identifier
 {
     private string systemNameField;
-
     private string systemTransactionIDField;
 
     /// <summary>

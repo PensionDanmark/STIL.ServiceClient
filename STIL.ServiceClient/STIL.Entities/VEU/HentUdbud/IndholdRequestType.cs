@@ -9,9 +9,7 @@ namespace STIL.Entities.VEU.HentUdbud;
 public class IndholdRequestType
 {
     private string[] dsNummerListeField;
-
     private long nyereEndLoebenummerField;
-
     private bool nyereEndLoebenummerFieldSpecified;
 
     /// <summary>

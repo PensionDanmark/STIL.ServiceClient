@@ -9,7 +9,6 @@ namespace STIL.Entities.VEU.HentUdbud;
 public class skoleType
 {
     private string dsnrField;
-
     private string navnField;
 
     /// <summary>

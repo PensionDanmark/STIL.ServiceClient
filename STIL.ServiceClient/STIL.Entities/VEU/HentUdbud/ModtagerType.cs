@@ -9,7 +9,6 @@ namespace STIL.Entities.VEU.HentUdbud;
 public class ModtagerType
 {
     private string modtagerSystemIdField;
-
     private string modtagerSystemTransaktionsIDField;
 
     /// <summary>

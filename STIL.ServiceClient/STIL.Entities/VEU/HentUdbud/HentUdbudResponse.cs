@@ -9,9 +9,7 @@ namespace STIL.Entities.VEU.HentUdbud;
 public class HentUdbudResponse
 {
     private Identifier identifierField;
-
     private string correlationIDField;
-
     private HentUdbudResponseMessage messageField;
 
     /// <summary>

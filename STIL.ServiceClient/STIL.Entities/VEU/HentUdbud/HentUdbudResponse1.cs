@@ -9,7 +9,6 @@ namespace STIL.Entities.VEU.HentUdbud;
 public class HentUdbudResponse1 : ResponseType
 {
     private DateTime behandlingstidspunktField;
-
     private Opdatering[] opdateringListeField;
 
     /// <summary>
