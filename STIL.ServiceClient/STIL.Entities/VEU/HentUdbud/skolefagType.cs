@@ -9,7 +9,6 @@ namespace STIL.Entities.VEU.HentUdbud;
 public class skolefagType
 {
     private string skolefagKodeField;
-
     private string niveauField;
 
     /// <summary>

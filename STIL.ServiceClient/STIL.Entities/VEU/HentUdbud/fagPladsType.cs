@@ -9,9 +9,7 @@ namespace STIL.Entities.VEU.HentUdbud;
 public class fagPladsType
 {
     private DateTime datoField;
-
     private decimal antalPladserField;
-
     private bool antalPladserFieldSpecified;
 
     /// <summary>

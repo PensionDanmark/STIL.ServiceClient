@@ -9,55 +9,30 @@ namespace STIL.Entities.VEU.HentUdbud;
 public class skolefagPaHoldType
 {
     private decimal varighedDageField;
-
     private decimal timerPrDagField;
-
     private bool timerPrDagFieldSpecified;
-
     private decimal justeretPrisField;
-
     private decimal fuldprisField;
-
     private bool fuldprisFieldSpecified;
-
     private decimal tillegsprisField;
-
     private bool tillegsprisFieldSpecified;
-
     private string tillegsprisArsagField;
-
     private enumJN primertFagField;
-
     private bool primertFagFieldSpecified;
-
     private enumJN arvesField;
-
     private bool arvesFieldSpecified;
-
     private enumJN foregarUndervisningPaVirkField;
-
     private bool foregarUndervisningPaVirkFieldSpecified;
-
     private enumJN fjernundervisningField;
-
     private bool fjernundervisningFieldSpecified;
-
     private skolefagType skolefagField;
-
     private UVMfagType uVMfagField;
-
     private skoleType godkendtSkoleField;
-
     private skoleType gennemforendeSkoleField;
-
     private skolefagUddannelseType uddannelseField;
-
     private skoleFagPaHoldUdliciteretTil udliciteretTilField;
-
     private fagPeriodeType[] fagPeriodeListeField;
-
     private fagPladsType[] fagPladsListeField;
-
     private tillegsprisType[] tillegsprisListeField;
 
     /// <summary>

@@ -9,13 +9,9 @@ namespace STIL.Entities.VEU.HentUdbud;
 public class Opdatering
 {
     private long loebenummerField;
-
     private string aktiGuidField;
-
     private string instNrField;
-
     private HandlingType handlingField;
-
     private Hold holdField;
 
     /// <summary>

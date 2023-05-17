@@ -9,9 +9,7 @@ namespace STIL.Entities.VEU.HentUdbud;
 public class UVMfagType
 {
     private string uVMfagKodeField;
-
     private string niveauField;
-
     private string betegnelseField;
 
     /// <summary>

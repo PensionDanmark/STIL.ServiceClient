@@ -9,21 +9,13 @@ namespace STIL.Entities.VEU.HentUdbud;
 public class fagPeriodeType
 {
     private DateTime startDatoField;
-
     private DateTime slutDatoField;
-
     private decimal varighedDageField;
-
     private bool varighedDageFieldSpecified;
-
     private enumJN foregarUndervisningPaVirkField;
-
     private bool foregarUndervisningPaVirkFieldSpecified;
-
     private enumJN fjernundervisningField;
-
     private bool fjernundervisningFieldSpecified;
-
     private lokationType lokationField;
 
     /// <summary>

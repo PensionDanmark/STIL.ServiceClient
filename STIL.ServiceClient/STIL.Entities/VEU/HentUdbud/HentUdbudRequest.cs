@@ -10,7 +10,6 @@ namespace STIL.Entities.VEU.HentUdbud;
 public class HentUdbudRequest
 {
     private Identifier identifierField;
-
     private HentUdbudRequestMessage messageField;
 
     /// <summary>
