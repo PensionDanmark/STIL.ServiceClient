@@ -25,7 +25,7 @@ jobs:
         uses: MortenMeisler/dotnet-bump-version@master
         with:
             github_token: ${{ secrets.REPO_TOKEN }}
-            version_files: "**/STIL.ServiceClient.csproj"
+            version_files: "*/*/STIL.ServiceClient.csproj"
       
       # Publish
       - name: publish on version change
