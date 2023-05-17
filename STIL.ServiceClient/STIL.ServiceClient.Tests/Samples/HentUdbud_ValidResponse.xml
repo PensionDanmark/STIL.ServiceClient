@@ -1,0 +1,20 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+	<soap:Body>
+		<v1:HentUdbudResponse xmlns:v1="http://ipl.stil.dk/services/veu/hentudbud/v1.0">
+			<v1:Identifier>
+				<v1:SystemName>TestSystemName</v1:SystemName>
+				<v1:SystemTransactionID>ce9d53d0-490e-4b1f-abfe-d82160170775</v1:SystemTransactionID>
+			</v1:Identifier>
+			<v1:CorrelationID>53009c9e-5776-4f13-a30b-97fb0899a44b</v1:CorrelationID>
+			<v1:Message>
+				<ns2:HentUdbudResponse xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://www.veu.stil.dk/hentudbud/webservice/commontypes" xmlns:ns2="http://www.veu.stil.dk/hentudbud/webservice/hentudbud" xmlns:ns3="http://www.veu.stil.dk/hentudbud/webservice/hentoptagedepladser">
+					<Modtager>
+						<ModtagerSystemId>TestModtagerSystemId</ModtagerSystemId>
+						<ModtagerSystemTransaktionsID>2e240785-06a2-41b6-bc44-91babe5e752f</ModtagerSystemTransaktionsID>
+					</Modtager>
+					<ns2:Behandlingstidspunkt>2023-05-12T09:26:12.345+02:00</ns2:Behandlingstidspunkt>
+				</ns2:HentUdbudResponse>
+			</v1:Message>
+		</v1:HentUdbudResponse>
+	</soap:Body>
+</soap:Envelope>

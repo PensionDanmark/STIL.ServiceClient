@@ -7,5 +7,5 @@ https://viden.stil.dk/display/OFFintegrationsplatformen/Services
 3) Input correct link, ex: https://et.integrationsplatformen.dk/services/VEU/HentUdbud/v1?wsdl -> Go -> select the service
 4) Set namespace to STIL.Entities.<FolderName>.<ServiceName>, ex.:STIL.Entities.VEU.HentUdbud
 5) Set collection to System.Collections.Generic.List
-5) Split the partial classes into seperate files in FolderName\ServiceName, ex.: VEU\HentUdbud
+6) Split the partial classes from the generated cs file into seperate files in FolderName\ServiceName, ex.: VEU\HentUdbud. This can be done via Resharper -> Refactoring.
 

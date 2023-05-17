@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Samples\HentOptagedePladser_ErrorResponse_400.xml" />
+    <None Remove="Samples\HentOptagedePladser_ValidResponse.xml" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<Using Include="Xunit" />
+		<Using Include="Moq" />
+		<Using Include="FluentAssertions" />
+		<Using Include="System.DateTime" Alias="DT" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Samples\HentOptagedePladser_ErrorResponse_400.xml" />
+    <EmbeddedResource Include="Samples\HentOptagedePladser_ValidResponse.xml" />
+    <EmbeddedResource Include="Samples\HentTilmeldingerVeuInteressenter_ValidResponse.xml" />
+    <EmbeddedResource Include="Samples\HentTilmeldingerVeuInteressenter_ErrorResponse_400.xml" />
+    <EmbeddedResource Include="Samples\HentUdbud_ErrorResponse_500.xml" />
+    <EmbeddedResource Include="Samples\HentUdbud_ValidResponse.xml" />
+    <EmbeddedResource Include="Samples\HentUdbud_ErrorResponse_400.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="6.11.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.5.0" />
+    <PackageReference Include="Moq" Version="4.18.4" />
+    <PackageReference Include="System.ServiceModel.Primitives" Version="4.10.2" />
+    <PackageReference Include="xunit" Version="2.4.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="coverlet.collector" Version="3.2.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\STIL.ServiceClient\STIL.ServiceClient.csproj" />
+  </ItemGroup>
+
+</Project>

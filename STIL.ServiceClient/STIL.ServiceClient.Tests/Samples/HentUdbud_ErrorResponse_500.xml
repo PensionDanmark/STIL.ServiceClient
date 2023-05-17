@@ -1,0 +1,20 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+	<soap:Body>
+		<soap:Fault>
+			<soap:Code>
+				<soap:Value>soap:Receiver</soap:Value>
+			</soap:Code>
+			<soap:Reason>
+				<soap:Text xml:lang="en">Internal error</soap:Text>
+			</soap:Reason>
+			<soap:Detail>
+				<ServiceFaultDetailer xmlns="http://ipl.stil.dk/services/veu/hentudbud/v1.0">
+					<CorrelationID>b041be7e-cffb-4b72-9282-894c5ef02509</CorrelationID>
+					<Timestamp>2023-05-11T18:22:52.557376056</Timestamp>
+					<ErrorCode>IPL000001</ErrorCode>
+					<ErrorMessage>An unexpected error has occurred while processing the request. Contact the support helpdesk for Integrationsplatformen and attach the Correlation-ID from this message</ErrorMessage>
+				</ServiceFaultDetailer>
+			</soap:Detail>
+		</soap:Fault>
+	</soap:Body>
+</soap:Envelope>
