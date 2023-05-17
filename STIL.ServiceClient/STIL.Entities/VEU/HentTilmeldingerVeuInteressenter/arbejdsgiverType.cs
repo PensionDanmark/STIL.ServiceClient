@@ -7,11 +7,8 @@
 public class arbejdsgiverType
 {
     private string cVRnrField;
-
     private string pnummerField;
-
     private string navnField;
-
     private string emailField;
 
     /// <summary>

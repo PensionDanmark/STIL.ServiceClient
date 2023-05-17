@@ -7,9 +7,7 @@
 public class personType
 {
     private string cPRnummerField;
-
     private string statusCPRnummerField;
-
     private tilmeldingType[] tilmeldingsListeField;
 
     /// <summary>

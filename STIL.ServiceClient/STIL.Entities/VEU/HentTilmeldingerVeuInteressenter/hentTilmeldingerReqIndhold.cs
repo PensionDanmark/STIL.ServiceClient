@@ -7,17 +7,11 @@
 public class hentTilmeldingerReqIndhold
 {
     private string cVRnrField;
-
     private string[] cPRnummerListeField;
-
     private System.DateTime fraDatoField;
-
     private bool fraDatoFieldSpecified;
-
     private System.DateTime tilDatoField;
-
     private bool tilDatoFieldSpecified;
-
     private string instNrField;
 
     /// <summary>

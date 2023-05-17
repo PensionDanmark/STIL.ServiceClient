@@ -7,7 +7,6 @@
 public class skoleType
 {
     private string dSnrField;
-
     private string navnField;
 
     /// <summary>

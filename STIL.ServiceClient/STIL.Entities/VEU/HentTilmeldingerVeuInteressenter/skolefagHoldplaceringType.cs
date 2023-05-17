@@ -7,35 +7,20 @@
 public class skolefagHoldplaceringType
 {
     private skolefagType skolefagField;
-
     private System.DateTime startdatoField;
-
     private System.DateTime slutdatoField;
-
     private bool slutdatoFieldSpecified;
-
     private string gennemfortField;
-
     private enumJN fjernundervisningField;
-
     private bool fjernundervisningFieldSpecified;
-
     private enumJN foregarUndervisningPaaVirkField;
-
     private bool foregarUndervisningPaaVirkFieldSpecified;
-
     private enumJN certifikatkursusField;
-
     private bool certifikatkursusFieldSpecified;
-
     private decimal varighedDageField;
-
     private bool varighedDageFieldSpecified;
-
     private decimal normeretVarighedField;
-
     private bool normeretVarighedFieldSpecified;
-
     private tilstededagType[] tilstededagListeField;
 
     /// <summary>

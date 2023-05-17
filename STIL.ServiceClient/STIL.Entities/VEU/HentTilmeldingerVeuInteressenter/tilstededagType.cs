@@ -7,15 +7,10 @@
 public class tilstededagType
 {
     private System.DateTime datoField;
-
     private decimal normTimerField;
-
     private bool normTimerFieldSpecified;
-
     private decimal timerTilstedeField;
-
     private bool timerTilstedeFieldSpecified;
-
     private undervisningsstedType undervisningsstedField;
 
     /// <summary>

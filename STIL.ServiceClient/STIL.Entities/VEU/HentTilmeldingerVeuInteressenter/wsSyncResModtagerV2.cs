@@ -7,7 +7,6 @@
 public class wsSyncResModtagerV2
 {
     private string modtagerSystemIDField;
-
     private string modtagerSystemTransaktionsIDField;
 
     /// <summary>

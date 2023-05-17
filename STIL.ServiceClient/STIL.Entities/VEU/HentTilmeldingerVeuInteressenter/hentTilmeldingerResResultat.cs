@@ -7,11 +7,8 @@
 public class hentTilmeldingerResResultat
 {
     private string instNrField;
-
     private string svarKodeField;
-
     private string svarTekstField;
-
     private personType[] personListeField;
 
     /// <summary>

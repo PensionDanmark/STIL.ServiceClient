@@ -7,15 +7,10 @@
 public class tilmeldingType
 {
     private string hoplGUIDField;
-
     private personoplysningerTilmeldingType personoplysningerTilmeldingField;
-
     private arbejdsgiverType arbejdsgiverField;
-
     private skoleType skoleField;
-
     private holdType holdField;
-
     private holdplaceringType holdplaceringField;
 
     /// <summary>

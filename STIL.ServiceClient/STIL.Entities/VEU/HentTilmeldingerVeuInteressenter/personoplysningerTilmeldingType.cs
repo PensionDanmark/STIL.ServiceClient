@@ -7,9 +7,7 @@
 public class personoplysningerTilmeldingType
 {
     private string arbejderSomField;
-
     private enumJN loenUnderKursusField;
-
     private bool loenUnderKursusFieldSpecified;
 
     /// <summary>

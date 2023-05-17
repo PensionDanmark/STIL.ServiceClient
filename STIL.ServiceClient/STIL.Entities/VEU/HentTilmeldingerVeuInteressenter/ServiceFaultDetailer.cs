@@ -7,15 +7,10 @@
 public class ServiceFaultDetailer
 {
     private string correlationIDField;
-
     private System.DateTime timestampField;
-
     private string errorCodeField;
-
     private string errorMessageField;
-
     private string detailsField;
-
     private SourceSystemErrorType sourceSystemErrorField;
 
     /// <summary>

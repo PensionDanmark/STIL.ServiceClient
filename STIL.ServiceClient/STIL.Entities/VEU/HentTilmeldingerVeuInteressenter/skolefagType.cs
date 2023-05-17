@@ -7,9 +7,7 @@
 public class skolefagType
 {
     private string skolefagskodeField;
-
     private string niveauField;
-
     private string betegnelseField;
 
     /// <summary>
