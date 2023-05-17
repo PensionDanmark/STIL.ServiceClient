@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <TargetFramework>netstandard2.0</TargetFramework>
 	  <LangVersion>latest</LangVersion>
 	  <Nullable>enable</Nullable>
 	  <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
@@ -14,6 +14,14 @@
 	  <Copyright>PensionDanmark</Copyright>
 	  <Version>1.0.0</Version>
 	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	  <Title>STIL client for .NET Core </Title>
+	  <PackageLicenseUrl>https://github.com/PensionDanmark/STIL.ServiceClient/blob/main/LICENSE</PackageLicenseUrl>
+	  <RepositoryUrl>https://github.com/PensionDanmark/STIL.ServiceClient</RepositoryUrl>
+	  <PackageTags>STIL, Styrelsen for IT og Læring, SOAP client</PackageTags>
+	  <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+	  <AssemblyVersion>1.0.0</AssemblyVersion>
+	  <FileVersion>1.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
