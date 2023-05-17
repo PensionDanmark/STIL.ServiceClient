@@ -4,7 +4,7 @@
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.veu.stil.dk/hentudbud/webservice/hentoptagedepladser")]
-    public class HentOptagedePladserRequest : RequestType {
+    public class HentOptagedePladserRequest1 : RequestType {
         
         private string[] aktiGUIDListeField;
         

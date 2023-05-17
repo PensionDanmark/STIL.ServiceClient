@@ -9,9 +9,9 @@ namespace STIL.ServiceClient
     public interface IRetryPolicyProvider
     {
         /// <summary>
-        /// Get retry policy.
+        /// The retry policy to apply to the send async request.
         /// </summary>
-        /// <returns>The <see cref="HttpResponseMessage"/>.</returns>
+        /// <returns>An instance of <see cref="AsyncRetryPolicy{HttpResponseMessage}"/>.</returns>
         AsyncRetryPolicy<HttpResponseMessage> GetRetryPolicy();
     }
 }

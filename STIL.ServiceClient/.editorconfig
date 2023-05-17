@@ -562,8 +562,6 @@ dotnet_diagnostic.SA1640.severity = none
 dotnet_diagnostic.SA1641.severity = none
 dotnet_diagnostic.SX1309.severity = error
 
-#### PDK overrides ####
-
 # Namespace settings
 csharp_style_namespace_declarations = file_scoped
 

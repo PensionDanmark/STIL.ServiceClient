@@ -30,12 +30,6 @@ namespace STIL.ServiceClient.Tests.VEU
             return this;
         }
 
-        public StilVueServiceClientBuilder WithAreaAffixUrl(string areaAffixUrl)
-        {
-            _areaAffixUrl = areaAffixUrl;
-            return this;
-        }
-
         public StilVueServiceClientBuilder With(Mock<IStilServiceClient> stilServiceClientMock)
         {
             _stilServiceClientMock = stilServiceClientMock;

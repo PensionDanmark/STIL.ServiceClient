@@ -10,7 +10,7 @@
 	  <AnalysisLevel>latest</AnalysisLevel>
 	  <Authors>PensionDanmark</Authors>
 	  <Company>PensionDanmark</Company>
-	  <Description>C# Service Client to interact with the SOAP services provided by Styrelsen for IT og Læring (STIL).</Description>
+	  <Description>C# Service Client to interact with some of the SOAP services provided by Styrelsen for IT og Læring (STIL).</Description>
 	  <Copyright>PensionDanmark</Copyright>
 	  <Version>1.0.0</Version>
 	  <GenerateDocumentationFile>true</GenerateDocumentationFile>

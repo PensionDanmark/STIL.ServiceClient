@@ -7,14 +7,11 @@
     public abstract class RequestType {
         
         private ModtagerType modtagerField;
-        
     
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
         public ModtagerType Modtager {
             get => modtagerField;
             set => modtagerField = value;
         }
-        
-
     }
 }

@@ -1,27 +1,29 @@
-﻿namespace STIL.Entities.VEU.HentOptagedePladser
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace STIL.Entities.VEU.HentOptagedePladser
 {
     [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.veu.stil.dk/hentudbud/webservice/hentoptagedepladser")]
-    public class HentOptagedePladserResponse : ResponseType {
-        
-        private System.DateTime behandlingstidspunktField;
-        
-        private HoldListe[] holdListeField;
-        
-    
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public System.DateTime Behandlingstidspunkt {
-            get => behandlingstidspunktField;
-            set => behandlingstidspunktField = value;
+    [System.Xml.Serialization.XmlRoot(ElementName = "HentOptagedePladserResponse", Namespace = "http://ipl.stil.dk/services/veu/hentoptagedepladser/v1")]
+    public class HentOptagedePladserResponse
+    {
+
+        public STIL.Entities.VEU.HentOptagedePladser.Identifier Identifier;
+
+        public string CorrelationID;
+
+        public STIL.Entities.VEU.HentOptagedePladser.HentOptagedePladserResponseMessage Message;
+
+        public HentOptagedePladserResponse()
+        {
         }
-        
-    
-        [System.Xml.Serialization.XmlElementAttribute("HoldListe", Order=1)]
-        public HoldListe[] HoldListe {
-            get => holdListeField;
-            set => holdListeField = value;
+
+        public HentOptagedePladserResponse(STIL.Entities.VEU.HentOptagedePladser.Identifier Identifier, string CorrelationID, STIL.Entities.VEU.HentOptagedePladser.HentOptagedePladserResponseMessage Message)
+        {
+            this.Identifier = Identifier;
+            this.CorrelationID = CorrelationID;
+            this.Message = Message;
         }
     }
 }

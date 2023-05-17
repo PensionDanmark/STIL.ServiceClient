@@ -19,10 +19,7 @@ namespace STIL.ServiceClient
                 sleepDurationProvider: retryAttempt =>
                     TimeSpan.FromSeconds(5));
 
-        /// <summary>
-        /// The retry policy to apply to the send async request.
-        /// </summary>
-        /// <returns>An instance of <see cref="AsyncRetryPolicy"/>.</returns>
+        /// <inheritdoc />
         public AsyncRetryPolicy<HttpResponseMessage> GetRetryPolicy()
         {
             return DefaultRetryPolicy;

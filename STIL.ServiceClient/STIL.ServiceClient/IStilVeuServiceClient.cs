@@ -62,7 +62,7 @@ public interface IStilVeuServiceClient
     /// </summary>
     /// <param name="dataRequest">The data request body.</param>
     /// <param name="cancellationToken">The cancellation token.</param>
-    /// <returns>An instance of <see cref="HentOptagedePladserResponse1"/>.</returns>
-    Task<HentOptagedePladserResponse1> HentOptagedePladser(
-        HentOptagedePladserRequest1 dataRequest, CancellationToken cancellationToken = default);
+    /// <returns>An instance of <see cref="HentOptagedePladserResponse"/>.</returns>
+    Task<HentOptagedePladserResponse> HentOptagedePladser(
+        HentOptagedePladserRequest dataRequest, CancellationToken cancellationToken = default);
 }

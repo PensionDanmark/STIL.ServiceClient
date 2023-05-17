@@ -3,8 +3,7 @@ using Moq.Protected;
 using System.Linq.Expressions;
 using System.Net;
 using System.Net.Http.Headers;
-using System.Reflection;
-using Moq.Language;
+using STIL.ServiceClient.Tests.Util;
 
 namespace STIL.ServiceClient.Tests.Extensions
 {
@@ -107,21 +106,5 @@ namespace STIL.ServiceClient.Tests.Extensions
         /// <param name="failMessage">Message to include in the thrown <see cref="MockException" /> if verification fails.</param>
         public static void VerifyAnyRequest(this Mock<HttpClientHandler> handler, Times? times = null, string? failMessage = null)
             => handler.Verify(x => x.SendAsync(It.IsAny<HttpRequestMessage>(), It.IsAny<CancellationToken>()), times, failMessage);
-
-
-        /// <summary>
-        /// An interface to facilitate mocking the protected <see cref="HttpMessageHandler.SendAsync(HttpRequestMessage, CancellationToken)" /> method.
-        /// </summary>
-        public interface IHttpMessageHandler
-        {
-            /// <summary>
-            /// Send an HTTP request as an asynchronous operation.
-            /// </summary>
-            /// <param name="request">The HTTP request message to send.</param>
-            /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-            /// <returns>The task object representing the asynchronous operation.</returns>
-            /// <exception cref="ArgumentNullException">The request was null.</exception>
-            Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken);
-        }
     }
 }

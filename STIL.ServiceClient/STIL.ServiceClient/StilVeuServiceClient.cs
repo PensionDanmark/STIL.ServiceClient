@@ -44,10 +44,10 @@ public class StilVeuServiceClient : IStilVeuServiceClient
     }
 
     /// <inheritdoc />
-    public async Task<HentOptagedePladserResponse1> HentOptagedePladser(
-        HentOptagedePladserRequest1 dataRequest, CancellationToken cancellationToken = default)
+    public async Task<HentOptagedePladserResponse> HentOptagedePladser(
+        HentOptagedePladserRequest dataRequest, CancellationToken cancellationToken = default)
     {
-        return await _stilServiceClient.SendSoapRequest<HentOptagedePladserRequest1, HentOptagedePladserResponse1, Entities.VEU.HentOptagedePladser.ServiceFaultDetailer>(
+        return await _stilServiceClient.SendSoapRequest<HentOptagedePladserRequest, HentOptagedePladserResponse, Entities.VEU.HentOptagedePladser.ServiceFaultDetailer>(
             nameof(HentOptagedePladser), dataRequest, cancellationToken: cancellationToken);
     }
 

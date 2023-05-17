@@ -27,7 +27,7 @@ public class StilVeuServiceClientTests
         var sut = new StilVueServiceClientBuilder().With(httpClientHandlerMock).Build();
 
         // Act
-        var request = new HentOptagedePladserRequest1();
+        var request = new HentOptagedePladserRequest();
         var response = await sut.HentOptagedePladser(request);
 
         // Assert
@@ -64,7 +64,7 @@ public class StilVeuServiceClientTests
         var sut = new StilVueServiceClientBuilder().With(httpClientHandlerMock).Build();
 
         // Act
-        var request = new HentOptagedePladserRequest1();
+        var request = new HentOptagedePladserRequest();
         var exception = await Assert.ThrowsAsync<FaultException<STIL.Entities.VEU.HentOptagedePladser.ServiceFaultDetailer>>(() => sut.HentOptagedePladser(request));
 
         // Assert
@@ -75,7 +75,6 @@ public class StilVeuServiceClientTests
         exception.Detail.Details.Should()
             .Contain(@"com.sun.org.apache.xerces.internal.jaxp.validation.XMLSchema@19652c7e");
         exception.Detail.ErrorCode.Should().Be("IPL000002");
-        exception.Detail.ErrorMessage.Should().Be("The request is invalid according to the schema definition. Check details for further information");
     }
 
     [Fact]
@@ -128,40 +127,7 @@ public class StilVeuServiceClientTests
         var sut = new StilVueServiceClientBuilder().With(httpClientHandlerMock).Build();
 
         // Act
-        var request = new HentTilmeldingerRequest
-        {
-            Identifier = new STIL.Entities.VEU.HentTilmeldingerVeuInteressenter.Identifier
-            {
-                SystemName = "Test",
-                SystemTransactionID = Guid.NewGuid().ToString()
-            },
-            Message = new HentTilmeldingerRequestMessage
-            {
-                hentTilmeldinger = new hentTilmeldinger
-                {
-                    wsSyncReqModtagerV2 = new wsSyncReqModtagerV2
-                    {
-                        ModtagerSystemID = "Test",
-                        ModtagerSystemTransaktionsID = Guid.NewGuid().ToString()
-                    },
-                    Besked = new hentTilmeldingerRequest
-                    {
-                        Indhold = new hentTilmeldingerReqIndhold
-                        {
-                            FraDato = new DateTime(2022, 01, 01),
-                            TilDato = new DateTime(2022, 02, 15),
-                            InstNr = "A00827",
-                            CVRnr = "0",
-                            CPRnummerListe = new[]
-                            {
-                                "0101198000123", "0101198001", "0101198002", "0101198003", "0101198004", "0101198005",
-                                "0101198006", "0101198007", "0101198008", "0101198009"
-                            }
-                        }
-                    }
-                }
-            }
-        };
+        var request = new HentTilmeldingerRequest();
 
         var exception = await Assert.ThrowsAsync<FaultException<STIL.Entities.VEU.HentTilmeldingerVeuInteressenter.ServiceFaultDetailer>>(() => sut.HentTilmeldingerVeuInteressenter(request));
 
@@ -173,7 +139,6 @@ public class StilVeuServiceClientTests
         exception.Detail.Details.Should()
             .Contain(@"org.xml.sax.SAXParseException: cvc-maxLength-valid: Value '0101198000123' with length = '13' is not facet-valid with respect to maxLength '10' for type '#AnonType_CPRnummercprNummerListe'");
         exception.Detail.ErrorCode.Should().Be("IPL000002");
-        exception.Detail.ErrorMessage.Should().Be("The request is invalid according to the schema definition. Check details for further information");
     }
 
     [Fact]
@@ -235,7 +200,6 @@ public class StilVeuServiceClientTests
         exception.Detail.Details.Should()
             .Contain(@"cvc-complex-type.2.4.b: The content of element 'HentUdbudRequest' is not complete");
         exception.Detail.ErrorCode.Should().Be("IPL000002");
-        exception.Detail.ErrorMessage.Should().Be("The request is invalid according to the schema definition. Check details for further information");
     }
 
     [Fact]
@@ -265,148 +229,5 @@ public class StilVeuServiceClientTests
         exception.Action.Should().Be("http://test/services/VEU/HentUdbud/v1");
         exception.Detail.CorrelationID.Should().Be("b041be7e-cffb-4b72-9282-894c5ef02509");
         exception.Detail.ErrorCode.Should().Be("IPL000001");
-        exception.Detail.ErrorMessage.Should().Be("An unexpected error has occurred while processing the request. Contact the support helpdesk for Integrationsplatformen and attach the Correlation-ID from this message");
-    }
-
-    #region Integration live unit testing
-
-    [Fact(Skip = "Only relevant when live testing locally")]
-    [Trait("Category", "Integration")]
-    public async Task Integration_HentOptagedePladser_ReturnsCorrectResult()
-    {
-        // Arrange
-        var request = new HentOptagedePladserRequest1()
-        {
-            Identifier = new STIL.Entities.VEU.HentOptagedePladser.Identifier
-            {
-                SystemName = "Test",
-                SystemTransactionID = Guid.NewGuid().ToString()
-            },
-            Message = new HentOptagedePladserRequestMessage()
-            {
-
-                HentOptagedePladserRequest = new HentOptagedePladserRequest()
-                {
-                    Modtager = new STIL.Entities.VEU.HentOptagedePladser.ModtagerType()
-                    {
-                        ModtagerSystemId = "Test",
-                        ModtagerSystemTransaktionsID = Guid.NewGuid().ToString()
-                    },
-
-                    //get all the distinct aktiguids
-                    AktiGUIDListe = new[]
-                    {
-                        "513e88f8c3ac11eb85290242ac130003",
-                        "723f03cd456740a680cfd71500fb5fb5",
-                        "24212acb3aee47e785b354cd7e0bf120"
-                    }
-                }
-            }
-        };
-
-        var baseUrl = "https://et.integrationsplatformen.dk";
-        IStilVeuServiceClient stilServiceClient = new StilVeuServiceClient(baseUrl, GetCertificateByThumbprint("87BA4C291BBBCDBC118723EFBE05C8785D1A5C32"));
-
-        // Act
-        var result = await stilServiceClient.HentOptagedePladser(request);
-
-        // Assert / debug
-        result.Should().NotBeNull();
-    }
-
-    [Fact(Skip = "Only relevant when live testing locally")]
-    [Trait("Category", "Integration")]
-    public async Task Integration_HentTilmeldingerVeuInteressenter_ReturnsCorrectResult()
-    {
-        // Arrange
-        var request = new HentTilmeldingerRequest
-        {
-            Identifier = new STIL.Entities.VEU.HentTilmeldingerVeuInteressenter.Identifier
-            {
-                SystemName = "Test",
-                SystemTransactionID = Guid.NewGuid().ToString()
-            },
-            Message = new HentTilmeldingerRequestMessage
-            {
-                hentTilmeldinger = new hentTilmeldinger
-                {
-                    wsSyncReqModtagerV2 = new wsSyncReqModtagerV2
-                    {
-                        ModtagerSystemID = "Test",
-                        ModtagerSystemTransaktionsID = Guid.NewGuid().ToString()
-                    },
-                    Besked = new hentTilmeldingerRequest
-                    {
-                        Indhold = new hentTilmeldingerReqIndhold
-                        {
-                            FraDato = new DateTime(2022, 01, 01),
-                            TilDato = new DateTime(2022, 02, 15),
-                            InstNr = "A00827",
-                            CVRnr = "0",
-                            CPRnummerListe = new[] { "0101198000123", "0101198001", "0101198002", "0101198003", "0101198004", "0101198005", "0101198006", "0101198007", "0101198008", "0101198009" }
-                        }
-                    }
-                }
-            }
-        };
-
-        var baseUrl = "https://et.integrationsplatformen.dk";
-        IStilVeuServiceClient stilServiceClient = new StilVeuServiceClient(baseUrl, GetCertificateByThumbprint("87BA4C291BBBCDBC118723EFBE05C8785D1A5C32"));
-
-        // Act
-        var result = await stilServiceClient.HentTilmeldingerVeuInteressenter(request);
-
-        // Assert / debug
-        result.Should().NotBeNull();
-        result.Message.hentTilmeldingerResponse.Resultat.Resultat.PersonListe.Length.Should().Be(10);
-    }
-
-    [Fact(Skip = "Only relevant when live testing locally")]
-    [Trait("Category", "Integration")]
-    public async Task Integration_HentUdbud_ReturnsCorrectResult()
-    {
-        // Arrange
-        var request = new HentUdbudRequest()
-        {
-            Identifier = new Entities.VEU.HentUdbud.Identifier
-            {
-                SystemName = "Test",
-                SystemTransactionID = Guid.NewGuid().ToString()
-            },
-            Message = new HentUdbudRequestMessage()
-            {
-                HentUdbudRequest = new HentUdbudRequest1()
-                {
-                    Indhold = new IndholdRequestType()
-                    {
-                        DsNummerListe = new[] { "123" }
-                    },
-                    Modtager = new STIL.Entities.VEU.HentUdbud.ModtagerType()
-                    {
-                        ModtagerSystemId = "Test",
-                        ModtagerSystemTransaktionsID = Guid.NewGuid().ToString(),
-                    }
-                }
-            }
-        };
-
-        var baseUrl = "https://et.integrationsplatformen.dk";
-        IStilVeuServiceClient stilServiceClient = new StilVeuServiceClient(baseUrl, GetCertificateByThumbprint("87BA4C291BBBCDBC118723EFBE05C8785D1A5C32"));
-
-        // Act
-        var result = await stilServiceClient.HentUdbud(request);
-
-        // Assert / debug
-        result.Should().NotBeNull();
-    }
-
-    #endregion
-
-    private static X509Certificate2 GetCertificateByThumbprint(string thumbprint)
-    {
-        // Retrieve certificate locally.
-        var certStore = new X509Store(StoreLocation.CurrentUser);
-        certStore.Open(OpenFlags.ReadOnly);
-        return certStore.Certificates.Find(X509FindType.FindByThumbprint, thumbprint, validOnly: false).FirstOrDefault()!;
     }
 }

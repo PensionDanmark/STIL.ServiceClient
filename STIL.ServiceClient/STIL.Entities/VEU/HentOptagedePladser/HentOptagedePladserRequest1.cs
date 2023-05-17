@@ -7,7 +7,7 @@ namespace STIL.Entities.VEU.HentOptagedePladser
 {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlRoot(ElementName = "HentOptagedePladserRequest", Namespace = "http://ipl.stil.dk/services/veu/hentoptagedepladser/v1")]
-    public class HentOptagedePladserRequest1
+    public class HentOptagedePladserRequest
     {
         [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
         public STIL.Entities.VEU.HentOptagedePladser.Identifier Identifier;
@@ -15,11 +15,11 @@ namespace STIL.Entities.VEU.HentOptagedePladser
         [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
         public STIL.Entities.VEU.HentOptagedePladser.HentOptagedePladserRequestMessage Message;
 
-        public HentOptagedePladserRequest1()
+        public HentOptagedePladserRequest()
         {
         }
 
-        public HentOptagedePladserRequest1(STIL.Entities.VEU.HentOptagedePladser.Identifier Identifier, STIL.Entities.VEU.HentOptagedePladser.HentOptagedePladserRequestMessage Message)
+        public HentOptagedePladserRequest(STIL.Entities.VEU.HentOptagedePladser.Identifier Identifier, STIL.Entities.VEU.HentOptagedePladser.HentOptagedePladserRequestMessage Message)
         {
             this.Identifier = Identifier;
             this.Message = Message;
