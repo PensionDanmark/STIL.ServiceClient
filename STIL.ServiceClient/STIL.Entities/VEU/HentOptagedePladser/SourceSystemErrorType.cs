@@ -10,6 +10,9 @@
         private string errorCodeField;
         private string detailsField;
 
+        /// <summary>
+        /// Gets or sets the <see cref="SourceSystemName"/> value.
+        /// </summary>
         [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
         public string SourceSystemName
         {
@@ -17,6 +20,9 @@
             set => sourceSystemNameField = value;
         }
 
+        /// <summary>
+        /// Gets or sets the <see cref="ErrorCode"/> value.
+        /// </summary>
         [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
         public string ErrorCode
         {
@@ -24,6 +30,9 @@
             set => errorCodeField = value;
         }
 
+        /// <summary>
+        /// Gets or sets the <see cref="Details"/> value.
+        /// </summary>
         [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
         public string Details
         {

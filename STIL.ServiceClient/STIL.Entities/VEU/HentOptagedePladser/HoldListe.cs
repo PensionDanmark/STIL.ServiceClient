@@ -10,6 +10,9 @@
         private HoldPladsType[] holdPladsListeField;
         private SkolefagPaHoldType[] skolefagPaHoldListeField;
 
+        /// <summary>
+        /// Gets or sets the <see cref="AktiGUID"/> value.
+        /// </summary>
         [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
         public string AktiGUID
         {
@@ -17,6 +20,9 @@
             set => aktiGUIDField = value;
         }
 
+        /// <summary>
+        /// Gets or sets the <see cref="HoldPladsListe"/> value.
+        /// </summary>
         [System.Xml.Serialization.XmlElementAttribute("HoldPladsListe", Order = 1)]
         public HoldPladsType[] HoldPladsListe
         {
@@ -24,6 +30,9 @@
             set => holdPladsListeField = value;
         }
 
+        /// <summary>
+        /// Gets or sets the <see cref="SkolefagPaHoldType"/> value.
+        /// </summary>
         [System.Xml.Serialization.XmlElementAttribute("SkolefagPaHoldListe", Order = 2)]
         public SkolefagPaHoldType[] SkolefagPaHoldListe
         {

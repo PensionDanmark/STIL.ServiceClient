@@ -8,6 +8,9 @@
     {
         private ModtagerType modtagerField;
 
+        /// <summary>
+        /// Gets or sets the <see cref="Modtager"/> value.
+        /// </summary>
         [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
         public ModtagerType Modtager
         {

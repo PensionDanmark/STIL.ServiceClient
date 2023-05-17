@@ -9,6 +9,9 @@
         private System.DateTime behandlingstidspunktField;
         private HoldListe[] holdListeField;
 
+        /// <summary>
+        /// Gets or sets the <see cref="Behandlingstidspunkt"/> value.
+        /// </summary>
         [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
         public System.DateTime Behandlingstidspunkt
         {
@@ -16,6 +19,9 @@
             set => behandlingstidspunktField = value;
         }
 
+        /// <summary>
+        /// Gets or sets the <see cref="HoldListe"/> value.
+        /// </summary>
         [System.Xml.Serialization.XmlElementAttribute("HoldListe", Order = 1)]
         public HoldListe[] HoldListe
         {

@@ -10,6 +10,9 @@
         private string niveauField;
         private FagPladsType[] fagPladsListeField;
 
+        /// <summary>
+        /// Gets or sets the <see cref="SkolefagKode"/> value.
+        /// </summary>
         [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
         public string SkolefagKode
         {
@@ -17,6 +20,9 @@
             set => skolefagKodeField = value;
         }
 
+        /// <summary>
+        /// Gets or sets the <see cref="Niveau"/> value.
+        /// </summary>
         [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
         public string Niveau
         {
@@ -24,6 +30,9 @@
             set => niveauField = value;
         }
 
+        /// <summary>
+        /// Gets or sets the <see cref="FagPladsType"/> value.
+        /// </summary>
         [System.Xml.Serialization.XmlElementAttribute("FagPladsListe", Order = 2)]
         public FagPladsType[] FagPladsListe
         {
