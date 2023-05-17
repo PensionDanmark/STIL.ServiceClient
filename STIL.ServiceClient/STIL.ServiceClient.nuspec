@@ -1,0 +1,23 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>STIL.ServiceClient</id>
+    <version>1.0.0</version>
+    <authors>PensionDanmark</authors>
+    <owners>PensionDanmark</owners>
+    <projectUrl>https://github.com/PensionDanmark/STIL.ServiceClient</projectUrl>    
+    <repository type="git" url="https://github.com/PensionDanmark/STIL.ServiceClient" />
+    <license type="expression">MIT</license>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>C# Service Client to interact with some of the SOAP services provided by Styrelsen for IT og Læring (STIL). Compatible with .NET Core</description>
+    <releaseNotes>Initial release. Not all services are supported. If you require any additional services, open a PR</releaseNotes>
+    <copyright>Copyright 2023</copyright>
+    <tags>STIL, Styrelsen for IT og Læring, SOAP client</tags>
+    <dependencies>
+      <group targetFramework=".NETStandard2.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="STIL.ServiceClient\bin\Release\netstandard2.0\*.dll" target="lib\netstandard2.0" />
+  </files>
+</package>
