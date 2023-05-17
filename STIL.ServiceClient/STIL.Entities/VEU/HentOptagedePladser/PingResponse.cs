@@ -8,6 +8,9 @@
     {
         private PingResponseStatus statusField;
 
+        /// <summary>
+        /// Gets or sets the <see cref="Status"/> value.
+        /// </summary>
         [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
         public PingResponseStatus Status
         {

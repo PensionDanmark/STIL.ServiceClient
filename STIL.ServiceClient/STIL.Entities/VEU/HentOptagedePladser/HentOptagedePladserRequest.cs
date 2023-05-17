@@ -8,6 +8,9 @@
     {
         private string[] aktiGUIDListeField;
 
+        /// <summary>
+        /// Gets or sets the <see cref="AktiGUIDListe"/> value.
+        /// </summary>
         [System.Xml.Serialization.XmlElementAttribute("AktiGUIDListe", Order = 0)]
         public string[] AktiGUIDListe
         {

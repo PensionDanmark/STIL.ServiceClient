@@ -13,6 +13,9 @@ public class ServiceFaultDetailer
     private string detailsField;
     private SourceSystemErrorType sourceSystemErrorField;
 
+    /// <summary>
+    /// Gets or sets the <see cref="CorrelationID"/> value.
+    /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
     public string CorrelationID
     {
@@ -20,6 +23,9 @@ public class ServiceFaultDetailer
         set => correlationIDField = value;
     }
 
+    /// <summary>
+    /// Gets or sets the <see cref="Timestamp"/> value.
+    /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
     public System.DateTime Timestamp
     {
@@ -27,6 +33,9 @@ public class ServiceFaultDetailer
         set => timestampField = value;
     }
 
+    /// <summary>
+    /// Gets or sets the <see cref="ErrorCode"/> value.
+    /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
     public string ErrorCode
     {
@@ -34,6 +43,9 @@ public class ServiceFaultDetailer
         set => errorCodeField = value;
     }
 
+    /// <summary>
+    /// Gets or sets the <see cref="ErrorMessage"/> value.
+    /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
     public string ErrorMessage
     {
@@ -41,6 +53,9 @@ public class ServiceFaultDetailer
         set => errorMessageField = value;
     }
 
+    /// <summary>
+    /// Gets or sets the <see cref="Details"/> value.
+    /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
     public string Details
     {
@@ -48,6 +63,9 @@ public class ServiceFaultDetailer
         set => detailsField = value;
     }
 
+    /// <summary>
+    /// Gets or sets the <see cref="SourceSystemError"/> value.
+    /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
     public SourceSystemErrorType SourceSystemError
     {

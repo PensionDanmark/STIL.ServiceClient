@@ -9,6 +9,9 @@
         private string systemNameField;
         private string systemTransactionIDField;
 
+        /// <summary>
+        /// Gets or sets the <see cref="SystemName"/> value.
+        /// </summary>
         [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
         public string SystemName
         {
@@ -16,6 +19,9 @@
             set => systemNameField = value;
         }
 
+        /// <summary>
+        /// Gets or sets the <see cref="SystemTransactionID"/> value.
+        /// </summary>
         [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
         public string SystemTransactionID
         {
