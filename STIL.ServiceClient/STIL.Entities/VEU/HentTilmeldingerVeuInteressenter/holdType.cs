@@ -7,9 +7,7 @@
 public class holdType
 {
     private string betegnelseField;
-
     private string kviknummerField;
-
     private string uddannelsestypeField;
 
     /// <summary>

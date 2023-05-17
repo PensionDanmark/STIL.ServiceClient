@@ -7,7 +7,6 @@
 public class Identifier
 {
     private string systemNameField;
-
     private string systemTransactionIDField;
 
     /// <summary>

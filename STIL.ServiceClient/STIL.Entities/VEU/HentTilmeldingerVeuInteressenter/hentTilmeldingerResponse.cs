@@ -7,9 +7,7 @@
 public class hentTilmeldingerResponse
 {
     private Identifier identifierField;
-
     private string correlationIDField;
-
     private hentTilmeldingerResponseMessage messageField;
 
     /// <summary>

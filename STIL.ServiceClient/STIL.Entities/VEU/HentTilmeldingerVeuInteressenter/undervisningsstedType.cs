@@ -7,13 +7,9 @@
 public class undervisningsstedType
 {
     private string navnField;
-
     private string gadeField;
-
     private string stedField;
-
     private string postnummerField;
-
     private string postdistriktField;
 
     /// <summary>

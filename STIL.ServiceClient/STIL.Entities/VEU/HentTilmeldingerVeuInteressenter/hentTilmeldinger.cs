@@ -7,7 +7,6 @@
 public class hentTilmeldinger
 {
     private wsSyncReqModtagerV2 wsSyncReqModtagerV2Field;
-
     private hentTilmeldingerRequest beskedField;
 
     /// <summary>

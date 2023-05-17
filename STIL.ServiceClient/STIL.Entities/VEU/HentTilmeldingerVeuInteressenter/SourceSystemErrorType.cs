@@ -7,9 +7,7 @@
 public class SourceSystemErrorType
 {
     private string sourceSystemNameField;
-
     private string errorCodeField;
-
     private string detailsField;
 
     /// <summary>
