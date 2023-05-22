@@ -1,5 +1,8 @@
 ﻿namespace STIL.Entities.VEU.HentOptagedePladser
 {
+    /// <summary>
+    /// HentOptagedePladserRequest.
+    /// </summary>
     [System.Diagnostics.DebuggerStepThroughAttribute]
     [System.Xml.Serialization.XmlRoot(ElementName = "HentOptagedePladserRequest", Namespace = "http://ipl.stil.dk/services/veu/hentoptagedepladser/v1")]
     public class HentOptagedePladserRequest
