@@ -1,5 +1,6 @@
 name: Publish to nuget.org
 on:
+  workflow_dispatch:
   push:
     branches:
       - main # Default release branch
@@ -9,7 +10,7 @@ on:
       - '**/STIl.ServiceClient.Tests/**'
 jobs:
   publish:
-    name: build, pack & publish
+    name: build, test, pack & publish
     runs-on: ubuntu-latest
     env:
       PROJECT_PATH: ./STIL.ServiceClient/STIL.ServiceClient/STIL.ServiceClient.csproj
