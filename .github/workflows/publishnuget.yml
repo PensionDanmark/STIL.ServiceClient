@@ -13,8 +13,8 @@ jobs:
     name: build, test, pack & publish
     runs-on: ubuntu-latest
     env:
-      PROJECT_PATH: ./STIL.ServiceClient/STIL.ServiceClient/STIL.ServiceClient.csproj
-      TEST_PATH: ./STIL.ServiceClient/STIL.ServiceClient.Tests/STIL.ServiceClient.Tests.csproj
+      PROJECT_PATH: ./src/STIL.ServiceClient/STIL.ServiceClient.csproj
+      TEST_PATH: ./src/STIL.ServiceClient.Tests/STIL.ServiceClient.Tests.csproj
     steps:
       - uses: actions/checkout@v2
       - name: Setup dotnet
