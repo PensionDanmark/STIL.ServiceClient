@@ -10,7 +10,7 @@ on:
       - '**/.github/**'
 jobs:
   publish:
-    name: build, test, pack & publish
+    name: build & test
     runs-on: ubuntu-latest
     env:
       PROJECT_PATH: ./src/STIL.ServiceClient/STIL.ServiceClient.csproj
