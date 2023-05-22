@@ -1,5 +1,9 @@
 ﻿namespace STIL.Entities.VEU.HentOptagedePladser
 {
+
+    /// <summary>
+    /// HoldPladsType.
+    /// </summary>
     [System.SerializableAttribute]
     [System.Diagnostics.DebuggerStepThroughAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
