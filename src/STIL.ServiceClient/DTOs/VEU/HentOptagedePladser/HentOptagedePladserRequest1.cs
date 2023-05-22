@@ -1,40 +1,24 @@
 ﻿namespace STIL.Entities.VEU.HentOptagedePladser
 {
     /// <summary>
-    /// HentOptagedePladserRequest.
+    /// HentOptagedePladserRequest1.
     /// </summary>
+    [System.SerializableAttribute]
     [System.Diagnostics.DebuggerStepThroughAttribute]
-    [System.Xml.Serialization.XmlRoot(ElementName = "HentOptagedePladserRequest", Namespace = "http://ipl.stil.dk/services/veu/hentoptagedepladser/v1")]
-    public class HentOptagedePladserRequest
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.veu.stil.dk/hentudbud/webservice/hentoptagedepladser")]
+    public class HentOptagedePladserRequest1 : RequestType
     {
-        /// <summary>
-        /// Identifier.
-        /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
-        public Identifier Identifier;
+        private string[] aktiGUIDListeField;
 
         /// <summary>
-        /// Message.
+        /// Gets or sets the <see cref="AktiGUIDListe"/> value.
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
-        public HentOptagedePladserRequestMessage Message;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="HentOptagedePladserRequest"/> class.
-        /// </summary>
-        public HentOptagedePladserRequest()
+        [System.Xml.Serialization.XmlElementAttribute("AktiGUIDListe", Order = 0)]
+        public string[] AktiGUIDListe
         {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="HentOptagedePladserRequest"/> class.
-        /// </summary>
-        /// <param name="Identifier">The identifier.</param>
-        /// <param name="Message">The message.</param>
-        public HentOptagedePladserRequest(Identifier Identifier, HentOptagedePladserRequestMessage Message)
-        {
-            this.Identifier = Identifier;
-            this.Message = Message;
+            get => aktiGUIDListeField;
+            set => aktiGUIDListeField = value;
         }
     }
 }

@@ -2,6 +2,9 @@
 
 namespace STIL.Entities.VEU.HentUdbud;
 
+/// <summary>
+/// ServiceFaultDetailer.
+/// </summary>
 [Serializable]
 [System.Diagnostics.DebuggerStepThroughAttribute]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -16,7 +19,7 @@ public class ServiceFaultDetailer
     private SourceSystemErrorType sourceSystemErrorField;
 
     /// <summary>
-    /// Gets or sets the <see cref="CorrelationID"/> value
+    /// Gets or sets the <see cref="CorrelationID"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
     public string CorrelationID
@@ -26,7 +29,7 @@ public class ServiceFaultDetailer
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="Timestamp"/> value
+    /// Gets or sets the <see cref="Timestamp"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
     public DateTime Timestamp
@@ -36,7 +39,7 @@ public class ServiceFaultDetailer
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="ErrorCode"/> value
+    /// Gets or sets the <see cref="ErrorCode"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
     public string ErrorCode
@@ -46,7 +49,7 @@ public class ServiceFaultDetailer
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="ErrorMessage"/> value
+    /// Gets or sets the <see cref="ErrorMessage"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
     public string ErrorMessage
@@ -56,7 +59,7 @@ public class ServiceFaultDetailer
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="Details"/> value
+    /// Gets or sets the <see cref="Details"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
     public string Details
@@ -66,7 +69,7 @@ public class ServiceFaultDetailer
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="SourceSystemError"/> value
+    /// Gets or sets the <see cref="SourceSystemError"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
     public SourceSystemErrorType SourceSystemError

@@ -1,6 +1,5 @@
 ﻿namespace STIL.Entities.VEU.HentOptagedePladser
 {
-
     /// <summary>
     /// HoldPladsType.
     /// </summary>

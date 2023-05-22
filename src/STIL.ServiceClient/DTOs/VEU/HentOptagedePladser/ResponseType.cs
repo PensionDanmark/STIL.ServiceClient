@@ -1,5 +1,8 @@
 ﻿namespace STIL.Entities.VEU.HentOptagedePladser
 {
+    /// <summary>
+    /// ResponseType.
+    /// </summary>
     [System.SerializableAttribute]
     [System.Diagnostics.DebuggerStepThroughAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
