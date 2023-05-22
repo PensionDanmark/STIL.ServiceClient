@@ -1,28 +1,28 @@
-# This workflow will build a .NET project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
-
 name: Build validation
-
 on:
+  workflow_dispatch:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
+    branches:
+      - main # Default release branch
+    paths-ignore:
+      - '**/README.md'
+      - '**/.github/**'
 jobs:
-  build:
-
+  publish:
+    name: build, test, pack & publish
     runs-on: ubuntu-latest
-
+    env:
+      PROJECT_PATH: ./src/STIL.ServiceClient/STIL.ServiceClient.csproj
+      TEST_PATH: ./src/STIL.ServiceClient.Tests/STIL.ServiceClient.Tests.csproj
     steps:
-    - uses: actions/checkout@v3
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: 6.0.x
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+      - uses: actions/checkout@v2
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 6.0.x
+      - name: Install dependencies
+        run: dotnet restore ${{ env.PROJECT_PATH }}
+      - name: Build
+        run: dotnet build ${{ env.PROJECT_PATH }} -c Release --no-restore
+      - name: Test
+        run: dotnet test ${{ env.TEST_PATH }} -c Release
