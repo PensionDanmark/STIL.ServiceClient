@@ -1,4 +1,4 @@
-﻿namespace STIL.Entities.VEU.HentOptagedePladser
+namespace STIL.ServiceClient.DTOs.VEU.HentOptagedePladser
 {
     /// <summary>
     /// SourceSystemErrorType.
@@ -9,8 +9,19 @@
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://ipl.stil.dk/services/veu/hentoptagedepladser/v1")]
     public class SourceSystemErrorType
     {
+        /// <summary>
+        /// The source system name field.
+        /// </summary>
         private string sourceSystemNameField;
+
+        /// <summary>
+        /// The error code field.
+        /// </summary>
         private string errorCodeField;
+
+        /// <summary>
+        /// The details field.
+        /// </summary>
         private string detailsField;
 
         /// <summary>

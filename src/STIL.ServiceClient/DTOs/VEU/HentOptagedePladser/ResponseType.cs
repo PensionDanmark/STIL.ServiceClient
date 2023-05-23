@@ -1,4 +1,4 @@
-﻿namespace STIL.Entities.VEU.HentOptagedePladser
+namespace STIL.ServiceClient.DTOs.VEU.HentOptagedePladser
 {
     /// <summary>
     /// ResponseType.
@@ -9,6 +9,9 @@
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/hentudbud/webservice/commontypes")]
     public abstract class ResponseType
     {
+        /// <summary>
+        /// The modtager field.
+        /// </summary>
         private ModtagerType modtagerField;
 
         /// <summary>

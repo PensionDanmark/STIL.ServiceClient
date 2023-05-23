@@ -1,8 +1,8 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using STIL.Entities.VEU.HentOptagedePladser;
-using STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
-using STIL.Entities.VEU.HentUdbud;
+using STIL.ServiceClient.DTOs.VEU.HentOptagedePladser;
+using STIL.ServiceClient.DTOs.VEU.HentTilmeldingerVeuInteressenter;
+using STIL.ServiceClient.DTOs.VEU.HentUdbud;
 
 namespace STIL.ServiceClient;
 

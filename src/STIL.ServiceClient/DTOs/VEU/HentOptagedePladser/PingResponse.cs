@@ -1,4 +1,4 @@
-﻿namespace STIL.Entities.VEU.HentOptagedePladser
+namespace STIL.ServiceClient.DTOs.VEU.HentOptagedePladser
 {
     /// <summary>
     /// PingResponse.
@@ -9,6 +9,9 @@
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://ipl.stil.dk/services/veu/hentoptagedepladser/v1")]
     public class PingResponse
     {
+        /// <summary>
+        /// The status field.
+        /// </summary>
         private PingResponseStatus statusField;
 
         /// <summary>

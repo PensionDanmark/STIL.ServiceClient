@@ -1,19 +1,33 @@
-﻿using System;
+using System;
 
-namespace STIL.Entities.VEU.HentUdbud;
+namespace STIL.ServiceClient.DTOs.VEU.HentUdbud;
 
+/// <summary>
+/// The source system error type class.
+/// </summary>
 [Serializable]
 [System.Diagnostics.DebuggerStepThroughAttribute]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://ipl.stil.dk/services/veu/hentudbud/v1.0")]
 public class SourceSystemErrorType
 {
+    /// <summary>
+    /// The source system name field.
+    /// </summary>
     private string sourceSystemNameField;
+
+    /// <summary>
+    /// The error code field.
+    /// </summary>
     private string errorCodeField;
+
+    /// <summary>
+    /// The details field.
+    /// </summary>
     private string detailsField;
 
     /// <summary>
-    /// Gets or sets the <see cref="SourceSystemName"/> value
+    /// Gets or sets the <see cref="SourceSystemName"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
     public string SourceSystemName
@@ -23,7 +37,7 @@ public class SourceSystemErrorType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="ErrorCode"/> value
+    /// Gets or sets the <see cref="ErrorCode"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
     public string ErrorCode
@@ -33,7 +47,7 @@ public class SourceSystemErrorType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="Details"/> value
+    /// Gets or sets the <see cref="Details"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
     public string Details

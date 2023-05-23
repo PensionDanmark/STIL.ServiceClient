@@ -1,13 +1,27 @@
-﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
+namespace STIL.ServiceClient.DTOs.VEU.HentTilmeldingerVeuInteressenter;
 
+/// <summary>
+/// The hent tilmeldinger response class.
+/// </summary>
 [System.SerializableAttribute]
 [System.Diagnostics.DebuggerStepThroughAttribute]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://ipl.stil.dk/services/veu/henttilmeldingerveuinteressenter/v1.0")]
 public class hentTilmeldingerResponse
 {
+    /// <summary>
+    /// The identifier field.
+    /// </summary>
     private Identifier identifierField;
+
+    /// <summary>
+    /// The correlation id field.
+    /// </summary>
     private string correlationIDField;
+
+    /// <summary>
+    /// The message field.
+    /// </summary>
     private hentTilmeldingerResponseMessage messageField;
 
     /// <summary>

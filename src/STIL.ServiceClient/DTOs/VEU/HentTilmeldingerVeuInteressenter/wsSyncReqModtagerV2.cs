@@ -1,12 +1,22 @@
-﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
+namespace STIL.ServiceClient.DTOs.VEU.HentTilmeldingerVeuInteressenter;
 
+/// <summary>
+/// The ws sync req modtager class.
+/// </summary>
 [System.SerializableAttribute]
 [System.Diagnostics.DebuggerStepThroughAttribute]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/common")]
 public class wsSyncReqModtagerV2
 {
+    /// <summary>
+    /// The modtager system id field.
+    /// </summary>
     private string modtagerSystemIDField;
+
+    /// <summary>
+    /// The modtager system transaktions id field.
+    /// </summary>
     private string modtagerSystemTransaktionsIDField;
 
     /// <summary>

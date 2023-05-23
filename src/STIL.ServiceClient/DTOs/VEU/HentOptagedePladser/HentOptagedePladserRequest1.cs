@@ -1,4 +1,4 @@
-﻿namespace STIL.Entities.VEU.HentOptagedePladser
+namespace STIL.ServiceClient.DTOs.VEU.HentOptagedePladser
 {
     /// <summary>
     /// HentOptagedePladserRequest1.
@@ -9,6 +9,9 @@
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.veu.stil.dk/hentudbud/webservice/hentoptagedepladser")]
     public class HentOptagedePladserRequest1 : RequestType
     {
+        /// <summary>
+        /// The akti guid liste field.
+        /// </summary>
         private string[] aktiGUIDListeField;
 
         /// <summary>

@@ -1,7 +1,10 @@
-﻿using System;
+using System;
 
-namespace STIL.Entities.VEU.HentUdbud;
+namespace STIL.ServiceClient.DTOs.VEU.HentUdbud;
 
+/// <summary>
+/// The hent udbud request class.
+/// </summary>
 [Serializable]
 [System.Diagnostics.DebuggerStepThroughAttribute]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -9,11 +12,18 @@ namespace STIL.Entities.VEU.HentUdbud;
 [System.Xml.Serialization.XmlRoot(Namespace = "http://ipl.stil.dk/services/veu/hentudbud/v1.0")]
 public class HentUdbudRequest
 {
+    /// <summary>
+    /// The identifier field.
+    /// </summary>
     private Identifier identifierField;
+
+    /// <summary>
+    /// The message field.
+    /// </summary>
     private HentUdbudRequestMessage messageField;
 
     /// <summary>
-    /// Gets or sets the <see cref="Identifier"/> value
+    /// Gets or sets the <see cref="Identifier"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
     public Identifier Identifier
@@ -23,7 +33,7 @@ public class HentUdbudRequest
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="Message"/> value
+    /// Gets or sets the <see cref="Message"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
     public HentUdbudRequestMessage Message

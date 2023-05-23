@@ -1,38 +1,144 @@
-﻿using System;
+using System;
 
-namespace STIL.Entities.VEU.HentUdbud;
+namespace STIL.ServiceClient.DTOs.VEU.HentUdbud;
 
+/// <summary>
+/// The skolefag pa hold type class.
+/// </summary>
 [Serializable]
 [System.Diagnostics.DebuggerStepThroughAttribute]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/hentudbud/webservice/hentudbud")]
 public class skolefagPaHoldType
 {
+    /// <summary>
+    /// The varighed dage field.
+    /// </summary>
     private decimal varighedDageField;
+
+    /// <summary>
+    /// The timer pr dag field.
+    /// </summary>
     private decimal timerPrDagField;
+
+    /// <summary>
+    /// The timer pr dag field specified.
+    /// </summary>
     private bool timerPrDagFieldSpecified;
+
+    /// <summary>
+    /// The justeret pris field.
+    /// </summary>
     private decimal justeretPrisField;
+
+    /// <summary>
+    /// The fuldpris field.
+    /// </summary>
     private decimal fuldprisField;
+
+    /// <summary>
+    /// The fuldpris field specified.
+    /// </summary>
     private bool fuldprisFieldSpecified;
+
+    /// <summary>
+    /// The tillegspris field.
+    /// </summary>
     private decimal tillegsprisField;
+
+    /// <summary>
+    /// The tillegspris field specified.
+    /// </summary>
     private bool tillegsprisFieldSpecified;
+
+    /// <summary>
+    /// The tillegspris arsag field.
+    /// </summary>
     private string tillegsprisArsagField;
+
+    /// <summary>
+    /// The primert fag field.
+    /// </summary>
     private enumJN primertFagField;
+
+    /// <summary>
+    /// The primert fag field specified.
+    /// </summary>
     private bool primertFagFieldSpecified;
+
+    /// <summary>
+    /// The arves field.
+    /// </summary>
     private enumJN arvesField;
+
+    /// <summary>
+    /// The arves field specified.
+    /// </summary>
     private bool arvesFieldSpecified;
+
+    /// <summary>
+    /// The foregar undervisning pa virk field.
+    /// </summary>
     private enumJN foregarUndervisningPaVirkField;
+
+    /// <summary>
+    /// The foregar undervisning pa virk field specified.
+    /// </summary>
     private bool foregarUndervisningPaVirkFieldSpecified;
+
+    /// <summary>
+    /// The fjernundervisning field.
+    /// </summary>
     private enumJN fjernundervisningField;
+
+    /// <summary>
+    /// The fjernundervisning field specified.
+    /// </summary>
     private bool fjernundervisningFieldSpecified;
+
+    /// <summary>
+    /// The skolefag field.
+    /// </summary>
     private skolefagType skolefagField;
+
+    /// <summary>
+    /// The mfag field.
+    /// </summary>
     private UVMfagType uVMfagField;
+
+    /// <summary>
+    /// The godkendt skole field.
+    /// </summary>
     private skoleType godkendtSkoleField;
+
+    /// <summary>
+    /// The gennemforende skole field.
+    /// </summary>
     private skoleType gennemforendeSkoleField;
+
+    /// <summary>
+    /// The uddannelse field.
+    /// </summary>
     private skolefagUddannelseType uddannelseField;
+
+    /// <summary>
+    /// The udliciteret til field.
+    /// </summary>
     private skoleFagPaHoldUdliciteretTil udliciteretTilField;
+
+    /// <summary>
+    /// The fag periode liste field.
+    /// </summary>
     private fagPeriodeType[] fagPeriodeListeField;
+
+    /// <summary>
+    /// The fag plads liste field.
+    /// </summary>
     private fagPladsType[] fagPladsListeField;
+
+    /// <summary>
+    /// The tillegspris liste field.
+    /// </summary>
     private tillegsprisType[] tillegsprisListeField;
 
     /// <summary>
@@ -56,7 +162,7 @@ public class skolefagPaHoldType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="TimerPrDagSpecified"/> value.
+    /// Gets or sets a value indicating whether <see cref="TimerPrDagSpecified"/> is set.
     /// </summary>
     [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool TimerPrDagSpecified
@@ -86,7 +192,7 @@ public class skolefagPaHoldType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="FuldprisSpecified"/> value.
+    /// Gets or sets a value indicating whether <see cref="FuldprisSpecified"/> is set.
     /// </summary>
     [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool FuldprisSpecified
@@ -106,7 +212,7 @@ public class skolefagPaHoldType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="TillegsprisSpecified"/> value.
+    /// Gets or sets a value indicating whether <see cref="TillegsprisSpecified"/> is set.
     /// </summary>
     [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool TillegsprisSpecified
@@ -136,7 +242,7 @@ public class skolefagPaHoldType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="PrimertFagSpecified"/> value.
+    /// Gets or sets a value indicating whether <see cref="PrimertFagSpecified"/> is set.
     /// </summary>
     [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool PrimertFagSpecified
@@ -156,7 +262,7 @@ public class skolefagPaHoldType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="ArvesSpecified"/> value.
+    /// Gets or sets a value indicating whether <see cref="ArvesSpecified"/> is set.
     /// </summary>
     [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool ArvesSpecified
@@ -176,7 +282,7 @@ public class skolefagPaHoldType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="ForegarUndervisningPaVirkSpecified"/> value.
+    /// Gets or sets a value indicating whether <see cref="ForegarUndervisningPaVirkSpecified"/> is set.
     /// </summary>
     [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool ForegarUndervisningPaVirkSpecified
@@ -196,7 +302,7 @@ public class skolefagPaHoldType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="FjernundervisningSpecified"/> value.
+    /// Gets or sets a value indicating whether <see cref="FjernundervisningSpecified"/> is set.
     /// </summary>
     [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool FjernundervisningSpecified

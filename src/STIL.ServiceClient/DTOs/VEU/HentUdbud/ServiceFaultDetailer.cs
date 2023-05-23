@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 
-namespace STIL.Entities.VEU.HentUdbud;
+namespace STIL.ServiceClient.DTOs.VEU.HentUdbud;
 
 /// <summary>
 /// ServiceFaultDetailer.
@@ -11,11 +11,34 @@ namespace STIL.Entities.VEU.HentUdbud;
 [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://ipl.stil.dk/services/veu/hentudbud/v1.0")]
 public class ServiceFaultDetailer
 {
+    /// <summary>
+    /// The correlation id field.
+    /// </summary>
     private string correlationIDField;
+
+    /// <summary>
+    /// The timestamp field.
+    /// </summary>
     private DateTime timestampField;
+
+    /// <summary>
+    /// The error code field.
+    /// </summary>
     private string errorCodeField;
+
+    /// <summary>
+    /// The error message field.
+    /// </summary>
     private string errorMessageField;
+
+    /// <summary>
+    /// The details field.
+    /// </summary>
     private string detailsField;
+
+    /// <summary>
+    /// The source system error field.
+    /// </summary>
     private SourceSystemErrorType sourceSystemErrorField;
 
     /// <summary>

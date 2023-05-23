@@ -1,13 +1,27 @@
-﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
+namespace STIL.ServiceClient.DTOs.VEU.HentTilmeldingerVeuInteressenter;
 
+/// <summary>
+/// The personoplysninger tilmelding type class.
+/// </summary>
 [System.SerializableAttribute]
 [System.Diagnostics.DebuggerStepThroughAttribute]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/tilmelding")]
 public class personoplysningerTilmeldingType
 {
+    /// <summary>
+    /// The arbejder som field.
+    /// </summary>
     private string arbejderSomField;
+
+    /// <summary>
+    /// The loen under kursus field.
+    /// </summary>
     private enumJN loenUnderKursusField;
+
+    /// <summary>
+    /// The loen under kursus field specified.
+    /// </summary>
     private bool loenUnderKursusFieldSpecified;
 
     /// <summary>
@@ -31,7 +45,7 @@ public class personoplysningerTilmeldingType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="LoenUnderKursusSpecified"/> value.
+    /// Gets or sets a value indicating whether <see cref="LoenUnderKursusSpecified"/> value is set.
     /// </summary>
     [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool LoenUnderKursusSpecified

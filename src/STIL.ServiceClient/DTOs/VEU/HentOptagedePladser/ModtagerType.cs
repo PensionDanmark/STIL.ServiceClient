@@ -1,4 +1,4 @@
-﻿namespace STIL.Entities.VEU.HentOptagedePladser
+namespace STIL.ServiceClient.DTOs.VEU.HentOptagedePladser
 {
     /// <summary>
     /// ModtagerType.
@@ -9,7 +9,14 @@
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/hentudbud/webservice/commontypes")]
     public class ModtagerType
     {
+        /// <summary>
+        /// The modtager system id field.
+        /// </summary>
         private string modtagerSystemIdField;
+
+        /// <summary>
+        /// The modtager system transaktions id field.
+        /// </summary>
         private string modtagerSystemTransaktionsIDField;
 
         /// <summary>

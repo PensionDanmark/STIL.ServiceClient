@@ -1,57 +1,223 @@
-﻿using System;
+using System;
 
-namespace STIL.Entities.VEU.HentUdbud;
+namespace STIL.ServiceClient.DTOs.VEU.HentUdbud;
 
+/// <summary>
+/// The hold class.
+/// </summary>
 [Serializable]
 [System.Diagnostics.DebuggerStepThroughAttribute]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/hentudbud/webservice/hentudbud")]
 public class Hold
 {
+    /// <summary>
+    /// The akti guid field.
+    /// </summary>
     private string aktiGuidField;
+
+    /// <summary>
+    /// The startdato field.
+    /// </summary>
     private DateTime startdatoField;
+
+    /// <summary>
+    /// The slutdato field.
+    /// </summary>
     private DateTime slutdatoField;
+
+    /// <summary>
+    /// The kort betegnelse field.
+    /// </summary>
     private string kortBetegnelseField;
+
+    /// <summary>
+    /// The betegnelse field.
+    /// </summary>
     private string betegnelseField;
+
+    /// <summary>
+    /// The beskrivelse field.
+    /// </summary>
     private string beskrivelseField;
+
+    /// <summary>
+    /// The navn field.
+    /// </summary>
     private string uGNavnField;
+
+    /// <summary>
+    /// The antal pladser field.
+    /// </summary>
     private decimal antalPladserField;
+
+    /// <summary>
+    /// The antal pladser field specified.
+    /// </summary>
     private bool antalPladserFieldSpecified;
+
+    /// <summary>
+    /// The elev lektioner field.
+    /// </summary>
     private decimal elevLektionerField;
+
+    /// <summary>
+    /// The elev lektioner field specified.
+    /// </summary>
     private bool elevLektionerFieldSpecified;
+
+    /// <summary>
+    /// The aflyst field.
+    /// </summary>
     private enumJN aflystField;
+
+    /// <summary>
+    /// The aflyst prdato field.
+    /// </summary>
     private DateTime aflystPrdatoField;
+
+    /// <summary>
+    /// The aflyst prdato field specified.
+    /// </summary>
     private bool aflystPrdatoFieldSpecified;
+
+    /// <summary>
+    /// The undervisningstid field.
+    /// </summary>
     private string undervisningstidField;
+
+    /// <summary>
+    /// The undervisningsform field.
+    /// </summary>
     private UndervisningsformType undervisningsformField;
+
+    /// <summary>
+    /// The undervisningsform field specified.
+    /// </summary>
     private bool undervisningsformFieldSpecified;
+
+    /// <summary>
+    /// The tilmeldingsfrist field.
+    /// </summary>
     private DateTime tilmeldingsfristField;
+
+    /// <summary>
+    /// The indberetningsprincip field.
+    /// </summary>
     private IndberetningsprincipType indberetningsprincipField;
+
+    /// <summary>
+    /// The last field.
+    /// </summary>
     private enumJN lastField;
+
+    /// <summary>
+    /// The forudsaetninger field.
+    /// </summary>
     private string forudsaetningerField;
+
+    /// <summary>
+    /// The kviknr field.
+    /// </summary>
     private string kviknrField;
+
+    /// <summary>
+    /// The kontaktperson field.
+    /// </summary>
     private string kontaktpersonField;
+
+    /// <summary>
+    /// The kontakt telefonnr field.
+    /// </summary>
     private string kontaktTelefonnrField;
+
+    /// <summary>
+    /// The email field.
+    /// </summary>
     private string emailField;
+
+    /// <summary>
+    /// The hjemmeside field.
+    /// </summary>
     private string hjemmesideField;
+
+    /// <summary>
+    /// The aktivitetsafdeling field.
+    /// </summary>
     private string aktivitetsafdelingField;
+
+    /// <summary>
+    /// The projektomrade field.
+    /// </summary>
     private string projektomradeField;
+
+    /// <summary>
+    /// The ansvarsomrade field.
+    /// </summary>
     private string ansvarsomradeField;
+
+    /// <summary>
+    /// The minimum antal tilmeldte field.
+    /// </summary>
     private decimal minimumAntalTilmeldteField;
+
+    /// <summary>
+    /// The minimum antal tilmeldte field specified.
+    /// </summary>
     private bool minimumAntalTilmeldteFieldSpecified;
+
+    /// <summary>
+    /// The kontraktuddannelse field.
+    /// </summary>
     private enumJN kontraktuddannelseField;
+
+    /// <summary>
+    /// The garanti kursus field.
+    /// </summary>
     private enumJN garantiKursusField;
+
+    /// <summary>
+    /// The deltager pris beloeb field.
+    /// </summary>
     private decimal deltagerPrisBeloebField;
+
+    /// <summary>
+    /// The deltager pris beloeb field specified.
+    /// </summary>
     private bool deltagerPrisBeloebFieldSpecified;
+
+    /// <summary>
+    /// The skole field.
+    /// </summary>
     private skoleType skoleField;
+
+    /// <summary>
+    /// The lokation field.
+    /// </summary>
     private lokationType lokationField;
+
+    /// <summary>
+    /// The uddannelse field.
+    /// </summary>
     private uddannelseType uddannelseField;
+
+    /// <summary>
+    /// The hold plads liste field.
+    /// </summary>
     private holdPladsType[] holdPladsListeField;
+
+    /// <summary>
+    /// The tillegspris liste field.
+    /// </summary>
     private tillegsprisType[] tillegsprisListeField;
+
+    /// <summary>
+    /// The skolefag pa hold liste field.
+    /// </summary>
     private skolefagPaHoldType[] skolefagPaHoldListeField;
 
     /// <summary>
-    /// Gets or sets the <see cref="AktiGuid"/> value
+    /// Gets or sets the <see cref="AktiGuid"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
     public string AktiGuid
@@ -131,7 +297,7 @@ public class Hold
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="AntalPladserSpecified"/> value.
+    /// Gets or sets a value indicating whether the <see cref="AntalPladserSpecified"/> is set.
     /// </summary>
     [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool AntalPladserSpecified
@@ -151,7 +317,7 @@ public class Hold
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="ElevLektionerSpecified"/> value.
+    /// Gets or sets a value indicating whether <see cref="ElevLektionerSpecified"/> is set.
     /// </summary>
     [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool ElevLektionerSpecified
@@ -181,7 +347,7 @@ public class Hold
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="AflystPrdatoSpecified"/> value.
+    /// Gets or sets a value indicating whether <see cref="AflystPrdatoSpecified"/> value is set.
     /// </summary>
     [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool AflystPrdatoSpecified
@@ -211,7 +377,7 @@ public class Hold
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="UndervisningsformSpecified"/> value.
+    /// Gets or sets a value indicating whether <see cref="UndervisningsformSpecified"/> is set.
     /// </summary>
     [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool UndervisningsformSpecified
@@ -351,7 +517,7 @@ public class Hold
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="MinimumAntalTilmeldteSpecified"/> value.
+    /// Gets or sets a value indicating whether <see cref="MinimumAntalTilmeldteSpecified"/> is set.
     /// </summary>
     [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool MinimumAntalTilmeldteSpecified
@@ -391,7 +557,7 @@ public class Hold
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="DeltagerPrisBeloebSpecified"/> value.
+    /// Gets or sets a value indicating whether <see cref="DeltagerPrisBeloebSpecified"/> is set.
     /// </summary>
     [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool DeltagerPrisBeloebSpecified

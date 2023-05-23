@@ -1,19 +1,33 @@
-﻿using System;
+using System;
 
-namespace STIL.Entities.VEU.HentUdbud;
+namespace STIL.ServiceClient.DTOs.VEU.HentUdbud;
 
+/// <summary>
+/// The hold plads type class.
+/// </summary>
 [Serializable]
 [System.Diagnostics.DebuggerStepThroughAttribute]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/hentudbud/webservice/hentudbud")]
 public class holdPladsType
 {
+    /// <summary>
+    /// The dato field.
+    /// </summary>
     private DateTime datoField;
+
+    /// <summary>
+    /// The antal pladser field.
+    /// </summary>
     private decimal antalPladserField;
+
+    /// <summary>
+    /// The antal pladser field specified.
+    /// </summary>
     private bool antalPladserFieldSpecified;
 
     /// <summary>
-    /// Gets or sets the <see cref="Dato"/> value
+    /// Gets or sets the <see cref="Dato"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 0)]
     public DateTime Dato
@@ -23,7 +37,7 @@ public class holdPladsType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="AntalPladser"/> value
+    /// Gets or sets the <see cref="AntalPladser"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
     public decimal AntalPladser
@@ -33,7 +47,7 @@ public class holdPladsType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="AntalPladserSpecified"/> value
+    /// Gets or sets a value indicating whether <see cref="AntalPladserSpecified"/> is set.
     /// </summary>
     [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool AntalPladserSpecified

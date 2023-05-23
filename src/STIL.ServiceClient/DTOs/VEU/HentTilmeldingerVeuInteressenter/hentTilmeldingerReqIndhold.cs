@@ -1,17 +1,47 @@
-﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
+namespace STIL.ServiceClient.DTOs.VEU.HentTilmeldingerVeuInteressenter;
 
+/// <summary>
+/// The hent tilmeldinger req indhold class.
+/// </summary>
 [System.SerializableAttribute]
 [System.Diagnostics.DebuggerStepThroughAttribute]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger")]
 public class hentTilmeldingerReqIndhold
 {
+    /// <summary>
+    /// The rnr field.
+    /// </summary>
     private string cVRnrField;
+
+    /// <summary>
+    /// The rnummer liste field.
+    /// </summary>
     private string[] cPRnummerListeField;
+
+    /// <summary>
+    /// The fra dato field.
+    /// </summary>
     private System.DateTime fraDatoField;
+
+    /// <summary>
+    /// The fra dato field specified.
+    /// </summary>
     private bool fraDatoFieldSpecified;
+
+    /// <summary>
+    /// The til dato field.
+    /// </summary>
     private System.DateTime tilDatoField;
+
+    /// <summary>
+    /// The til dato field specified.
+    /// </summary>
     private bool tilDatoFieldSpecified;
+
+    /// <summary>
+    /// The inst nr field.
+    /// </summary>
     private string instNrField;
 
     /// <summary>
@@ -46,7 +76,7 @@ public class hentTilmeldingerReqIndhold
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="FraDatoSpecified"/> value.
+    /// Gets or sets a value indicating whether <see cref="FraDatoSpecified"/> value is set.
     /// </summary>
     [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool FraDatoSpecified
@@ -66,7 +96,7 @@ public class hentTilmeldingerReqIndhold
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="TilDatoSpecified"/> value.
+    /// Gets or sets a value indicating whether <see cref="TilDatoSpecified"/> value is set.
     /// </summary>
     [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool TilDatoSpecified
