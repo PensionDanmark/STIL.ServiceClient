@@ -633,3 +633,12 @@ dotnet_diagnostic.SA1200.severity = silent
 dotnet_diagnostic.SA1502.severity = silent
 dotnet_diagnostic.SA1128.severity = silent
 dotnet_diagnostic.SA1633.severity = suggestion
+
+# CS8618: Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+dotnet_diagnostic.CS8618.severity = none
+
+# SA1300: Element should begin with upper-case letter
+dotnet_diagnostic.SA1300.severity = none
+
+# SA1313: Parameter names should begin with lower-case letter
+dotnet_diagnostic.SA1313.severity = none

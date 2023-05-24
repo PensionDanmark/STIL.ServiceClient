@@ -1,22 +1,48 @@
-﻿using System;
+using System;
 
-namespace STIL.Entities.VEU.HentUdbud;
+namespace STIL.ServiceClient.DTOs.VEU.HentUdbud;
 
+/// <summary>
+/// ServiceFaultDetailer.
+/// </summary>
 [Serializable]
 [System.Diagnostics.DebuggerStepThroughAttribute]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://ipl.stil.dk/services/veu/hentudbud/v1.0")]
 public class ServiceFaultDetailer
 {
+    /// <summary>
+    /// The correlation id field.
+    /// </summary>
     private string correlationIDField;
+
+    /// <summary>
+    /// The timestamp field.
+    /// </summary>
     private DateTime timestampField;
+
+    /// <summary>
+    /// The error code field.
+    /// </summary>
     private string errorCodeField;
+
+    /// <summary>
+    /// The error message field.
+    /// </summary>
     private string errorMessageField;
+
+    /// <summary>
+    /// The details field.
+    /// </summary>
     private string detailsField;
+
+    /// <summary>
+    /// The source system error field.
+    /// </summary>
     private SourceSystemErrorType sourceSystemErrorField;
 
     /// <summary>
-    /// Gets or sets the <see cref="CorrelationID"/> value
+    /// Gets or sets the <see cref="CorrelationID"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
     public string CorrelationID
@@ -26,7 +52,7 @@ public class ServiceFaultDetailer
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="Timestamp"/> value
+    /// Gets or sets the <see cref="Timestamp"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
     public DateTime Timestamp
@@ -36,7 +62,7 @@ public class ServiceFaultDetailer
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="ErrorCode"/> value
+    /// Gets or sets the <see cref="ErrorCode"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
     public string ErrorCode
@@ -46,7 +72,7 @@ public class ServiceFaultDetailer
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="ErrorMessage"/> value
+    /// Gets or sets the <see cref="ErrorMessage"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
     public string ErrorMessage
@@ -56,7 +82,7 @@ public class ServiceFaultDetailer
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="Details"/> value
+    /// Gets or sets the <see cref="Details"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
     public string Details
@@ -66,7 +92,7 @@ public class ServiceFaultDetailer
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="SourceSystemError"/> value
+    /// Gets or sets the <see cref="SourceSystemError"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
     public SourceSystemErrorType SourceSystemError

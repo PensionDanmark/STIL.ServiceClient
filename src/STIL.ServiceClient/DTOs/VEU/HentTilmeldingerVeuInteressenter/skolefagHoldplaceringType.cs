@@ -1,26 +1,92 @@
-﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
+namespace STIL.ServiceClient.DTOs.VEU.HentTilmeldingerVeuInteressenter;
 
+/// <summary>
+/// The skolefag holdplacering type class.
+/// </summary>
 [System.SerializableAttribute]
 [System.Diagnostics.DebuggerStepThroughAttribute]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/skolefagHoldplacering")]
 public class skolefagHoldplaceringType
 {
+    /// <summary>
+    /// The skolefag field.
+    /// </summary>
     private skolefagType skolefagField;
+
+    /// <summary>
+    /// The startdato field.
+    /// </summary>
     private System.DateTime startdatoField;
+
+    /// <summary>
+    /// The slutdato field.
+    /// </summary>
     private System.DateTime slutdatoField;
+
+    /// <summary>
+    /// The slutdato field specified.
+    /// </summary>
     private bool slutdatoFieldSpecified;
+
+    /// <summary>
+    /// The gennemfort field.
+    /// </summary>
     private string gennemfortField;
+
+    /// <summary>
+    /// The fjernundervisning field.
+    /// </summary>
     private enumJN fjernundervisningField;
+
+    /// <summary>
+    /// The fjernundervisning field specified.
+    /// </summary>
     private bool fjernundervisningFieldSpecified;
+
+    /// <summary>
+    /// The foregar undervisning paa virk field.
+    /// </summary>
     private enumJN foregarUndervisningPaaVirkField;
+
+    /// <summary>
+    /// The foregar undervisning paa virk field specified.
+    /// </summary>
     private bool foregarUndervisningPaaVirkFieldSpecified;
+
+    /// <summary>
+    /// The certifikatkursus field.
+    /// </summary>
     private enumJN certifikatkursusField;
+
+    /// <summary>
+    /// The certifikatkursus field specified.
+    /// </summary>
     private bool certifikatkursusFieldSpecified;
+
+    /// <summary>
+    /// The varighed dage field.
+    /// </summary>
     private decimal varighedDageField;
+
+    /// <summary>
+    /// The varighed dage field specified.
+    /// </summary>
     private bool varighedDageFieldSpecified;
+
+    /// <summary>
+    /// The normeret varighed field.
+    /// </summary>
     private decimal normeretVarighedField;
+
+    /// <summary>
+    /// The normeret varighed field specified.
+    /// </summary>
     private bool normeretVarighedFieldSpecified;
+
+    /// <summary>
+    /// The tilstededag liste field.
+    /// </summary>
     private tilstededagType[] tilstededagListeField;
 
     /// <summary>
@@ -54,7 +120,7 @@ public class skolefagHoldplaceringType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="SlutdatoSpecified"/> value.
+    /// Gets or sets a value indicating whether <see cref="SlutdatoSpecified"/> value is set.
     /// </summary>
     [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool SlutdatoSpecified
@@ -84,7 +150,7 @@ public class skolefagHoldplaceringType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="FjernundervisningSpecified"/> value.
+    /// Gets or sets a value indicating whether <see cref="FjernundervisningSpecified"/> value is set.
     /// </summary>
     [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool FjernundervisningSpecified
@@ -104,7 +170,7 @@ public class skolefagHoldplaceringType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="ForegarUndervisningPaaVirkSpecified"/> value.
+    /// Gets or sets a value indicating whether <see cref="ForegarUndervisningPaaVirkSpecified"/> value is set.
     /// </summary>
     [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool ForegarUndervisningPaaVirkSpecified
@@ -124,7 +190,7 @@ public class skolefagHoldplaceringType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="CertifikatkursusSpecified"/> value.
+    /// Gets or sets a value indicating whether <see cref="CertifikatkursusSpecified"/> value is set.
     /// </summary>
     [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool CertifikatkursusSpecified
@@ -144,7 +210,7 @@ public class skolefagHoldplaceringType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="VarighedDageSpecified"/> value.
+    /// Gets or sets a value indicating whether <see cref="VarighedDageSpecified"/> value is set.
     /// </summary>
     [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool VarighedDageSpecified
@@ -164,7 +230,7 @@ public class skolefagHoldplaceringType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="NormeretVarighedSpecified"/> value.
+    /// Gets or sets a value indicating whether <see cref="NormeretVarighedSpecified"/> value is set.
     /// </summary>
     [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool NormeretVarighedSpecified
@@ -177,8 +243,7 @@ public class skolefagHoldplaceringType
     /// Gets or sets the <see cref="TilstededagListe"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlArrayAttribute(Order = 9)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("Tilstededag",
-        Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/tilstededag", IsNullable = false)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("Tilstededag", Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/tilstededag", IsNullable = false)]
     public tilstededagType[] TilstededagListe
     {
         get => tilstededagListeField;

@@ -1,13 +1,27 @@
-﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
+namespace STIL.ServiceClient.DTOs.VEU.HentTilmeldingerVeuInteressenter;
 
+/// <summary>
+/// The source system error type class.
+/// </summary>
 [System.SerializableAttribute]
 [System.Diagnostics.DebuggerStepThroughAttribute]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://ipl.stil.dk/services/veu/henttilmeldingerveuinteressenter/v1.0")]
 public class SourceSystemErrorType
 {
+    /// <summary>
+    /// The source system name field.
+    /// </summary>
     private string sourceSystemNameField;
+
+    /// <summary>
+    /// The error code field.
+    /// </summary>
     private string errorCodeField;
+
+    /// <summary>
+    /// The details field.
+    /// </summary>
     private string detailsField;
 
     /// <summary>

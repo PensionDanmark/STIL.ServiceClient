@@ -1,13 +1,27 @@
-﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
+namespace STIL.ServiceClient.DTOs.VEU.HentTilmeldingerVeuInteressenter;
 
+/// <summary>
+/// The hold type class.
+/// </summary>
 [System.SerializableAttribute]
 [System.Diagnostics.DebuggerStepThroughAttribute]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/tilmelding")]
 public class holdType
 {
+    /// <summary>
+    /// The betegnelse field.
+    /// </summary>
     private string betegnelseField;
+
+    /// <summary>
+    /// The kviknummer field.
+    /// </summary>
     private string kviknummerField;
+
+    /// <summary>
+    /// The uddannelsestype field.
+    /// </summary>
     private string uddannelsestypeField;
 
     /// <summary>

@@ -1,12 +1,22 @@
-﻿namespace STIL.Entities.VEU.HentOptagedePladser
+namespace STIL.ServiceClient.DTOs.VEU.HentOptagedePladser
 {
+    /// <summary>
+    /// FagPladsType.
+    /// </summary>
     [System.SerializableAttribute]
     [System.Diagnostics.DebuggerStepThroughAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/hentudbud/webservice/hentoptagedepladser")]
     public class FagPladsType
     {
+        /// <summary>
+        /// The dato field.
+        /// </summary>
         private System.DateTime datoField;
+
+        /// <summary>
+        /// The optaget antal pladser field.
+        /// </summary>
         private decimal optagetAntalPladserField;
 
         /// <summary>

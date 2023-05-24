@@ -1,14 +1,32 @@
-﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
+namespace STIL.ServiceClient.DTOs.VEU.HentTilmeldingerVeuInteressenter;
 
+/// <summary>
+/// The hent tilmeldinger res resultat class.
+/// </summary>
 [System.SerializableAttribute]
 [System.Diagnostics.DebuggerStepThroughAttribute]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger")]
 public class hentTilmeldingerResResultat
 {
+    /// <summary>
+    /// The inst nr field.
+    /// </summary>
     private string instNrField;
+
+    /// <summary>
+    /// The svar kode field.
+    /// </summary>
     private string svarKodeField;
+
+    /// <summary>
+    /// The svar tekst field.
+    /// </summary>
     private string svarTekstField;
+
+    /// <summary>
+    /// The person liste field.
+    /// </summary>
     private personType[] personListeField;
 
     /// <summary>

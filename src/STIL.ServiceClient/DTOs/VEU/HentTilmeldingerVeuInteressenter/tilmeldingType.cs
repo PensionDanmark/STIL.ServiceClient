@@ -1,16 +1,42 @@
-﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
+namespace STIL.ServiceClient.DTOs.VEU.HentTilmeldingerVeuInteressenter;
 
+/// <summary>
+/// The tilmelding type class.
+/// </summary>
 [System.SerializableAttribute]
 [System.Diagnostics.DebuggerStepThroughAttribute]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/tilmelding")]
 public class tilmeldingType
 {
+    /// <summary>
+    /// The hopl guid field.
+    /// </summary>
     private string hoplGUIDField;
+
+    /// <summary>
+    /// The personoplysninger tilmelding field.
+    /// </summary>
     private personoplysningerTilmeldingType personoplysningerTilmeldingField;
+
+    /// <summary>
+    /// The arbejdsgiver field.
+    /// </summary>
     private arbejdsgiverType arbejdsgiverField;
+
+    /// <summary>
+    /// The skole field.
+    /// </summary>
     private skoleType skoleField;
+
+    /// <summary>
+    /// The hold field.
+    /// </summary>
     private holdType holdField;
+
+    /// <summary>
+    /// The holdplacering field.
+    /// </summary>
     private holdplaceringType holdplaceringField;
 
     /// <summary>

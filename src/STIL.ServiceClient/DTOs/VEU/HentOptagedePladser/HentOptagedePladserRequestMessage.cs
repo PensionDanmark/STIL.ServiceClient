@@ -1,11 +1,17 @@
-﻿namespace STIL.Entities.VEU.HentOptagedePladser
+namespace STIL.ServiceClient.DTOs.VEU.HentOptagedePladser
 {
+    /// <summary>
+    /// HentOptagedePladserRequestMessage.
+    /// </summary>
     [System.SerializableAttribute]
     [System.Diagnostics.DebuggerStepThroughAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://ipl.stil.dk/services/veu/hentoptagedepladser/v1")]
     public class HentOptagedePladserRequestMessage
     {
+        /// <summary>
+        /// The hent optagede pladser request field.
+        /// </summary>
         private HentOptagedePladserRequest hentOptagedePladserRequestField;
 
         /// <summary>

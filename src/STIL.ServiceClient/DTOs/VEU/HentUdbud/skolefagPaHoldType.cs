@@ -1,42 +1,148 @@
-﻿using System;
+using System;
 
-namespace STIL.Entities.VEU.HentUdbud;
+namespace STIL.ServiceClient.DTOs.VEU.HentUdbud;
 
+/// <summary>
+/// The skolefag pa hold type class.
+/// </summary>
 [Serializable]
 [System.Diagnostics.DebuggerStepThroughAttribute]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/hentudbud/webservice/hentudbud")]
 public class skolefagPaHoldType
 {
+    /// <summary>
+    /// The varighed dage field.
+    /// </summary>
     private decimal varighedDageField;
+
+    /// <summary>
+    /// The timer pr dag field.
+    /// </summary>
     private decimal timerPrDagField;
+
+    /// <summary>
+    /// The timer pr dag field specified.
+    /// </summary>
     private bool timerPrDagFieldSpecified;
+
+    /// <summary>
+    /// The justeret pris field.
+    /// </summary>
     private decimal justeretPrisField;
+
+    /// <summary>
+    /// The fuldpris field.
+    /// </summary>
     private decimal fuldprisField;
+
+    /// <summary>
+    /// The fuldpris field specified.
+    /// </summary>
     private bool fuldprisFieldSpecified;
+
+    /// <summary>
+    /// The tillegspris field.
+    /// </summary>
     private decimal tillegsprisField;
+
+    /// <summary>
+    /// The tillegspris field specified.
+    /// </summary>
     private bool tillegsprisFieldSpecified;
+
+    /// <summary>
+    /// The tillegspris arsag field.
+    /// </summary>
     private string tillegsprisArsagField;
+
+    /// <summary>
+    /// The primert fag field.
+    /// </summary>
     private enumJN primertFagField;
+
+    /// <summary>
+    /// The primert fag field specified.
+    /// </summary>
     private bool primertFagFieldSpecified;
+
+    /// <summary>
+    /// The arves field.
+    /// </summary>
     private enumJN arvesField;
+
+    /// <summary>
+    /// The arves field specified.
+    /// </summary>
     private bool arvesFieldSpecified;
+
+    /// <summary>
+    /// The foregar undervisning pa virk field.
+    /// </summary>
     private enumJN foregarUndervisningPaVirkField;
+
+    /// <summary>
+    /// The foregar undervisning pa virk field specified.
+    /// </summary>
     private bool foregarUndervisningPaVirkFieldSpecified;
+
+    /// <summary>
+    /// The fjernundervisning field.
+    /// </summary>
     private enumJN fjernundervisningField;
+
+    /// <summary>
+    /// The fjernundervisning field specified.
+    /// </summary>
     private bool fjernundervisningFieldSpecified;
+
+    /// <summary>
+    /// The skolefag field.
+    /// </summary>
     private skolefagType skolefagField;
+
+    /// <summary>
+    /// The mfag field.
+    /// </summary>
     private UVMfagType uVMfagField;
+
+    /// <summary>
+    /// The godkendt skole field.
+    /// </summary>
     private skoleType godkendtSkoleField;
+
+    /// <summary>
+    /// The gennemforende skole field.
+    /// </summary>
     private skoleType gennemforendeSkoleField;
+
+    /// <summary>
+    /// The uddannelse field.
+    /// </summary>
     private skolefagUddannelseType uddannelseField;
+
+    /// <summary>
+    /// The udliciteret til field.
+    /// </summary>
     private skoleFagPaHoldUdliciteretTil udliciteretTilField;
+
+    /// <summary>
+    /// The fag periode liste field.
+    /// </summary>
     private fagPeriodeType[] fagPeriodeListeField;
+
+    /// <summary>
+    /// The fag plads liste field.
+    /// </summary>
     private fagPladsType[] fagPladsListeField;
+
+    /// <summary>
+    /// The tillegspris liste field.
+    /// </summary>
     private tillegsprisType[] tillegsprisListeField;
 
     /// <summary>
-    /// Gets or sets the <see cref="VarighedDage"/> value
+    /// Gets or sets the <see cref="VarighedDage"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
     public decimal VarighedDage
@@ -46,7 +152,7 @@ public class skolefagPaHoldType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="TimerPrDag"/> value
+    /// Gets or sets the <see cref="TimerPrDag"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
     public decimal TimerPrDag
@@ -56,7 +162,7 @@ public class skolefagPaHoldType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="TimerPrDagSpecified"/> value
+    /// Gets or sets a value indicating whether <see cref="TimerPrDagSpecified"/> is set.
     /// </summary>
     [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool TimerPrDagSpecified
@@ -66,7 +172,7 @@ public class skolefagPaHoldType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="JusteretPris"/> value
+    /// Gets or sets the <see cref="JusteretPris"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
     public decimal JusteretPris
@@ -76,7 +182,7 @@ public class skolefagPaHoldType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="Fuldpris"/> value
+    /// Gets or sets the <see cref="Fuldpris"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
     public decimal Fuldpris
@@ -86,7 +192,7 @@ public class skolefagPaHoldType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="FuldprisSpecified"/> value
+    /// Gets or sets a value indicating whether <see cref="FuldprisSpecified"/> is set.
     /// </summary>
     [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool FuldprisSpecified
@@ -96,7 +202,7 @@ public class skolefagPaHoldType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="Tillegspris"/> value
+    /// Gets or sets the <see cref="Tillegspris"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
     public decimal Tillegspris
@@ -106,7 +212,7 @@ public class skolefagPaHoldType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="TillegsprisSpecified"/> value
+    /// Gets or sets a value indicating whether <see cref="TillegsprisSpecified"/> is set.
     /// </summary>
     [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool TillegsprisSpecified
@@ -116,7 +222,7 @@ public class skolefagPaHoldType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="TillegsprisArsag"/> value
+    /// Gets or sets the <see cref="TillegsprisArsag"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
     public string TillegsprisArsag
@@ -126,7 +232,7 @@ public class skolefagPaHoldType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="PrimertFag"/> value
+    /// Gets or sets the <see cref="PrimertFag"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
     public enumJN PrimertFag
@@ -136,7 +242,7 @@ public class skolefagPaHoldType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="PrimertFagSpecified"/> value
+    /// Gets or sets a value indicating whether <see cref="PrimertFagSpecified"/> is set.
     /// </summary>
     [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool PrimertFagSpecified
@@ -146,7 +252,7 @@ public class skolefagPaHoldType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="Arves"/> value
+    /// Gets or sets the <see cref="Arves"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
     public enumJN Arves
@@ -156,7 +262,7 @@ public class skolefagPaHoldType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="ArvesSpecified"/> value
+    /// Gets or sets a value indicating whether <see cref="ArvesSpecified"/> is set.
     /// </summary>
     [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool ArvesSpecified
@@ -166,7 +272,7 @@ public class skolefagPaHoldType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="ForegarUndervisningPaVirk"/> value
+    /// Gets or sets the <see cref="ForegarUndervisningPaVirk"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
     public enumJN ForegarUndervisningPaVirk
@@ -176,7 +282,7 @@ public class skolefagPaHoldType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="ForegarUndervisningPaVirkSpecified"/> value
+    /// Gets or sets a value indicating whether <see cref="ForegarUndervisningPaVirkSpecified"/> is set.
     /// </summary>
     [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool ForegarUndervisningPaVirkSpecified
@@ -186,7 +292,7 @@ public class skolefagPaHoldType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="Fjernundervisning"/> value
+    /// Gets or sets the <see cref="Fjernundervisning"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 9)]
     public enumJN Fjernundervisning
@@ -196,7 +302,7 @@ public class skolefagPaHoldType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="FjernundervisningSpecified"/> value
+    /// Gets or sets a value indicating whether <see cref="FjernundervisningSpecified"/> is set.
     /// </summary>
     [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool FjernundervisningSpecified
@@ -206,7 +312,7 @@ public class skolefagPaHoldType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="Skolefag"/> value
+    /// Gets or sets the <see cref="Skolefag"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 10)]
     public skolefagType Skolefag
@@ -216,7 +322,7 @@ public class skolefagPaHoldType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="UVMfag"/> value
+    /// Gets or sets the <see cref="UVMfag"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 11)]
     public UVMfagType UVMfag
@@ -226,7 +332,7 @@ public class skolefagPaHoldType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="GodkendtSkole"/> value
+    /// Gets or sets the <see cref="GodkendtSkole"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 12)]
     public skoleType GodkendtSkole
@@ -236,7 +342,7 @@ public class skolefagPaHoldType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="GennemforendeSkole"/> value
+    /// Gets or sets the <see cref="GennemforendeSkole"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 13)]
     public skoleType GennemforendeSkole
@@ -246,7 +352,7 @@ public class skolefagPaHoldType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="Uddannelse"/> value
+    /// Gets or sets the <see cref="Uddannelse"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 14)]
     public skolefagUddannelseType Uddannelse
@@ -256,7 +362,7 @@ public class skolefagPaHoldType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="UdliciteretTil"/> value
+    /// Gets or sets the <see cref="UdliciteretTil"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 15)]
     public skoleFagPaHoldUdliciteretTil UdliciteretTil
@@ -266,7 +372,7 @@ public class skolefagPaHoldType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="FagPeriodeListe"/> value
+    /// Gets or sets the <see cref="FagPeriodeListe"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute("FagPeriodeListe", Order = 16)]
     public fagPeriodeType[] FagPeriodeListe
@@ -276,7 +382,7 @@ public class skolefagPaHoldType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="FagPladsListe"/> value
+    /// Gets or sets the <see cref="FagPladsListe"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute("FagPladsListe", Order = 17)]
     public fagPladsType[] FagPladsListe
@@ -286,7 +392,7 @@ public class skolefagPaHoldType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="TillegsprisListe"/> value
+    /// Gets or sets the <see cref="TillegsprisListe"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute("TillegsprisListe", Order = 18)]
     public tillegsprisType[] TillegsprisListe

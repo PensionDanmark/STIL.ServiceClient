@@ -1,15 +1,37 @@
-﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
+namespace STIL.ServiceClient.DTOs.VEU.HentTilmeldingerVeuInteressenter;
 
+/// <summary>
+/// The undervisningssted type class.
+/// </summary>
 [System.SerializableAttribute]
 [System.Diagnostics.DebuggerStepThroughAttribute]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/tilstededag")]
 public class undervisningsstedType
 {
+    /// <summary>
+    /// The navn field.
+    /// </summary>
     private string navnField;
+
+    /// <summary>
+    /// The gade field.
+    /// </summary>
     private string gadeField;
+
+    /// <summary>
+    /// The sted field.
+    /// </summary>
     private string stedField;
+
+    /// <summary>
+    /// The postnummer field.
+    /// </summary>
     private string postnummerField;
+
+    /// <summary>
+    /// The postdistrikt field.
+    /// </summary>
     private string postdistriktField;
 
     /// <summary>

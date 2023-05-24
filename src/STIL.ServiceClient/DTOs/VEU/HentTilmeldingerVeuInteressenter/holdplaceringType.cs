@@ -1,16 +1,42 @@
-﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
+namespace STIL.ServiceClient.DTOs.VEU.HentTilmeldingerVeuInteressenter;
 
+/// <summary>
+/// The holdplacering type class.
+/// </summary>
 [System.SerializableAttribute]
 [System.Diagnostics.DebuggerStepThroughAttribute]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/tilmelding")]
 public class holdplaceringType
 {
+    /// <summary>
+    /// The startdato field.
+    /// </summary>
     private System.DateTime startdatoField;
+
+    /// <summary>
+    /// The slutdato field.
+    /// </summary>
     private System.DateTime slutdatoField;
+
+    /// <summary>
+    /// The tilmeldingstype field.
+    /// </summary>
     private string tilmeldingstypeField;
+
+    /// <summary>
+    /// The deltagerpris field.
+    /// </summary>
     private decimal deltagerprisField;
+
+    /// <summary>
+    /// The deltagerpris field specified.
+    /// </summary>
     private bool deltagerprisFieldSpecified;
+
+    /// <summary>
+    /// The skolefag holdplacering liste field.
+    /// </summary>
     private skolefagHoldplaceringType[] skolefagHoldplaceringListeField;
 
     /// <summary>
@@ -54,7 +80,7 @@ public class holdplaceringType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="DeltagerprisSpecified"/> value.
+    /// Gets or sets a value indicating whether <see cref="DeltagerprisSpecified"/> value is set.
     /// </summary>
     [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool DeltagerprisSpecified
@@ -67,8 +93,7 @@ public class holdplaceringType
     /// Gets or sets the <see cref="SkolefagHoldplaceringListe"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlArrayAttribute(Order = 4)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("SkolefagHoldplacering",
-        Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/skolefagHoldplacering", IsNullable = false)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("SkolefagHoldplacering", Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/skolefagHoldplacering", IsNullable = false)]
     public skolefagHoldplaceringType[] SkolefagHoldplaceringListe
     {
         get => skolefagHoldplaceringListeField;

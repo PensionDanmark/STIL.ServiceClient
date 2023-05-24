@@ -1,11 +1,17 @@
-﻿namespace STIL.Entities.VEU.HentOptagedePladser
+namespace STIL.ServiceClient.DTOs.VEU.HentOptagedePladser
 {
+    /// <summary>
+    /// RequestType.
+    /// </summary>
     [System.SerializableAttribute]
     [System.Diagnostics.DebuggerStepThroughAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/hentudbud/webservice/commontypes")]
     public abstract class RequestType
     {
+        /// <summary>
+        /// The modtager field.
+        /// </summary>
         private ModtagerType modtagerField;
 
         /// <summary>

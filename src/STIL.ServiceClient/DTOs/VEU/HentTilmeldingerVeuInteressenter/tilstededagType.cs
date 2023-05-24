@@ -1,16 +1,42 @@
-﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
+namespace STIL.ServiceClient.DTOs.VEU.HentTilmeldingerVeuInteressenter;
 
+/// <summary>
+/// The tilstededag type class.
+/// </summary>
 [System.SerializableAttribute]
 [System.Diagnostics.DebuggerStepThroughAttribute]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger/tilstededag")]
 public class tilstededagType
 {
+    /// <summary>
+    /// The dato field.
+    /// </summary>
     private System.DateTime datoField;
+
+    /// <summary>
+    /// The norm timer field.
+    /// </summary>
     private decimal normTimerField;
+
+    /// <summary>
+    /// The norm timer field specified.
+    /// </summary>
     private bool normTimerFieldSpecified;
+
+    /// <summary>
+    /// The timer tilstede field.
+    /// </summary>
     private decimal timerTilstedeField;
+
+    /// <summary>
+    /// The timer tilstede field specified.
+    /// </summary>
     private bool timerTilstedeFieldSpecified;
+
+    /// <summary>
+    /// The undervisningssted field.
+    /// </summary>
     private undervisningsstedType undervisningsstedField;
 
     /// <summary>
@@ -34,7 +60,7 @@ public class tilstededagType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="NormTimerSpecified"/> value.
+    /// Gets or sets a value indicating whether <see cref="NormTimerSpecified"/> is set..
     /// </summary>
     [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool NormTimerSpecified
@@ -54,7 +80,7 @@ public class tilstededagType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="TimerTilstedeSpecified"/> value.
+    /// Gets or sets a value indicating whether <see cref="TimerTilstedeSpecified"/> is set.
     /// </summary>
     [System.Xml.Serialization.XmlIgnoreAttribute]
     public bool TimerTilstedeSpecified

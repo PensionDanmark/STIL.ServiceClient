@@ -1,13 +1,27 @@
-﻿namespace STIL.Entities.VEU.HentOptagedePladser
+namespace STIL.ServiceClient.DTOs.VEU.HentOptagedePladser
 {
+    /// <summary>
+    /// HoldListe.
+    /// </summary>
     [System.SerializableAttribute]
     [System.Diagnostics.DebuggerStepThroughAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/hentudbud/webservice/hentoptagedepladser")]
     public class HoldListe
     {
+        /// <summary>
+        /// The akti guid field.
+        /// </summary>
         private string aktiGUIDField;
+
+        /// <summary>
+        /// The hold plads liste field.
+        /// </summary>
         private HoldPladsType[] holdPladsListeField;
+
+        /// <summary>
+        /// The skolefag pa hold liste field.
+        /// </summary>
         private SkolefagPaHoldType[] skolefagPaHoldListeField;
 
         /// <summary>

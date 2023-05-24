@@ -1,11 +1,12 @@
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
 using System.ServiceModel;
-using STIL.Entities.VEU.HentOptagedePladser;
-using STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
-using STIL.Entities.VEU.HentUdbud;
+using STIL.ServiceClient.DTOs.VEU.HentOptagedePladser;
+using STIL.ServiceClient.DTOs.VEU.HentTilmeldingerVeuInteressenter;
+using STIL.ServiceClient.DTOs.VEU.HentUdbud;
 using STIL.ServiceClient.Tests.Extensions;
 using STIL.ServiceClient.Tests.Util;
+using ServiceFaultDetailer = STIL.ServiceClient.DTOs.VEU.HentOptagedePladser.ServiceFaultDetailer;
 
 namespace STIL.ServiceClient.Tests.VEU;
 
@@ -65,7 +66,7 @@ public class StilVeuServiceClientTests
 
         // Act
         var request = new HentOptagedePladserRequest();
-        var exception = await Assert.ThrowsAsync<FaultException<STIL.Entities.VEU.HentOptagedePladser.ServiceFaultDetailer>>(() => sut.HentOptagedePladser(request));
+        var exception = await Assert.ThrowsAsync<FaultException<ServiceFaultDetailer>>(() => sut.HentOptagedePladser(request));
 
         // Assert
         exception.Reason.ToString().Should().Be("Input error");
@@ -129,7 +130,7 @@ public class StilVeuServiceClientTests
         // Act
         var request = new HentTilmeldingerRequest();
 
-        var exception = await Assert.ThrowsAsync<FaultException<STIL.Entities.VEU.HentTilmeldingerVeuInteressenter.ServiceFaultDetailer>>(() => sut.HentTilmeldingerVeuInteressenter(request));
+        var exception = await Assert.ThrowsAsync<FaultException<DTOs.VEU.HentTilmeldingerVeuInteressenter.ServiceFaultDetailer>>(() => sut.HentTilmeldingerVeuInteressenter(request));
 
         // Assert
         exception.Reason.ToString().Should().Be("Input error");
@@ -189,7 +190,7 @@ public class StilVeuServiceClientTests
 
         // Act
         var request = new HentUdbudRequest();
-        var exception = await Assert.ThrowsAsync<FaultException<STIL.Entities.VEU.HentUdbud.ServiceFaultDetailer>>(() => sut.HentUdbud(request));
+        var exception = await Assert.ThrowsAsync<FaultException<DTOs.VEU.HentUdbud.ServiceFaultDetailer>>(() => sut.HentUdbud(request));
 
         // Assert
         httpClientHandlerMock.VerifyAnyRequest(Times.Exactly(1)); // 0 retries for 400 errors. 1 try in total.
@@ -220,7 +221,7 @@ public class StilVeuServiceClientTests
 
         // Act
         var request = new HentUdbudRequest();
-        var exception = await Assert.ThrowsAsync<FaultException<STIL.Entities.VEU.HentUdbud.ServiceFaultDetailer>>(() => sut.HentUdbud(request));
+        var exception = await Assert.ThrowsAsync<FaultException<DTOs.VEU.HentUdbud.ServiceFaultDetailer>>(() => sut.HentUdbud(request));
 
         // Assert
         httpClientHandlerMock.VerifyAnyRequest(Times.Exactly(2)); // 1 retry = 2 tries in total.

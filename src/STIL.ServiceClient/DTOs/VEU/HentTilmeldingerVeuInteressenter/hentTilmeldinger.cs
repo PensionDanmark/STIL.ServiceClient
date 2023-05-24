@@ -1,12 +1,22 @@
-﻿namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
+namespace STIL.ServiceClient.DTOs.VEU.HentTilmeldingerVeuInteressenter;
 
+/// <summary>
+/// The hent tilmeldinger class.
+/// </summary>
 [System.SerializableAttribute]
 [System.Diagnostics.DebuggerStepThroughAttribute]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/tilmelding/ws/syncskole/henttilmeldinger")]
 public class hentTilmeldinger
 {
+    /// <summary>
+    /// The ws sync req modtager field.
+    /// </summary>
     private wsSyncReqModtagerV2 wsSyncReqModtagerV2Field;
+
+    /// <summary>
+    /// The besked field.
+    /// </summary>
     private hentTilmeldingerRequest beskedField;
 
     /// <summary>

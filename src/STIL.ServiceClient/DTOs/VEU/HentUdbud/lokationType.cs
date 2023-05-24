@@ -1,23 +1,53 @@
-﻿using System;
+using System;
 
-namespace STIL.Entities.VEU.HentUdbud;
+namespace STIL.ServiceClient.DTOs.VEU.HentUdbud;
 
+/// <summary>
+/// The lokation type class.
+/// </summary>
 [Serializable]
 [System.Diagnostics.DebuggerStepThroughAttribute]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/hentudbud/webservice/hentudbud")]
 public class lokationType
 {
+    /// <summary>
+    /// The lokation identifikator field.
+    /// </summary>
     private string lokationIdentifikatorField;
+
+    /// <summary>
+    /// The betegnelse field.
+    /// </summary>
     private string betegnelseField;
+
+    /// <summary>
+    /// The gade field.
+    /// </summary>
     private string gadeField;
+
+    /// <summary>
+    /// The sted field.
+    /// </summary>
     private string stedField;
+
+    /// <summary>
+    /// The post nr field.
+    /// </summary>
     private string postNrField;
+
+    /// <summary>
+    /// The kommunekode field.
+    /// </summary>
     private string kommunekodeField;
+
+    /// <summary>
+    /// The telefonnummer field.
+    /// </summary>
     private string telefonnummerField;
 
     /// <summary>
-    /// Gets or sets the <see cref="LokationIdentifikator"/> value
+    /// Gets or sets the <see cref="LokationIdentifikator"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
     public string LokationIdentifikator
@@ -27,7 +57,7 @@ public class lokationType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="Betegnelse"/> value
+    /// Gets or sets the <see cref="Betegnelse"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
     public string Betegnelse
@@ -37,7 +67,7 @@ public class lokationType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="Gade"/> value
+    /// Gets or sets the <see cref="Gade"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
     public string Gade
@@ -47,7 +77,7 @@ public class lokationType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="Sted"/> value
+    /// Gets or sets the <see cref="Sted"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
     public string Sted
@@ -57,7 +87,7 @@ public class lokationType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="PostNr"/> value
+    /// Gets or sets the <see cref="PostNr"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
     public string PostNr
@@ -67,7 +97,7 @@ public class lokationType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="Kommunekode"/> value
+    /// Gets or sets the <see cref="Kommunekode"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
     public string Kommunekode
@@ -77,7 +107,7 @@ public class lokationType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="Telefonnummer"/> value
+    /// Gets or sets the <see cref="Telefonnummer"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
     public string Telefonnummer

@@ -1,18 +1,28 @@
-﻿using System;
+using System;
 
-namespace STIL.Entities.VEU.HentUdbud;
+namespace STIL.ServiceClient.DTOs.VEU.HentUdbud;
 
+/// <summary>
+/// The modtager type class.
+/// </summary>
 [Serializable]
 [System.Diagnostics.DebuggerStepThroughAttribute]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/hentudbud/webservice/commontypes")]
 public class ModtagerType
 {
+    /// <summary>
+    /// The modtager system id field.
+    /// </summary>
     private string modtagerSystemIdField;
+
+    /// <summary>
+    /// The modtager system transaktions id field.
+    /// </summary>
     private string modtagerSystemTransaktionsIDField;
 
     /// <summary>
-    /// Gets or sets the <see cref="ModtagerSystemId"/> value
+    /// Gets or sets the <see cref="ModtagerSystemId"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
     public string ModtagerSystemId
@@ -22,7 +32,7 @@ public class ModtagerType
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="ModtagerSystemTransaktionsID"/> value
+    /// Gets or sets the <see cref="ModtagerSystemTransaktionsID"/> value.
     /// </summary>
     [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
     public string ModtagerSystemTransaktionsID

@@ -1,16 +1,42 @@
-﻿namespace STIL.Entities.VEU.HentOptagedePladser;
+namespace STIL.ServiceClient.DTOs.VEU.HentOptagedePladser;
 
+/// <summary>
+/// ServiceFaultDetailer.
+/// </summary>
 [System.SerializableAttribute]
 [System.Diagnostics.DebuggerStepThroughAttribute]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://ipl.stil.dk/services/veu/hentoptagedepladser/v1")]
 public class ServiceFaultDetailer
 {
+    /// <summary>
+    /// The correlation id field.
+    /// </summary>
     private string correlationIDField;
+
+    /// <summary>
+    /// The timestamp field.
+    /// </summary>
     private System.DateTime timestampField;
+
+    /// <summary>
+    /// The error code field.
+    /// </summary>
     private string errorCodeField;
+
+    /// <summary>
+    /// The error message field.
+    /// </summary>
     private string errorMessageField;
+
+    /// <summary>
+    /// The details field.
+    /// </summary>
     private string detailsField;
+
+    /// <summary>
+    /// The source system error field.
+    /// </summary>
     private SourceSystemErrorType sourceSystemErrorField;
 
     /// <summary>

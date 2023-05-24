@@ -1,12 +1,22 @@
-﻿namespace STIL.Entities.VEU.HentOptagedePladser
+namespace STIL.ServiceClient.DTOs.VEU.HentOptagedePladser
 {
+    /// <summary>
+    /// HentOptagedePladserResponse1.
+    /// </summary>
     [System.SerializableAttribute]
     [System.Diagnostics.DebuggerStepThroughAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.veu.stil.dk/hentudbud/webservice/hentoptagedepladser")]
     public class HentOptagedePladserResponse1 : ResponseType
     {
+        /// <summary>
+        /// The behandlingstidspunkt field.
+        /// </summary>
         private System.DateTime behandlingstidspunktField;
+
+        /// <summary>
+        /// The hold liste field.
+        /// </summary>
         private HoldListe[] holdListeField;
 
         /// <summary>

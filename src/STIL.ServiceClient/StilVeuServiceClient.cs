@@ -1,9 +1,10 @@
 ﻿using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 using System.Threading.Tasks;
-using STIL.Entities.VEU.HentOptagedePladser;
-using STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
-using STIL.Entities.VEU.HentUdbud;
+using STIL.ServiceClient.DTOs.VEU.HentOptagedePladser;
+using STIL.ServiceClient.DTOs.VEU.HentTilmeldingerVeuInteressenter;
+using STIL.ServiceClient.DTOs.VEU.HentUdbud;
+using ServiceFaultDetailer = STIL.ServiceClient.DTOs.VEU.HentOptagedePladser.ServiceFaultDetailer;
 
 namespace STIL.ServiceClient;
 
@@ -47,7 +48,7 @@ public class StilVeuServiceClient : IStilVeuServiceClient
     public async Task<HentOptagedePladserResponse> HentOptagedePladser(
         HentOptagedePladserRequest dataRequest, CancellationToken cancellationToken = default)
     {
-        return await _stilServiceClient.SendSoapRequest<HentOptagedePladserRequest, HentOptagedePladserResponse, Entities.VEU.HentOptagedePladser.ServiceFaultDetailer>(
+        return await _stilServiceClient.SendSoapRequest<HentOptagedePladserRequest, HentOptagedePladserResponse, ServiceFaultDetailer>(
             nameof(HentOptagedePladser), dataRequest, cancellationToken: cancellationToken);
     }
 
@@ -55,14 +56,14 @@ public class StilVeuServiceClient : IStilVeuServiceClient
     public async Task<hentTilmeldingerResponse> HentTilmeldingerVeuInteressenter(
         HentTilmeldingerRequest dataRequest, CancellationToken cancellationToken = default)
     {
-        return await _stilServiceClient.SendSoapRequest<HentTilmeldingerRequest, hentTilmeldingerResponse, Entities.VEU.HentTilmeldingerVeuInteressenter.ServiceFaultDetailer>(
+        return await _stilServiceClient.SendSoapRequest<HentTilmeldingerRequest, hentTilmeldingerResponse, DTOs.VEU.HentTilmeldingerVeuInteressenter.ServiceFaultDetailer>(
             nameof(HentTilmeldingerVeuInteressenter), dataRequest, cancellationToken: cancellationToken);
     }
 
     /// <inheritdoc />
     public async Task<HentUdbudResponse> HentUdbud(HentUdbudRequest dataRequest, CancellationToken cancellationToken = default)
     {
-        return await _stilServiceClient.SendSoapRequest<HentUdbudRequest, HentUdbudResponse, Entities.VEU.HentUdbud.ServiceFaultDetailer>(
+        return await _stilServiceClient.SendSoapRequest<HentUdbudRequest, HentUdbudResponse, DTOs.VEU.HentUdbud.ServiceFaultDetailer>(
             nameof(HentUdbud),
             dataRequest,
             cancellationToken: cancellationToken);

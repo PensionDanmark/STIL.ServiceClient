@@ -1,13 +1,27 @@
-﻿namespace STIL.Entities.VEU.HentOptagedePladser
+namespace STIL.ServiceClient.DTOs.VEU.HentOptagedePladser
 {
+    /// <summary>
+    /// SkolefagPaHoldType.
+    /// </summary>
     [System.SerializableAttribute]
     [System.Diagnostics.DebuggerStepThroughAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.veu.stil.dk/hentudbud/webservice/hentoptagedepladser")]
     public class SkolefagPaHoldType
     {
+        /// <summary>
+        /// The skolefag kode field.
+        /// </summary>
         private string skolefagKodeField;
+
+        /// <summary>
+        /// The niveau field.
+        /// </summary>
         private string niveauField;
+
+        /// <summary>
+        /// The fag plads liste field.
+        /// </summary>
         private FagPladsType[] fagPladsListeField;
 
         /// <summary>

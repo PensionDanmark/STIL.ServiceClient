@@ -1,7 +1,10 @@
-﻿using System.Xml.Serialization;
+using System.Xml.Serialization;
 
-namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
+namespace STIL.ServiceClient.DTOs.VEU.HentTilmeldingerVeuInteressenter;
 
+/// <summary>
+/// The hent tilmeldinger request class.
+/// </summary>
 [System.SerializableAttribute]
 [System.Diagnostics.DebuggerStepThroughAttribute]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -9,7 +12,14 @@ namespace STIL.Entities.VEU.HentTilmeldingerVeuInteressenter;
 [XmlRoot(Namespace = "http://ipl.stil.dk/services/veu/henttilmeldingerveuinteressenter/v1.0")]
 public class HentTilmeldingerRequest
 {
+    /// <summary>
+    /// The identifier field.
+    /// </summary>
     private Identifier identifierField;
+
+    /// <summary>
+    /// The message field.
+    /// </summary>
     private HentTilmeldingerRequestMessage messageField;
 
     /// <summary>
