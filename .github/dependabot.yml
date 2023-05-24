@@ -1,0 +1,13 @@
+version: 2
+updates:
+  - package-ecosystem: "nuget"
+    directory: "/src/STIL.ServiceClient"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+
+  - package-ecosystem: "nuget"
+    directory: "/src/STIL.ServiceClient.Tests"
+    schedule:
+      interval: "monthly"
+    open-pull-requests-limit: 10
