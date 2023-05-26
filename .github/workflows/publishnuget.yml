@@ -32,4 +32,4 @@ jobs:
         run: dotnet pack -c Release -o . ${{ env.PROJECT_PATH }}
       - name: Publish
         if: github.ref == 'refs/heads/main'
-        run: dotnet nuget push *.nupkg -k ${{ secrets.NUGET_KEY }} -s https://api.nuget.org/v3/index.json
+        run: dotnet nuget push **.nupkg -k ${{ secrets.NUGET_KEY }} -s https://api.nuget.org/v3/index.json
