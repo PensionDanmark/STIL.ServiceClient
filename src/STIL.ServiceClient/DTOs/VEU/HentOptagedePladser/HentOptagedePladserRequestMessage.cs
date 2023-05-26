@@ -12,13 +12,13 @@ namespace STIL.ServiceClient.DTOs.VEU.HentOptagedePladser
         /// <summary>
         /// The hent optagede pladser request field.
         /// </summary>
-        private HentOptagedePladserRequest hentOptagedePladserRequestField;
+        private HentOptagedePladserRequest1 hentOptagedePladserRequestField;
 
         /// <summary>
         /// Gets or sets the <see cref="HentOptagedePladserRequest"/> value.
         /// </summary>
         [System.Xml.Serialization.XmlElementAttribute(Namespace = "http://www.veu.stil.dk/hentudbud/webservice/hentoptagedepladser", Order = 0)]
-        public HentOptagedePladserRequest HentOptagedePladserRequest
+        public HentOptagedePladserRequest1 HentOptagedePladserRequest
         {
             get => hentOptagedePladserRequestField;
             set => hentOptagedePladserRequestField = value;
