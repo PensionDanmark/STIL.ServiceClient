@@ -1,7 +1,7 @@
 ﻿using Polly.Retry;
 using System.Net.Http;
 
-namespace STIL.ServiceClient
+namespace STIL.ServiceClient.ConfigurationProviders
 {
     /// <summary>
     /// Retry policy provider interface.
