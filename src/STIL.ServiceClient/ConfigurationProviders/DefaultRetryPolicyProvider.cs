@@ -5,7 +5,7 @@ using System;
 using System.Net;
 using System.Net.Http;
 
-namespace STIL.ServiceClient
+namespace STIL.ServiceClient.ConfigurationProviders
 {
     /// <summary>
     /// Default retry policy provider.

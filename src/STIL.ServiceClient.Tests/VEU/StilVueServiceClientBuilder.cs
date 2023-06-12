@@ -1,4 +1,5 @@
 ﻿using System.Security.Cryptography.X509Certificates;
+using STIL.ServiceClient.ConfigurationProviders;
 using STIL.ServiceClient.Tests.Util;
 
 namespace STIL.ServiceClient.Tests.VEU

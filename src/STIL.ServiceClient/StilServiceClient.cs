@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
+using STIL.ServiceClient.ConfigurationProviders;
 using STIL.ServiceClient.Util.SoapHelper;
 
 [assembly: InternalsVisibleTo("STIL.ServiceClient.Tests")]
