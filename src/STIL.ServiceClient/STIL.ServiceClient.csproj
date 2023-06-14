@@ -11,7 +11,7 @@
 
 
 	<PropertyGroup Label="Nuget information">
-		<Version>1.0.4</Version>
+		<Version>1.0.5</Version>
 		<Authors>PensionDanmark</Authors>
 		<Owners>PensionDanmark</Owners>
 		<Copyright>Copyright © PensionDanmark 2023</Copyright>
