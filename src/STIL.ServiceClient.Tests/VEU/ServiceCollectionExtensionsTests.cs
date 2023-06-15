@@ -55,7 +55,7 @@ namespace STIL.ServiceClient.Tests.VEU
             // Assert
             var serviceProvider = services.BuildServiceProvider();
             var exception = Assert.Throws<ArgumentNullException>(() => serviceProvider.GetService<IStilVeuServiceClient>());
-            exception.Message.Should().Be("No certificate was found in store location 'My:CurrentUser' with thumbprint: 'client-thumbprint' (Parameter 'thumbprint')");
+            exception.Message.Should().StartWith("No certificate was found in store location 'My:CurrentUser' with thumbprint: 'client-thumbprint'. The following certificates are available:");
         }
 
         [Fact]

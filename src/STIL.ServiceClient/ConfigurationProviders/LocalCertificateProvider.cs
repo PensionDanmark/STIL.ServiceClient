@@ -24,7 +24,7 @@ namespace STIL.ServiceClient.ConfigurationProviders
                 .Find(X509FindType.FindByThumbprint, thumbprint, validOnly: false)
                 .OfType<X509Certificate2>()
                 .FirstOrDefault()
-                   ?? throw new ArgumentNullException(nameof(thumbprint), $"No certificate was found in store location '{StoreName.My}:{StoreLocation.CurrentUser}' with thumbprint: '{thumbprint}' The following certificates are available: {thumbprints}");
+                   ?? throw new ArgumentNullException(nameof(thumbprint), $"No certificate was found in store location '{StoreName.My}:{StoreLocation.CurrentUser}' with thumbprint: '{thumbprint}'. The following certificates are available: {thumbprints}");
         }
     }
 }
