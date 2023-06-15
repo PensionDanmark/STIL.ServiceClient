@@ -19,11 +19,12 @@ namespace STIL.ServiceClient.ConfigurationProviders
         {
             using var store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
             store.Open(OpenFlags.ReadOnly);
+            var thumbprints = string.Join(",", store.Certificates.OfType<X509Certificate2>().Select(c => c.Thumbprint));
             return store.Certificates
                 .Find(X509FindType.FindByThumbprint, thumbprint, validOnly: false)
                 .OfType<X509Certificate2>()
-                .SingleOrDefault()
-                   ?? throw new ArgumentNullException(nameof(thumbprint), $"No certificate was found in store location '{StoreName.My}:{StoreLocation.CurrentUser}' with thumbprint: '{thumbprint}'");
+                .FirstOrDefault()
+                   ?? throw new ArgumentNullException(nameof(thumbprint), $"No certificate was found in store location '{StoreName.My}:{StoreLocation.CurrentUser}' with thumbprint: '{thumbprint}' The following certificates are available: {thumbprints}");
         }
     }
 }
