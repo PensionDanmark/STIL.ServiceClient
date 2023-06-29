@@ -3,19 +3,19 @@ Styrelsen for IT og Læring (STIL) exposes their services via SOAP.
 The protocol used requires that the SOAP requests are signed with a certificate,
 and that the underlying HTTP connection is secured with mTLS (a client certificate).
 
-Thus, to use this library you need to have a certificate for signing the message
-that STIL will accept (typically an OCES certificate) and a certificate for
-securing the HTTP call (mTLS). The same certificate may be suitable for
-both uses, but that depends on your setup.
-
 This poses a problem for clients on Microsofts .NET platform, as signed SOAP messages
 are not supported on the newer .NET (Core) platform, only in the older .NET Framework
 platform.
 
-This library can help you create strongly-typed and signed SOAP XML requests 
+This library can help you create strongly-typed and signed SOAP XML requests
 compatible with STIL in a way that is compatible with the newer .NET platform.
 
 This does not use the WCF framework, but only relies only on ``HttpClient``.
+
+To use this library you need to have a certificate for signing the message
+that STIL will accept (typically an OCES certificate) and a certificate for
+securing the HTTP call (mTLS). The same certificate may be suitable for
+both uses, but that depends on your setup.
 
 Out of the box the library also comes with some pre-built requests and
 responses. In the initial version, those would be the ones the authors needed
