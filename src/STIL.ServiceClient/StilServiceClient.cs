@@ -24,7 +24,7 @@ namespace STIL.ServiceClient
     {
         private const string UrlServiceAffix = "/services";
         private const string Version = "v1";
-        private readonly StringBuilder _baseUrlBuilder = new ();
+        private readonly StringBuilder _baseUrlBuilder = new();
         private readonly X509Certificate2 _clientCertificate;
         private readonly X509Certificate2 _signingCertificate;
         private readonly IRetryPolicyProvider _retryPolicyProvider;
@@ -72,8 +72,6 @@ namespace STIL.ServiceClient
             where TServiceFaultDetailer : class
         {
             var retryHandler = _retryPolicyProvider.GetRetryPolicy();
-            var urlBuilder = _baseUrlBuilder;
-            urlBuilder.Append($"/{methodName}/{Version}");
             var stilRequest = new SignedStilSoapMessage<TRequest>(dataRequest);
 
             var response = await retryHandler.ExecuteAsync(async () =>
@@ -83,7 +81,7 @@ namespace STIL.ServiceClient
                 {
                     request.Method = HttpMethod.Post;
                     request.Content = new StringContent(signedRequest, Encoding.UTF8, "application/soap+xml");
-                    request.RequestUri = new Uri(urlBuilder.ToString(), UriKind.RelativeOrAbsolute);
+                    request.RequestUri = new Uri(BuildUrl(methodName), UriKind.RelativeOrAbsolute);
                     return await _stilHttpClient
                                .SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken)
                                .ConfigureAwait(false)
@@ -210,6 +208,18 @@ namespace STIL.ServiceClient
             {
                 return (serializer.Deserialize(reader) as TServiceFaultDetailer, null);
             }
+        }
+
+        private string BuildUrl(string methodName)
+        {
+            var urlBuilder = GetBaseStringBuilder();
+            urlBuilder.Append($"/{methodName}/{Version}");
+            return urlBuilder.ToString();
+        }
+
+        private StringBuilder GetBaseStringBuilder()
+        {
+            return new StringBuilder(_baseUrlBuilder.ToString());
         }
     }
 }
