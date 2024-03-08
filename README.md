@@ -97,3 +97,36 @@ var reply = await response.Content.ReadAsStringAsync();
 The `reply` will now contain the SOAP response XML from STIL. You can then pick out
 the `Body` element, which will contain the actual response object. If you have the need
 you can also handle Faults as well.
+
+## Example using the IVEUServiceClient
+The IVEUServiceClient contains a small number of service methods specific for [integrationsplatformen's VEU (voksen efteruddannelse) endpoints](https://viden.stil.dk/display/OFFintegrationsplatformen/Service), but you are welcome to extend this.
+
+### Setup using the service collection extension
+#### program.cs
+```csharp
+// uses default local certificate store, but you can optionally provide your own certificate handler
+builder.Services.AddStilVeuServiceClient(builder.Configuration);
+```
+
+ #### appsettings.json
+ ```json
+ "Stil": {
+    "BaseUrl": "https://et.integrationsplatformen.dk",
+    "SigningCertificateThumbprint": "<thumbprint for x509 certificate>"
+  }
+```
+
+#### somefile.cs
+```csharp
+// Create a request for the HentTilmeldingerVeuInteressenter method
+HentTilmeldingerRequest request = new HentTilmeldingerRequest
+{
+    // ... set the properties of the request
+};
+
+// Call the HentTilmeldingerVeuInteressenter method and get the response
+var response = await stilServiceClient.VEU.HentTilmeldingerVeuInteressenter(request);
+
+// Use the response data
+Console.WriteLine($"Number of tilmeldinger: {result.Message.hentTilmeldingerResponse.Resultat.Resultat.PersonListe.Length}");
+```
